@@ -30,7 +30,7 @@ var container;
 var camera, scene, renderer, parent1;
 var projector;
 var mouse2D, mouse3D, raycaster, theta = 45, isShiftDown = false, isCtrlDown = false, isMouseDown = false, target = new THREE.Vector3(0, 200, 0);
-var isQDown = false, isRDown = false, isDelDown=false;
+var isQDown = false, isRDown = false, isDelDown = false;
 var ROLLOVERED;
 var objects = [];
 
@@ -156,7 +156,7 @@ function init() {
     plane.name = "Grid";
     plane.rotation.x = -Math.PI / 2;
     plane.visible = false;
-    scene.add(plane);
+    parent1.add(plane);
 
     mouse2D = new THREE.Vector3(0, 10000, 0.5);
 
@@ -313,6 +313,7 @@ function onDocumentKeyUp(event) {
 
 function createSegment() {
     var intersects = raycaster.intersectObjects(parent1.children);
+
     var INTERSECTED;
 
     if (intersects.length > 0) {
@@ -331,11 +332,12 @@ function createSegment() {
             }
             else if (isDelDown) {
                 if (intersects[0].object != plane) {
-                    parent1.remove( intersects[0].object );
+                    parent1.remove(intersects[0].object);
                 }
             }
 
             else {
+
                 var position = new THREE.Vector3().add(intersects[0].point, intersects[0].object.matrixRotationWorld.multiplyVector3(intersects[0].face.normal.clone()));
                 if (intersects[0].faceIndex != 2) {
                     addSegment(position);
@@ -378,7 +380,7 @@ function addSegment(position) {
     });
 
     var voxel = new THREE.Mesh(geometry, material);
-    voxel.name = "Segment_" + voxel.id
+    voxel.name = "Segment_" + voxel.id;
     voxel.position.x = Math.floor(position.x / 50) * 50 + 25;
     voxel.position.y = Math.floor(position.y / 50) * 50 + 25;
     voxel.position.z = Math.floor(position.z / 50) * 50 + 25;
@@ -425,15 +427,19 @@ function spliteSegment(voxel) {
     console.log("parts " + parts);
     console.log(obj);
     split = true;
-    parent1.remove(voxel);
-    for (var i = 0; i < parts; i += 1) {
-        var h = new THREE.Vector3(obj.position.x, 25 + i * 50, obj.position.z);
-        //h.addSelf(obj.position);
-        //console.log("obj.pos: ");
-        //console.log(obj.position);
-        //console.log("h: ")
-        //console.log(obj.position);
-        addSegmentSplited(h);
+   if (parts>1)
+   {
+       parent1.remove(voxel);
+
+        for (var i = 0; i < parts; i += 1) {
+            var h = new THREE.Vector3(obj.position.x, 25 + i * 50, obj.position.z);
+            //h.addSelf(obj.position);
+            //console.log("obj.pos: ");
+            //console.log(obj.position);
+            //console.log("h: ")
+            //console.log(obj.position);
+            addSegmentSplited(h);
+        }
     }
     split = false;
 }
@@ -459,11 +465,10 @@ function joinSegments() {
 }
 
 
-
 function translateCubes(dx, dy, dz) {
     console.log("translateCubes", dx, dy, dz)
     //var children = objects;
-    var children=container2.children;
+    var children = container2.children;
     var voxels = [];
 
     for (var i = 0; i < children.length; i++) {
@@ -482,17 +487,17 @@ function translateCubes(dx, dy, dz) {
 }
 
 /*
-function createGroup() {
-    var children = scene.children.filter(function (e) {
-        return (typeof selObj[e.name] != 'undefined');
-    });
-    console.log("liczba znalezionych dzieci: " + Object.getOwnPropertyNames(children).length);
-    children.forEach(function (e) {
-        //container2.add(e);
-        objects.push(e);
-        e.material.emissive.setHex(0x00ffff);
-    });
-}*/
+ function createGroup() {
+ var children = scene.children.filter(function (e) {
+ return (typeof selObj[e.name] != 'undefined');
+ });
+ console.log("liczba znalezionych dzieci: " + Object.getOwnPropertyNames(children).length);
+ children.forEach(function (e) {
+ //container2.add(e);
+ objects.push(e);
+ e.material.emissive.setHex(0x00ffff);
+ });
+ }*/
 
 function createGroup() {
     var children = parent1.children.filter(function (e) {
@@ -512,7 +517,6 @@ function splitGroup() {
 
     var length = children.length;
     for (var i = length - 1; i >= 0; i--) {
-        console.log("bond: " + i);
         children[i].material.emissive.setHex(0x000000);
         parent1.add(children[i]);
     }
@@ -562,18 +566,18 @@ function createGrid(x, y) {
         geometry.vertices.push(new THREE.Vector3(j, 0, y));
     }
 
-    scene.remove(line);
+    parent1.remove(line);
     line = new THREE.Line(geometry, lineMaterial);
     line.type = THREE.LinePieces;
     line.name = "Line";
-    scene.add(line);
+    parent1.add(line);
 
-    scene.remove(plane);
+    parent1.remove(plane);
     plane = new THREE.Mesh(new THREE.PlaneGeometry(2 * x, 2 * y), new THREE.MeshBasicMaterial());
     plane.name = "Grid";
     plane.rotation.x = -Math.PI / 2;
     plane.visible = false;
-    scene.add(plane);
+    parent1.add(plane);
 }
 
 function updateGrid(x, y) {
