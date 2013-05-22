@@ -71,6 +71,12 @@
 				controls.style.right = '10px'
 				controls.innerHTML = '<input type="range" name="height" id="height" value="1" min="0" max="10">'
 				
+                var controls3 = document.createElement('div');
+				controls3.style.position = 'absolute'
+				controls3.style.top = '200px'
+				controls3.style.right = '10px'
+				controls3.innerHTML = '<input type="range" name="height2" id="height2" value="1" min="0" max="10">'
+				
 				//suwak wysokosci pojedynczego klocka
 				var controls2 = document.createElement('div');
 				controls2.style.position = 'absolute'
@@ -82,14 +88,15 @@
 				sceneControls.style.position = 'absolute'
 				sceneControls.style.top = '60px'
 				sceneControls.style.right = '10px'
-				sceneControls.innerHTML = '<input type="text" name="sceneWidth" id="sceneWidth" value="500"><input type="text" name="sceneHeight" id="sceneHeight" value="500"><button id="sceneSubmit" onClick="updateGrid(document.getElementById(\'sceneWidth\').value,document.getElementById(\'sceneHeight\').value)">zmieñ siatkê</button><br/><button onClick="clearGrid()">wyczyœæ planszê</button>'
+				sceneControls.innerHTML = '<input type="text" name="sceneWidth" id="sceneWidth" value="500"><input type="text" name="sceneHeight" id="sceneHeight" value="500"><button id="sceneSubmit" onClick="updateGrid(document.getElementById(\'sceneWidth\').value,document.getElementById(\'sceneHeight\').value)">zmieï¿½ siatkï¿½</button><br/><button onClick="clearGrid()">wyczyï¿½ï¿½ planszï¿½</button>'
 				
-                                var controls3 = document.createElement('div');
+                               
+                                /*var controls3 = document.createElement('div');
 				controls3.style.position = 'absolute'
 				controls3.style.top = '200px'
 				controls3.style.right = '10px'
-				controls3.innerHTML = '<button onClick="onUp">UP</button>'
-
+				controls3.innerHTML = '<button >UP</button>'
+                                */
 				
 
 				//
@@ -107,6 +114,8 @@
 			
 
 				heightController = document.getElementById('height');
+                                heightController2 = document.getElementById('height2');
+
 
 				camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 10000);
 				camera.position.y = 800;
@@ -184,9 +193,11 @@
 				window.addEventListener('keydown', onDocumentKeyDown, false);
 				window.addEventListener('keyup', onDocumentKeyUp, false);
 
+
 				heightController.addEventListener('change', onHeightChange, false);
-				heightController.addEventListener('change', onHeightChange, false);
-                                upController.addEventListener('change', onUp, false);
+
+                                heightController2.addEventListener('change', onHeightChange2, false);
+                                
                                 
 				//
 
@@ -194,7 +205,7 @@
 
 			}
 
-                        function onUp(event) {
+                        function onHeightChange2(event) {
 			
 				sceneHeight = event.srcElement.value;
 				
@@ -202,10 +213,7 @@
 				var children = scene.children.filter(function(e){ return (typeof selObj[e.name]!='undefined'); });
                                 console.log("liczba znalezionych dzieci: "+Object.getOwnPropertyNames(children).length);
                                 children.forEach(function(e){
-                                        console.log(e.name);
-					var scale = e.scale.y;
-					e.scale.y = parseInt(sceneHeight);
-					e.position.y = e.geometry.height*e.scale.y/2;
+					e.position.z = e.position.z-50;
 					e.updateMatrix();          
 				});
 			}
