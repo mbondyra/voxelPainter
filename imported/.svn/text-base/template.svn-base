@@ -1,0 +1,118 @@
+{
+	"metadata": {
+		"formatVersion" : 3,
+		"type"		: "scene",
+		"generatedBy"	: "SceneExporter",
+		"objects"       : 7,
+		"geometries"    : 1,
+		"materials"     : 1,
+		"textures"      : 0
+	},
+
+	"urlBaseType": "relativeToScene",
+
+	"objects" :
+	{
+		"Object_3" : {
+			"position" : [0,0,0],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Object_4" : {
+			"geometry" : "Geometry_1",
+			"material" : "Material_1",
+			"position" : [0,0,0],
+			"rotation" : [-1.5707963267948966,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : false
+		},
+
+		"Object_5" : {
+			"type"  : "AmbientLight",
+			"color" : 6316128
+		},
+
+		"Object_6" : {
+			"type"      : "DirectionalLight",
+			"color"     : 16777215,
+			"intensity" : 1,
+			"direction" : [-0.5702772063884962,0.3359928768471313,0.7495950203821533],
+			"target"    : "Object_7"
+		},
+
+		"Object_7" : {
+			"position" : [0,0,0],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Object_8" : {
+			"type"      : "DirectionalLight",
+			"color"     : 8421504,
+			"intensity" : 1,
+			"direction" : [-0.30045503442809446,0.5796346124240936,0.757463192747201],
+			"target"    : "Object_9"
+		},
+
+		"Object_9" : {
+			"position" : [0,0,0],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		}
+	},
+
+	"geometries" :
+	{
+		"Geometry_1": {
+			"type"    : "plane",
+			"width"  : 1000,
+			"height"  : 1000,
+			"widthSegments"  : 1,
+			"heightSegments" : 1
+		}
+	},
+
+	"materials" :
+	{
+		"Material_1": {
+			"type"    : "MeshBasicMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		}
+	},
+
+	"textures" :
+	{
+	
+	},
+
+	"fogs" :
+	{
+	
+	},
+
+	"transform" :
+	{
+		"position"  : [0,0,0],
+		"rotation"  : [0,0,0],
+		"scale"     : [1,1,1]
+	},
+
+	"defaults" :
+	{
+		"bgcolor" : [0.667,0.667,0.667],
+		"bgalpha" : 1,
+		"camera"  : "",
+		"fog"  	  : ""
+	}
+}

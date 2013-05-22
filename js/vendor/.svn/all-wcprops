@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/webgled/!svn/ver/8/trunk/apps/level-layout-editor/js/vendor
+END
+SceneLoader.js
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/webgled/!svn/ver/8/trunk/apps/level-layout-editor/js/vendor/SceneLoader.js
+END
+SceneExporter.js
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/webgled/!svn/ver/8/trunk/apps/level-layout-editor/js/vendor/SceneExporter.js
+END
+three.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/webgled/!svn/ver/8/trunk/apps/level-layout-editor/js/vendor/three.min.js
+END
+FileSaver.js
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/webgled/!svn/ver/8/trunk/apps/level-layout-editor/js/vendor/FileSaver.js
+END
+stats.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/webgled/!svn/ver/8/trunk/apps/level-layout-editor/js/vendor/stats.min.js
+END

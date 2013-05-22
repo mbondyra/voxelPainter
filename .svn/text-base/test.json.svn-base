@@ -1,0 +1,4714 @@
+{
+	"metadata": {
+		"formatVersion" : 3.2,
+		"type"		: "scene",
+		"generatedBy"	: "SceneExporter",
+		"objects"       : 151,
+		"geometries"    : 139,
+		"materials"     : 139,
+		"textures"      : 0
+	},
+
+	"urlBaseType": "relativeToScene",
+
+	"objects" :
+	{
+		"Object_5" : {
+			"type"  : "AmbientLight",
+			"color" : 6316128
+		},
+
+		"Object_6" : {
+			"type"      : "DirectionalLight",
+			"color"     : 16777215,
+			"intensity" : 1,
+			"direction" : [0.45204374280381304,-0.42417242528552956,0.7846873315017339],
+			"target"    : "Object_7"
+		},
+
+		"Object_7" : {
+			"position" : [0,0,0],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Object_8" : {
+			"type"      : "DirectionalLight",
+			"color"     : 8421504,
+			"intensity" : 1,
+			"direction" : [-0.8735804036546527,0.46497438485000336,0.1437223009276393],
+			"target"    : "Object_9"
+		},
+
+		"Object_9" : {
+			"position" : [0,0,0],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Object_5" : {
+			"type"  : "AmbientLight",
+			"color" : 6316128
+		},
+
+		"Object_6" : {
+			"type"      : "DirectionalLight",
+			"color"     : 16777215,
+			"intensity" : 1,
+			"direction" : [-0.6131402006227483,-0.013196043894094258,0.7898638862524613],
+			"target"    : "Object_7"
+		},
+
+		"Object_7" : {
+			"position" : [0,0,0],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Object_8" : {
+			"type"      : "DirectionalLight",
+			"color"     : 8421504,
+			"intensity" : 1,
+			"direction" : [-0.4281009295182573,0.07132092445041709,0.9009122709127355],
+			"target"    : "Object_9"
+		},
+
+		"Object_9" : {
+			"position" : [0,0,0],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Object_3" : {
+			"position" : [0,0,0],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Line" : {
+			"position" : [0,0,0],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Grid" : {
+			"geometry" : "Geometry_104",
+			"material" : "Material_106",
+			"position" : [0,0,0],
+			"rotation" : [-1.5707963267948966,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : false
+		},
+
+		"Segment_123" : {
+			"geometry" : "Geometry_105",
+			"material" : "Material_107",
+			"position" : [-725,25,-475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_124" : {
+			"geometry" : "Geometry_106",
+			"material" : "Material_108",
+			"position" : [675,25,-475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_125" : {
+			"geometry" : "Geometry_107",
+			"material" : "Material_109",
+			"position" : [-725,25,475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_126" : {
+			"geometry" : "Geometry_108",
+			"material" : "Material_110",
+			"position" : [675,25,475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_127" : {
+			"geometry" : "Geometry_109",
+			"material" : "Material_111",
+			"position" : [-725,25,-425],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_128" : {
+			"geometry" : "Geometry_110",
+			"material" : "Material_112",
+			"position" : [675,25,-425],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_129" : {
+			"geometry" : "Geometry_111",
+			"material" : "Material_113",
+			"position" : [-725,25,-375],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_130" : {
+			"geometry" : "Geometry_112",
+			"material" : "Material_114",
+			"position" : [675,25,-375],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_131" : {
+			"geometry" : "Geometry_113",
+			"material" : "Material_115",
+			"position" : [-725,25,-325],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_132" : {
+			"geometry" : "Geometry_114",
+			"material" : "Material_116",
+			"position" : [675,25,-325],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_133" : {
+			"geometry" : "Geometry_115",
+			"material" : "Material_117",
+			"position" : [-725,25,-275],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_134" : {
+			"geometry" : "Geometry_116",
+			"material" : "Material_118",
+			"position" : [675,25,-275],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_135" : {
+			"geometry" : "Geometry_117",
+			"material" : "Material_119",
+			"position" : [-725,25,-225],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_136" : {
+			"geometry" : "Geometry_118",
+			"material" : "Material_120",
+			"position" : [675,25,-225],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_137" : {
+			"geometry" : "Geometry_119",
+			"material" : "Material_121",
+			"position" : [-725,25,-175],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_138" : {
+			"geometry" : "Geometry_120",
+			"material" : "Material_122",
+			"position" : [675,25,-175],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_139" : {
+			"geometry" : "Geometry_121",
+			"material" : "Material_123",
+			"position" : [-725,25,-125],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_140" : {
+			"geometry" : "Geometry_122",
+			"material" : "Material_124",
+			"position" : [675,25,-125],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_141" : {
+			"geometry" : "Geometry_123",
+			"material" : "Material_125",
+			"position" : [-725,25,-75],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_142" : {
+			"geometry" : "Geometry_124",
+			"material" : "Material_126",
+			"position" : [675,25,-75],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_143" : {
+			"geometry" : "Geometry_125",
+			"material" : "Material_127",
+			"position" : [-725,25,-25],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_144" : {
+			"geometry" : "Geometry_126",
+			"material" : "Material_128",
+			"position" : [675,25,-25],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_145" : {
+			"geometry" : "Geometry_127",
+			"material" : "Material_129",
+			"position" : [-725,25,25],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_146" : {
+			"geometry" : "Geometry_128",
+			"material" : "Material_130",
+			"position" : [675,25,25],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_147" : {
+			"geometry" : "Geometry_129",
+			"material" : "Material_131",
+			"position" : [-725,25,75],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_148" : {
+			"geometry" : "Geometry_130",
+			"material" : "Material_132",
+			"position" : [675,25,75],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_149" : {
+			"geometry" : "Geometry_131",
+			"material" : "Material_133",
+			"position" : [-725,25,125],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_150" : {
+			"geometry" : "Geometry_132",
+			"material" : "Material_134",
+			"position" : [675,25,125],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_151" : {
+			"geometry" : "Geometry_133",
+			"material" : "Material_135",
+			"position" : [-725,25,175],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_152" : {
+			"geometry" : "Geometry_134",
+			"material" : "Material_136",
+			"position" : [675,25,175],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_153" : {
+			"geometry" : "Geometry_135",
+			"material" : "Material_137",
+			"position" : [-725,25,225],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_154" : {
+			"geometry" : "Geometry_136",
+			"material" : "Material_138",
+			"position" : [675,25,225],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_155" : {
+			"geometry" : "Geometry_137",
+			"material" : "Material_139",
+			"position" : [-725,25,275],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_156" : {
+			"geometry" : "Geometry_138",
+			"material" : "Material_140",
+			"position" : [675,25,275],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_157" : {
+			"geometry" : "Geometry_139",
+			"material" : "Material_141",
+			"position" : [-725,25,325],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_158" : {
+			"geometry" : "Geometry_140",
+			"material" : "Material_142",
+			"position" : [675,25,325],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_159" : {
+			"geometry" : "Geometry_141",
+			"material" : "Material_143",
+			"position" : [-725,25,375],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_160" : {
+			"geometry" : "Geometry_142",
+			"material" : "Material_144",
+			"position" : [675,25,375],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_161" : {
+			"geometry" : "Geometry_143",
+			"material" : "Material_145",
+			"position" : [-725,25,425],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_162" : {
+			"geometry" : "Geometry_144",
+			"material" : "Material_146",
+			"position" : [675,25,425],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_163" : {
+			"geometry" : "Geometry_145",
+			"material" : "Material_147",
+			"position" : [-675,25,-475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_164" : {
+			"geometry" : "Geometry_146",
+			"material" : "Material_148",
+			"position" : [-675,25,475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_165" : {
+			"geometry" : "Geometry_147",
+			"material" : "Material_149",
+			"position" : [-625,25,-475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_166" : {
+			"geometry" : "Geometry_148",
+			"material" : "Material_150",
+			"position" : [-625,25,475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_167" : {
+			"geometry" : "Geometry_149",
+			"material" : "Material_151",
+			"position" : [-575,25,-475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_168" : {
+			"geometry" : "Geometry_150",
+			"material" : "Material_152",
+			"position" : [-575,25,475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_169" : {
+			"geometry" : "Geometry_151",
+			"material" : "Material_153",
+			"position" : [-525,25,-475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_170" : {
+			"geometry" : "Geometry_152",
+			"material" : "Material_154",
+			"position" : [-525,25,475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_171" : {
+			"geometry" : "Geometry_153",
+			"material" : "Material_155",
+			"position" : [-475,25,-475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_172" : {
+			"geometry" : "Geometry_154",
+			"material" : "Material_156",
+			"position" : [-475,25,475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_173" : {
+			"geometry" : "Geometry_155",
+			"material" : "Material_157",
+			"position" : [-425,25,-475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_174" : {
+			"geometry" : "Geometry_156",
+			"material" : "Material_158",
+			"position" : [-425,25,475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_175" : {
+			"geometry" : "Geometry_157",
+			"material" : "Material_159",
+			"position" : [-375,25,-475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_176" : {
+			"geometry" : "Geometry_158",
+			"material" : "Material_160",
+			"position" : [-375,25,475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_177" : {
+			"geometry" : "Geometry_159",
+			"material" : "Material_161",
+			"position" : [-325,25,-475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_178" : {
+			"geometry" : "Geometry_160",
+			"material" : "Material_162",
+			"position" : [-325,25,475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_179" : {
+			"geometry" : "Geometry_161",
+			"material" : "Material_163",
+			"position" : [-275,25,-475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_180" : {
+			"geometry" : "Geometry_162",
+			"material" : "Material_164",
+			"position" : [-275,25,475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_181" : {
+			"geometry" : "Geometry_163",
+			"material" : "Material_165",
+			"position" : [-225,25,-475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_182" : {
+			"geometry" : "Geometry_164",
+			"material" : "Material_166",
+			"position" : [-225,25,475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_183" : {
+			"geometry" : "Geometry_165",
+			"material" : "Material_167",
+			"position" : [-175,25,-475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_184" : {
+			"geometry" : "Geometry_166",
+			"material" : "Material_168",
+			"position" : [-175,25,475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_185" : {
+			"geometry" : "Geometry_167",
+			"material" : "Material_169",
+			"position" : [-125,25,-475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_186" : {
+			"geometry" : "Geometry_168",
+			"material" : "Material_170",
+			"position" : [-125,25,475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_187" : {
+			"geometry" : "Geometry_169",
+			"material" : "Material_171",
+			"position" : [-75,25,-475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_188" : {
+			"geometry" : "Geometry_170",
+			"material" : "Material_172",
+			"position" : [-75,25,475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_189" : {
+			"geometry" : "Geometry_171",
+			"material" : "Material_173",
+			"position" : [-25,25,-475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_190" : {
+			"geometry" : "Geometry_172",
+			"material" : "Material_174",
+			"position" : [-25,25,475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_191" : {
+			"geometry" : "Geometry_173",
+			"material" : "Material_175",
+			"position" : [25,25,-475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_192" : {
+			"geometry" : "Geometry_174",
+			"material" : "Material_176",
+			"position" : [25,25,475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_193" : {
+			"geometry" : "Geometry_175",
+			"material" : "Material_177",
+			"position" : [75,25,-475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_194" : {
+			"geometry" : "Geometry_176",
+			"material" : "Material_178",
+			"position" : [75,25,475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_195" : {
+			"geometry" : "Geometry_177",
+			"material" : "Material_179",
+			"position" : [125,25,-475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_196" : {
+			"geometry" : "Geometry_178",
+			"material" : "Material_180",
+			"position" : [125,25,475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_197" : {
+			"geometry" : "Geometry_179",
+			"material" : "Material_181",
+			"position" : [175,25,-475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_198" : {
+			"geometry" : "Geometry_180",
+			"material" : "Material_182",
+			"position" : [175,25,475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_199" : {
+			"geometry" : "Geometry_181",
+			"material" : "Material_183",
+			"position" : [225,25,-475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_200" : {
+			"geometry" : "Geometry_182",
+			"material" : "Material_184",
+			"position" : [225,25,475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_201" : {
+			"geometry" : "Geometry_183",
+			"material" : "Material_185",
+			"position" : [275,25,-475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_202" : {
+			"geometry" : "Geometry_184",
+			"material" : "Material_186",
+			"position" : [275,25,475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_203" : {
+			"geometry" : "Geometry_185",
+			"material" : "Material_187",
+			"position" : [325,25,-475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_204" : {
+			"geometry" : "Geometry_186",
+			"material" : "Material_188",
+			"position" : [325,25,475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_205" : {
+			"geometry" : "Geometry_187",
+			"material" : "Material_189",
+			"position" : [375,25,-475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_206" : {
+			"geometry" : "Geometry_188",
+			"material" : "Material_190",
+			"position" : [375,25,475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_207" : {
+			"geometry" : "Geometry_189",
+			"material" : "Material_191",
+			"position" : [425,25,-475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_208" : {
+			"geometry" : "Geometry_190",
+			"material" : "Material_192",
+			"position" : [425,25,475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_209" : {
+			"geometry" : "Geometry_191",
+			"material" : "Material_193",
+			"position" : [475,25,-475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_210" : {
+			"geometry" : "Geometry_192",
+			"material" : "Material_194",
+			"position" : [475,25,475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_211" : {
+			"geometry" : "Geometry_193",
+			"material" : "Material_195",
+			"position" : [525,25,-475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_212" : {
+			"geometry" : "Geometry_194",
+			"material" : "Material_196",
+			"position" : [525,25,475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_213" : {
+			"geometry" : "Geometry_195",
+			"material" : "Material_197",
+			"position" : [575,25,-475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_214" : {
+			"geometry" : "Geometry_196",
+			"material" : "Material_198",
+			"position" : [575,25,475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_215" : {
+			"geometry" : "Geometry_197",
+			"material" : "Material_199",
+			"position" : [625,25,-475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_216" : {
+			"geometry" : "Geometry_198",
+			"material" : "Material_200",
+			"position" : [625,25,475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_217" : {
+			"geometry" : "Geometry_199",
+			"material" : "Material_201",
+			"position" : [675,25,-475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_218" : {
+			"geometry" : "Geometry_200",
+			"material" : "Material_202",
+			"position" : [675,25,475],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_219" : {
+			"geometry" : "Geometry_201",
+			"material" : "Material_203",
+			"position" : [-125,25,-25],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_220" : {
+			"geometry" : "Geometry_202",
+			"material" : "Material_204",
+			"position" : [-125,25,25],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_221" : {
+			"geometry" : "Geometry_203",
+			"material" : "Material_205",
+			"position" : [-125,25,25],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_222" : {
+			"geometry" : "Geometry_204",
+			"material" : "Material_206",
+			"position" : [-75,25,25],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_223" : {
+			"geometry" : "Geometry_205",
+			"material" : "Material_207",
+			"position" : [-75,25,75],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_224" : {
+			"geometry" : "Geometry_206",
+			"material" : "Material_208",
+			"position" : [-75,25,75],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_225" : {
+			"geometry" : "Geometry_207",
+			"material" : "Material_209",
+			"position" : [-25,25,75],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_226" : {
+			"geometry" : "Geometry_208",
+			"material" : "Material_210",
+			"position" : [-25,25,-25],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_227" : {
+			"geometry" : "Geometry_209",
+			"material" : "Material_211",
+			"position" : [-25,25,25],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_228" : {
+			"geometry" : "Geometry_210",
+			"material" : "Material_212",
+			"position" : [25,25,-25],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_229" : {
+			"geometry" : "Geometry_211",
+			"material" : "Material_213",
+			"position" : [25,25,25],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_230" : {
+			"geometry" : "Geometry_212",
+			"material" : "Material_214",
+			"position" : [25,25,75],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_231" : {
+			"geometry" : "Geometry_213",
+			"material" : "Material_215",
+			"position" : [25,25,75],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_232" : {
+			"geometry" : "Geometry_214",
+			"material" : "Material_216",
+			"position" : [75,25,25],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_233" : {
+			"geometry" : "Geometry_215",
+			"material" : "Material_217",
+			"position" : [75,25,75],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_234" : {
+			"geometry" : "Geometry_216",
+			"material" : "Material_218",
+			"position" : [75,25,75],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_235" : {
+			"geometry" : "Geometry_217",
+			"material" : "Material_219",
+			"position" : [125,25,25],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_236" : {
+			"geometry" : "Geometry_218",
+			"material" : "Material_220",
+			"position" : [125,25,75],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_237" : {
+			"geometry" : "Geometry_219",
+			"material" : "Material_221",
+			"position" : [125,25,75],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_238" : {
+			"geometry" : "Geometry_220",
+			"material" : "Material_222",
+			"position" : [175,25,25],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_239" : {
+			"geometry" : "Geometry_221",
+			"material" : "Material_223",
+			"position" : [175,25,25],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_240" : {
+			"geometry" : "Geometry_222",
+			"material" : "Material_224",
+			"position" : [175,25,75],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_241" : {
+			"geometry" : "Geometry_223",
+			"material" : "Material_225",
+			"position" : [175,25,125],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_242" : {
+			"geometry" : "Geometry_224",
+			"material" : "Material_226",
+			"position" : [175,25,125],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_243" : {
+			"geometry" : "Geometry_225",
+			"material" : "Material_227",
+			"position" : [225,25,25],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_244" : {
+			"geometry" : "Geometry_226",
+			"material" : "Material_228",
+			"position" : [225,25,25],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_245" : {
+			"geometry" : "Geometry_227",
+			"material" : "Material_229",
+			"position" : [225,25,75],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_246" : {
+			"geometry" : "Geometry_228",
+			"material" : "Material_230",
+			"position" : [275,25,75],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_247" : {
+			"geometry" : "Geometry_229",
+			"material" : "Material_231",
+			"position" : [275,25,75],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_248" : {
+			"geometry" : "Geometry_230",
+			"material" : "Material_232",
+			"position" : [275,25,-25],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_249" : {
+			"geometry" : "Geometry_231",
+			"material" : "Material_233",
+			"position" : [275,25,-25],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_250" : {
+			"geometry" : "Geometry_232",
+			"material" : "Material_234",
+			"position" : [275,25,25],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_251" : {
+			"geometry" : "Geometry_233",
+			"material" : "Material_235",
+			"position" : [275,25,-125],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_252" : {
+			"geometry" : "Geometry_234",
+			"material" : "Material_236",
+			"position" : [325,25,-125],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_253" : {
+			"geometry" : "Geometry_235",
+			"material" : "Material_237",
+			"position" : [325,25,-125],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_254" : {
+			"geometry" : "Geometry_236",
+			"material" : "Material_238",
+			"position" : [325,25,-75],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_255" : {
+			"geometry" : "Geometry_237",
+			"material" : "Material_239",
+			"position" : [325,25,-75],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_256" : {
+			"geometry" : "Geometry_238",
+			"material" : "Material_240",
+			"position" : [325,25,-25],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_257" : {
+			"geometry" : "Geometry_239",
+			"material" : "Material_241",
+			"position" : [375,25,-25],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_258" : {
+			"geometry" : "Geometry_240",
+			"material" : "Material_242",
+			"position" : [375,25,-25],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_259" : {
+			"geometry" : "Geometry_241",
+			"material" : "Material_243",
+			"position" : [375,25,25],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		},
+
+		"Segment_260" : {
+			"geometry" : "Geometry_242",
+			"material" : "Material_244",
+			"position" : [-375,25,-175],
+			"rotation" : [0,0,0],
+			"scale"	   : [1,1,1],
+			"visible"  : true
+		}
+	},
+
+	"geometries" :
+	{
+		"Geometry_104": {
+			"type"    : "plane",
+			"width"  : 1480,
+			"height"  : 1000,
+			"widthSegments"  : 1,
+			"heightSegments" : 1
+		},
+
+		"Geometry_105": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_106": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_107": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_108": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_109": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_110": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_111": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_112": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_113": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_114": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_115": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_116": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_117": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_118": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_119": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_120": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_121": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_122": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_123": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_124": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_125": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_126": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_127": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_128": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_129": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_130": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_131": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_132": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_133": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_134": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_135": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_136": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_137": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_138": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_139": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_140": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_141": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_142": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_143": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_144": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_145": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_146": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_147": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_148": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_149": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_150": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_151": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_152": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_153": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_154": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_155": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_156": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_157": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_158": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_159": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_160": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_161": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_162": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_163": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_164": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_165": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_166": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_167": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_168": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_169": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_170": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_171": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_172": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_173": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_174": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_175": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_176": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_177": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_178": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_179": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_180": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_181": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_182": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_183": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_184": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_185": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_186": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_187": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_188": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_189": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_190": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_191": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_192": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_193": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_194": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_195": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_196": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_197": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_198": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_199": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_200": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_201": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_202": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_203": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_204": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_205": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_206": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_207": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_208": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_209": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_210": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_211": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_212": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_213": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_214": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_215": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_216": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_217": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_218": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_219": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_220": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_221": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_222": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_223": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_224": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_225": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_226": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_227": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_228": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_229": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_230": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_231": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_232": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_233": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_234": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_235": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_236": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_237": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_238": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_239": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_240": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_241": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		},
+
+		"Geometry_242": {
+			"type"    : "cube",
+			"width"  : 50,
+			"height"  : 50,
+			"depth"  : 50,
+			"widthSegments"  : 1,
+			"heightSegments" : 1,
+			"depthSegments" : 1
+		}
+	},
+
+	"materials" :
+	{
+		"Material_106": {
+			"type"    : "MeshBasicMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_107": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_108": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_109": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_110": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_111": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_112": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_113": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_114": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_115": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_116": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_117": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_118": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_119": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_120": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_121": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_122": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_123": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_124": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_125": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_126": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_127": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_128": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_129": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_130": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_131": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_132": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_133": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_134": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_135": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_136": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_137": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_138": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_139": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_140": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_141": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_142": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_143": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_144": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_145": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_146": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_147": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_148": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_149": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_150": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_151": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_152": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_153": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_154": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_155": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_156": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_157": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_158": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_159": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_160": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_161": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_162": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_163": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_164": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_165": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_166": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_167": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_168": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_169": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_170": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_171": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_172": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_173": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_174": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_175": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_176": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_177": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_178": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_179": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_180": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_181": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_182": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_183": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_184": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_185": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_186": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_187": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_188": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_189": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_190": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_191": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_192": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_193": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_194": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_195": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_196": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_197": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_198": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_199": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_200": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_201": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_202": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_203": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_204": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_205": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_206": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_207": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_208": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_209": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_210": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_211": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_212": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_213": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_214": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_215": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_216": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_217": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_218": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_219": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_220": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_221": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_222": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_223": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_224": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_225": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_226": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_227": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_228": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_229": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_230": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_231": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_232": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_233": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_234": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_235": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_236": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_237": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_238": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_239": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_240": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_241": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_242": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_243": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		},
+
+		"Material_244": {
+			"type"    : "MeshLambertMaterial",
+			"parameters"  : {
+				"color"  : 16777215,
+				"ambient"  : 16777215,
+				"emissive"  : 0,
+				"reflectivity"  : 1,
+				"transparent" : false,
+				"opacity" : 1,
+				"wireframe" : false,
+				"wireframeLinewidth" : 1
+			}
+		}
+	},
+
+	"textures" :
+	{
+	
+	},
+
+	"fogs" :
+	{
+	
+	},
+
+	"transform" :
+	{
+		"position"  : [0,0,0],
+		"rotation"  : [0,0,0],
+		"scale"     : [1,1,1]
+	},
+
+	"defaults" :
+	{
+		"bgcolor" : [0.667,0.667,0.667],
+		"bgalpha" : 1,
+		"camera"  : "",
+		"fog"  	  : ""
+	}
+}
