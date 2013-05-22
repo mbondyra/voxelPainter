@@ -32,7 +32,7 @@ var projector;
 var mouse2D, mouse3D, raycaster, theta = 45, isShiftDown = false, isCtrlDown = false, isMouseDown = false, target = new THREE.Vector3(0, 200, 0);
 var isQDown = false, isRDown = false, isDelDown = false;
 var ROLLOVERED;
-var objects = [];
+var tempContainer = new THREE.Object3D();
 
 /////
 /*  var cubeColors	= [
@@ -57,7 +57,7 @@ var objects = [];
 step = 50, sceneHeight = 1, singleHeight = 1;
 
 //zaznaczanie
-var container2 = new THREE.Object3D();
+var containers=[];
 var selObj = new Object();
 var isSelected = 0;
 var material = new THREE.MeshLambertMaterial({
@@ -178,7 +178,7 @@ function init() {
     directionalLight.position.z = Math.random() - 0.5;
     directionalLight.position.normalize();
     scene.add(directionalLight);
-    scene.add(container2);
+   // scene.add(containers);
 
     renderer = new THREE.WebGLRenderer({
         antialias: true,
@@ -468,7 +468,7 @@ function joinSegments() {
 function translateCubes(dx, dy, dz) {
     console.log("translateCubes", dx, dy, dz)
     //var children = objects;
-    var children = container2.children;
+    var children = containers.children;
     var voxels = [];
 
     for (var i = 0; i < children.length; i++) {
@@ -493,7 +493,7 @@ function translateCubes(dx, dy, dz) {
  });
  console.log("liczba znalezionych dzieci: " + Object.getOwnPropertyNames(children).length);
  children.forEach(function (e) {
- //container2.add(e);
+ //containers.add(e);
  objects.push(e);
  e.material.emissive.setHex(0x00ffff);
  });
@@ -503,17 +503,20 @@ function createGroup() {
     var children = mainContainer.children.filter(function (e) {
         return (typeof selObj[e.name] != 'undefined');
     });
+
     children.forEach(function (e) {
-        container2.add(e);
+        //container.push  = new THREE.Object3D();
+        tempContainer.add(e);
         //objects.push(e);
         e.material.emissive.setHex(0x00ffff);
         delete selObj[e.name];
     });
+    containers.push(tempContainer);
 }
 
 
 function splitGroup() {
-    var children = container2.children;
+    var children = containers.children;
 
     var length = children.length;
     for (var i = length - 1; i >= 0; i--) {

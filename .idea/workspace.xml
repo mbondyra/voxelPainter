@@ -6,7 +6,7 @@
     </list>
     <ignored path="level-layout-editor.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/index.html" changelist="079652e1-d77e-488d-9de1-0e8f9b8b4e93" time="1369255715617" ignored="false" />
+    <file path="/index.html" changelist="079652e1-d77e-488d-9de1-0e8f9b8b4e93" time="1369256212586" ignored="false" />
     <file path="/Dummy.txt" changelist="079652e1-d77e-488d-9de1-0e8f9b8b4e93" time="1369254963186" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,7 +30,7 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="14" selection-start="1980" selection-end="1980" vertical-scroll-proportion="0.33245382">
+            <state line="494" column="134" selection-start="14916" selection-end="14916" vertical-scroll-proportion="0.058047492">
               <folding />
             </state>
           </provider>
@@ -304,7 +304,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="14" selection-start="1980" selection-end="1980" vertical-scroll-proportion="0.33245382">
+        <state line="494" column="134" selection-start="14916" selection-end="14916" vertical-scroll-proportion="0.058047492">
           <folding />
         </state>
       </provider>
