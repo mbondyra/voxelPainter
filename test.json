@@ -106,7 +106,7 @@
 			"visible"  : false
 		},
 
-		"Segment_123" : {
+		"segment_1123" : {
 			"geometry" : "Geometry_105",
 			"material" : "Material_107",
 			"position" : [-725,25,-475],
@@ -115,7 +115,7 @@
 			"visible"  : true
 		},
 
-		"Segment_124" : {
+		"segment_1124" : {
 			"geometry" : "Geometry_106",
 			"material" : "Material_108",
 			"position" : [675,25,-475],
@@ -124,7 +124,7 @@
 			"visible"  : true
 		},
 
-		"Segment_125" : {
+		"segment_1125" : {
 			"geometry" : "Geometry_107",
 			"material" : "Material_109",
 			"position" : [-725,25,475],
@@ -133,7 +133,7 @@
 			"visible"  : true
 		},
 
-		"Segment_126" : {
+		"segment_1126" : {
 			"geometry" : "Geometry_108",
 			"material" : "Material_110",
 			"position" : [675,25,475],
@@ -142,7 +142,7 @@
 			"visible"  : true
 		},
 
-		"Segment_127" : {
+		"segment_1127" : {
 			"geometry" : "Geometry_109",
 			"material" : "Material_111",
 			"position" : [-725,25,-425],
@@ -151,7 +151,7 @@
 			"visible"  : true
 		},
 
-		"Segment_128" : {
+		"segment_1128" : {
 			"geometry" : "Geometry_110",
 			"material" : "Material_112",
 			"position" : [675,25,-425],
@@ -160,7 +160,7 @@
 			"visible"  : true
 		},
 
-		"Segment_129" : {
+		"segment_1129" : {
 			"geometry" : "Geometry_111",
 			"material" : "Material_113",
 			"position" : [-725,25,-375],
@@ -169,7 +169,7 @@
 			"visible"  : true
 		},
 
-		"Segment_130" : {
+		"segment_1130" : {
 			"geometry" : "Geometry_112",
 			"material" : "Material_114",
 			"position" : [675,25,-375],
@@ -178,7 +178,7 @@
 			"visible"  : true
 		},
 
-		"Segment_131" : {
+		"segment_1131" : {
 			"geometry" : "Geometry_113",
 			"material" : "Material_115",
 			"position" : [-725,25,-325],
@@ -187,7 +187,7 @@
 			"visible"  : true
 		},
 
-		"Segment_132" : {
+		"segment_1132" : {
 			"geometry" : "Geometry_114",
 			"material" : "Material_116",
 			"position" : [675,25,-325],
@@ -196,7 +196,7 @@
 			"visible"  : true
 		},
 
-		"Segment_133" : {
+		"segment_1133" : {
 			"geometry" : "Geometry_115",
 			"material" : "Material_117",
 			"position" : [-725,25,-275],
@@ -205,7 +205,7 @@
 			"visible"  : true
 		},
 
-		"Segment_134" : {
+		"segment_1134" : {
 			"geometry" : "Geometry_116",
 			"material" : "Material_118",
 			"position" : [675,25,-275],
@@ -214,7 +214,7 @@
 			"visible"  : true
 		},
 
-		"Segment_135" : {
+		"segment_1135" : {
 			"geometry" : "Geometry_117",
 			"material" : "Material_119",
 			"position" : [-725,25,-225],
@@ -223,7 +223,7 @@
 			"visible"  : true
 		},
 
-		"Segment_136" : {
+		"segment_1136" : {
 			"geometry" : "Geometry_118",
 			"material" : "Material_120",
 			"position" : [675,25,-225],
@@ -232,7 +232,7 @@
 			"visible"  : true
 		},
 
-		"Segment_137" : {
+		"segment_1137" : {
 			"geometry" : "Geometry_119",
 			"material" : "Material_121",
 			"position" : [-725,25,-175],
@@ -241,7 +241,7 @@
 			"visible"  : true
 		},
 
-		"Segment_138" : {
+		"segment_1138" : {
 			"geometry" : "Geometry_120",
 			"material" : "Material_122",
 			"position" : [675,25,-175],
@@ -250,7 +250,7 @@
 			"visible"  : true
 		},
 
-		"Segment_139" : {
+		"segment_1139" : {
 			"geometry" : "Geometry_121",
 			"material" : "Material_123",
 			"position" : [-725,25,-125],
@@ -259,7 +259,7 @@
 			"visible"  : true
 		},
 
-		"Segment_140" : {
+		"segment_1140" : {
 			"geometry" : "Geometry_122",
 			"material" : "Material_124",
 			"position" : [675,25,-125],
@@ -268,7 +268,7 @@
 			"visible"  : true
 		},
 
-		"Segment_141" : {
+		"segment_1141" : {
 			"geometry" : "Geometry_123",
 			"material" : "Material_125",
 			"position" : [-725,25,-75],
@@ -277,7 +277,7 @@
 			"visible"  : true
 		},
 
-		"Segment_142" : {
+		"segment_1142" : {
 			"geometry" : "Geometry_124",
 			"material" : "Material_126",
 			"position" : [675,25,-75],
@@ -286,7 +286,7 @@
 			"visible"  : true
 		},
 
-		"Segment_143" : {
+		"segment_1143" : {
 			"geometry" : "Geometry_125",
 			"material" : "Material_127",
 			"position" : [-725,25,-25],
@@ -295,7 +295,7 @@
 			"visible"  : true
 		},
 
-		"Segment_144" : {
+		"segment_1144" : {
 			"geometry" : "Geometry_126",
 			"material" : "Material_128",
 			"position" : [675,25,-25],
@@ -304,7 +304,7 @@
 			"visible"  : true
 		},
 
-		"Segment_145" : {
+		"segment_1145" : {
 			"geometry" : "Geometry_127",
 			"material" : "Material_129",
 			"position" : [-725,25,25],
@@ -313,7 +313,7 @@
 			"visible"  : true
 		},
 
-		"Segment_146" : {
+		"segment_1146" : {
 			"geometry" : "Geometry_128",
 			"material" : "Material_130",
 			"position" : [675,25,25],
@@ -322,7 +322,7 @@
 			"visible"  : true
 		},
 
-		"Segment_147" : {
+		"segment_1147" : {
 			"geometry" : "Geometry_129",
 			"material" : "Material_131",
 			"position" : [-725,25,75],
@@ -331,7 +331,7 @@
 			"visible"  : true
 		},
 
-		"Segment_148" : {
+		"segment_1148" : {
 			"geometry" : "Geometry_130",
 			"material" : "Material_132",
 			"position" : [675,25,75],
@@ -340,7 +340,7 @@
 			"visible"  : true
 		},
 
-		"Segment_149" : {
+		"segment_1149" : {
 			"geometry" : "Geometry_131",
 			"material" : "Material_133",
 			"position" : [-725,25,125],
@@ -349,7 +349,7 @@
 			"visible"  : true
 		},
 
-		"Segment_150" : {
+		"segment_1150" : {
 			"geometry" : "Geometry_132",
 			"material" : "Material_134",
 			"position" : [675,25,125],
@@ -358,7 +358,7 @@
 			"visible"  : true
 		},
 
-		"Segment_151" : {
+		"segment_1151" : {
 			"geometry" : "Geometry_133",
 			"material" : "Material_135",
 			"position" : [-725,25,175],
@@ -367,7 +367,7 @@
 			"visible"  : true
 		},
 
-		"Segment_152" : {
+		"segment_1152" : {
 			"geometry" : "Geometry_134",
 			"material" : "Material_136",
 			"position" : [675,25,175],
@@ -376,7 +376,7 @@
 			"visible"  : true
 		},
 
-		"Segment_153" : {
+		"segment_1153" : {
 			"geometry" : "Geometry_135",
 			"material" : "Material_137",
 			"position" : [-725,25,225],
@@ -385,7 +385,7 @@
 			"visible"  : true
 		},
 
-		"Segment_154" : {
+		"segment_1154" : {
 			"geometry" : "Geometry_136",
 			"material" : "Material_138",
 			"position" : [675,25,225],
@@ -394,7 +394,7 @@
 			"visible"  : true
 		},
 
-		"Segment_155" : {
+		"segment_1155" : {
 			"geometry" : "Geometry_137",
 			"material" : "Material_139",
 			"position" : [-725,25,275],
@@ -403,7 +403,7 @@
 			"visible"  : true
 		},
 
-		"Segment_156" : {
+		"segment_1156" : {
 			"geometry" : "Geometry_138",
 			"material" : "Material_140",
 			"position" : [675,25,275],
@@ -412,7 +412,7 @@
 			"visible"  : true
 		},
 
-		"Segment_157" : {
+		"segment_1157" : {
 			"geometry" : "Geometry_139",
 			"material" : "Material_141",
 			"position" : [-725,25,325],
@@ -421,7 +421,7 @@
 			"visible"  : true
 		},
 
-		"Segment_158" : {
+		"segment_1158" : {
 			"geometry" : "Geometry_140",
 			"material" : "Material_142",
 			"position" : [675,25,325],
@@ -430,7 +430,7 @@
 			"visible"  : true
 		},
 
-		"Segment_159" : {
+		"segment_1159" : {
 			"geometry" : "Geometry_141",
 			"material" : "Material_143",
 			"position" : [-725,25,375],
@@ -439,7 +439,7 @@
 			"visible"  : true
 		},
 
-		"Segment_160" : {
+		"segment_1160" : {
 			"geometry" : "Geometry_142",
 			"material" : "Material_144",
 			"position" : [675,25,375],
@@ -448,7 +448,7 @@
 			"visible"  : true
 		},
 
-		"Segment_161" : {
+		"segment_1161" : {
 			"geometry" : "Geometry_143",
 			"material" : "Material_145",
 			"position" : [-725,25,425],
@@ -457,7 +457,7 @@
 			"visible"  : true
 		},
 
-		"Segment_162" : {
+		"segment_1162" : {
 			"geometry" : "Geometry_144",
 			"material" : "Material_146",
 			"position" : [675,25,425],
@@ -466,7 +466,7 @@
 			"visible"  : true
 		},
 
-		"Segment_163" : {
+		"segment_1163" : {
 			"geometry" : "Geometry_145",
 			"material" : "Material_147",
 			"position" : [-675,25,-475],
@@ -475,7 +475,7 @@
 			"visible"  : true
 		},
 
-		"Segment_164" : {
+		"segment_1164" : {
 			"geometry" : "Geometry_146",
 			"material" : "Material_148",
 			"position" : [-675,25,475],
@@ -484,7 +484,7 @@
 			"visible"  : true
 		},
 
-		"Segment_165" : {
+		"segment_1165" : {
 			"geometry" : "Geometry_147",
 			"material" : "Material_149",
 			"position" : [-625,25,-475],
@@ -493,7 +493,7 @@
 			"visible"  : true
 		},
 
-		"Segment_166" : {
+		"segment_1166" : {
 			"geometry" : "Geometry_148",
 			"material" : "Material_150",
 			"position" : [-625,25,475],
@@ -502,7 +502,7 @@
 			"visible"  : true
 		},
 
-		"Segment_167" : {
+		"segment_1167" : {
 			"geometry" : "Geometry_149",
 			"material" : "Material_151",
 			"position" : [-575,25,-475],
@@ -511,7 +511,7 @@
 			"visible"  : true
 		},
 
-		"Segment_168" : {
+		"segment_1168" : {
 			"geometry" : "Geometry_150",
 			"material" : "Material_152",
 			"position" : [-575,25,475],
@@ -520,7 +520,7 @@
 			"visible"  : true
 		},
 
-		"Segment_169" : {
+		"segment_1169" : {
 			"geometry" : "Geometry_151",
 			"material" : "Material_153",
 			"position" : [-525,25,-475],
@@ -529,7 +529,7 @@
 			"visible"  : true
 		},
 
-		"Segment_170" : {
+		"segment_1170" : {
 			"geometry" : "Geometry_152",
 			"material" : "Material_154",
 			"position" : [-525,25,475],
@@ -538,7 +538,7 @@
 			"visible"  : true
 		},
 
-		"Segment_171" : {
+		"segment_1171" : {
 			"geometry" : "Geometry_153",
 			"material" : "Material_155",
 			"position" : [-475,25,-475],
@@ -547,7 +547,7 @@
 			"visible"  : true
 		},
 
-		"Segment_172" : {
+		"segment_1172" : {
 			"geometry" : "Geometry_154",
 			"material" : "Material_156",
 			"position" : [-475,25,475],
@@ -556,7 +556,7 @@
 			"visible"  : true
 		},
 
-		"Segment_173" : {
+		"segment_1173" : {
 			"geometry" : "Geometry_155",
 			"material" : "Material_157",
 			"position" : [-425,25,-475],
@@ -565,7 +565,7 @@
 			"visible"  : true
 		},
 
-		"Segment_174" : {
+		"segment_1174" : {
 			"geometry" : "Geometry_156",
 			"material" : "Material_158",
 			"position" : [-425,25,475],
@@ -574,7 +574,7 @@
 			"visible"  : true
 		},
 
-		"Segment_175" : {
+		"segment_1175" : {
 			"geometry" : "Geometry_157",
 			"material" : "Material_159",
 			"position" : [-375,25,-475],
@@ -583,7 +583,7 @@
 			"visible"  : true
 		},
 
-		"Segment_176" : {
+		"segment_1176" : {
 			"geometry" : "Geometry_158",
 			"material" : "Material_160",
 			"position" : [-375,25,475],
@@ -592,7 +592,7 @@
 			"visible"  : true
 		},
 
-		"Segment_177" : {
+		"segment_1177" : {
 			"geometry" : "Geometry_159",
 			"material" : "Material_161",
 			"position" : [-325,25,-475],
@@ -601,7 +601,7 @@
 			"visible"  : true
 		},
 
-		"Segment_178" : {
+		"segment_1178" : {
 			"geometry" : "Geometry_160",
 			"material" : "Material_162",
 			"position" : [-325,25,475],
@@ -610,7 +610,7 @@
 			"visible"  : true
 		},
 
-		"Segment_179" : {
+		"segment_1179" : {
 			"geometry" : "Geometry_161",
 			"material" : "Material_163",
 			"position" : [-275,25,-475],
@@ -619,7 +619,7 @@
 			"visible"  : true
 		},
 
-		"Segment_180" : {
+		"segment_1180" : {
 			"geometry" : "Geometry_162",
 			"material" : "Material_164",
 			"position" : [-275,25,475],
@@ -628,7 +628,7 @@
 			"visible"  : true
 		},
 
-		"Segment_181" : {
+		"segment_1181" : {
 			"geometry" : "Geometry_163",
 			"material" : "Material_165",
 			"position" : [-225,25,-475],
@@ -637,7 +637,7 @@
 			"visible"  : true
 		},
 
-		"Segment_182" : {
+		"segment_1182" : {
 			"geometry" : "Geometry_164",
 			"material" : "Material_166",
 			"position" : [-225,25,475],
@@ -646,7 +646,7 @@
 			"visible"  : true
 		},
 
-		"Segment_183" : {
+		"segment_1183" : {
 			"geometry" : "Geometry_165",
 			"material" : "Material_167",
 			"position" : [-175,25,-475],
@@ -655,7 +655,7 @@
 			"visible"  : true
 		},
 
-		"Segment_184" : {
+		"segment_1184" : {
 			"geometry" : "Geometry_166",
 			"material" : "Material_168",
 			"position" : [-175,25,475],
@@ -664,7 +664,7 @@
 			"visible"  : true
 		},
 
-		"Segment_185" : {
+		"segment_1185" : {
 			"geometry" : "Geometry_167",
 			"material" : "Material_169",
 			"position" : [-125,25,-475],
@@ -673,7 +673,7 @@
 			"visible"  : true
 		},
 
-		"Segment_186" : {
+		"segment_1186" : {
 			"geometry" : "Geometry_168",
 			"material" : "Material_170",
 			"position" : [-125,25,475],
@@ -682,7 +682,7 @@
 			"visible"  : true
 		},
 
-		"Segment_187" : {
+		"segment_1187" : {
 			"geometry" : "Geometry_169",
 			"material" : "Material_171",
 			"position" : [-75,25,-475],
@@ -691,7 +691,7 @@
 			"visible"  : true
 		},
 
-		"Segment_188" : {
+		"segment_1188" : {
 			"geometry" : "Geometry_170",
 			"material" : "Material_172",
 			"position" : [-75,25,475],
@@ -700,7 +700,7 @@
 			"visible"  : true
 		},
 
-		"Segment_189" : {
+		"segment_1189" : {
 			"geometry" : "Geometry_171",
 			"material" : "Material_173",
 			"position" : [-25,25,-475],
@@ -709,7 +709,7 @@
 			"visible"  : true
 		},
 
-		"Segment_190" : {
+		"segment_1190" : {
 			"geometry" : "Geometry_172",
 			"material" : "Material_174",
 			"position" : [-25,25,475],
@@ -718,7 +718,7 @@
 			"visible"  : true
 		},
 
-		"Segment_191" : {
+		"segment_1191" : {
 			"geometry" : "Geometry_173",
 			"material" : "Material_175",
 			"position" : [25,25,-475],
@@ -727,7 +727,7 @@
 			"visible"  : true
 		},
 
-		"Segment_192" : {
+		"segment_1192" : {
 			"geometry" : "Geometry_174",
 			"material" : "Material_176",
 			"position" : [25,25,475],
@@ -736,7 +736,7 @@
 			"visible"  : true
 		},
 
-		"Segment_193" : {
+		"segment_1193" : {
 			"geometry" : "Geometry_175",
 			"material" : "Material_177",
 			"position" : [75,25,-475],
@@ -745,7 +745,7 @@
 			"visible"  : true
 		},
 
-		"Segment_194" : {
+		"segment_1194" : {
 			"geometry" : "Geometry_176",
 			"material" : "Material_178",
 			"position" : [75,25,475],
@@ -754,7 +754,7 @@
 			"visible"  : true
 		},
 
-		"Segment_195" : {
+		"segment_1195" : {
 			"geometry" : "Geometry_177",
 			"material" : "Material_179",
 			"position" : [125,25,-475],
@@ -763,7 +763,7 @@
 			"visible"  : true
 		},
 
-		"Segment_196" : {
+		"segment_1196" : {
 			"geometry" : "Geometry_178",
 			"material" : "Material_180",
 			"position" : [125,25,475],
@@ -772,7 +772,7 @@
 			"visible"  : true
 		},
 
-		"Segment_197" : {
+		"segment_1197" : {
 			"geometry" : "Geometry_179",
 			"material" : "Material_181",
 			"position" : [175,25,-475],
@@ -781,7 +781,7 @@
 			"visible"  : true
 		},
 
-		"Segment_198" : {
+		"segment_1198" : {
 			"geometry" : "Geometry_180",
 			"material" : "Material_182",
 			"position" : [175,25,475],
@@ -790,7 +790,7 @@
 			"visible"  : true
 		},
 
-		"Segment_199" : {
+		"segment_1199" : {
 			"geometry" : "Geometry_181",
 			"material" : "Material_183",
 			"position" : [225,25,-475],
@@ -799,7 +799,7 @@
 			"visible"  : true
 		},
 
-		"Segment_200" : {
+		"segment_1200" : {
 			"geometry" : "Geometry_182",
 			"material" : "Material_184",
 			"position" : [225,25,475],
@@ -808,7 +808,7 @@
 			"visible"  : true
 		},
 
-		"Segment_201" : {
+		"segment_1201" : {
 			"geometry" : "Geometry_183",
 			"material" : "Material_185",
 			"position" : [275,25,-475],
@@ -817,7 +817,7 @@
 			"visible"  : true
 		},
 
-		"Segment_202" : {
+		"segment_1202" : {
 			"geometry" : "Geometry_184",
 			"material" : "Material_186",
 			"position" : [275,25,475],
@@ -826,7 +826,7 @@
 			"visible"  : true
 		},
 
-		"Segment_203" : {
+		"segment_1203" : {
 			"geometry" : "Geometry_185",
 			"material" : "Material_187",
 			"position" : [325,25,-475],
@@ -835,7 +835,7 @@
 			"visible"  : true
 		},
 
-		"Segment_204" : {
+		"segment_1204" : {
 			"geometry" : "Geometry_186",
 			"material" : "Material_188",
 			"position" : [325,25,475],
@@ -844,7 +844,7 @@
 			"visible"  : true
 		},
 
-		"Segment_205" : {
+		"segment_1205" : {
 			"geometry" : "Geometry_187",
 			"material" : "Material_189",
 			"position" : [375,25,-475],
@@ -853,7 +853,7 @@
 			"visible"  : true
 		},
 
-		"Segment_206" : {
+		"segment_1206" : {
 			"geometry" : "Geometry_188",
 			"material" : "Material_190",
 			"position" : [375,25,475],
@@ -862,7 +862,7 @@
 			"visible"  : true
 		},
 
-		"Segment_207" : {
+		"segment_1207" : {
 			"geometry" : "Geometry_189",
 			"material" : "Material_191",
 			"position" : [425,25,-475],
@@ -871,7 +871,7 @@
 			"visible"  : true
 		},
 
-		"Segment_208" : {
+		"segment_1208" : {
 			"geometry" : "Geometry_190",
 			"material" : "Material_192",
 			"position" : [425,25,475],
@@ -880,7 +880,7 @@
 			"visible"  : true
 		},
 
-		"Segment_209" : {
+		"segment_1209" : {
 			"geometry" : "Geometry_191",
 			"material" : "Material_193",
 			"position" : [475,25,-475],
@@ -889,7 +889,7 @@
 			"visible"  : true
 		},
 
-		"Segment_210" : {
+		"segment_1210" : {
 			"geometry" : "Geometry_192",
 			"material" : "Material_194",
 			"position" : [475,25,475],
@@ -898,7 +898,7 @@
 			"visible"  : true
 		},
 
-		"Segment_211" : {
+		"segment_1211" : {
 			"geometry" : "Geometry_193",
 			"material" : "Material_195",
 			"position" : [525,25,-475],
@@ -907,7 +907,7 @@
 			"visible"  : true
 		},
 
-		"Segment_212" : {
+		"segment_1212" : {
 			"geometry" : "Geometry_194",
 			"material" : "Material_196",
 			"position" : [525,25,475],
@@ -916,7 +916,7 @@
 			"visible"  : true
 		},
 
-		"Segment_213" : {
+		"segment_1213" : {
 			"geometry" : "Geometry_195",
 			"material" : "Material_197",
 			"position" : [575,25,-475],
@@ -925,7 +925,7 @@
 			"visible"  : true
 		},
 
-		"Segment_214" : {
+		"segment_1214" : {
 			"geometry" : "Geometry_196",
 			"material" : "Material_198",
 			"position" : [575,25,475],
@@ -934,7 +934,7 @@
 			"visible"  : true
 		},
 
-		"Segment_215" : {
+		"segment_1215" : {
 			"geometry" : "Geometry_197",
 			"material" : "Material_199",
 			"position" : [625,25,-475],
@@ -943,7 +943,7 @@
 			"visible"  : true
 		},
 
-		"Segment_216" : {
+		"segment_1216" : {
 			"geometry" : "Geometry_198",
 			"material" : "Material_200",
 			"position" : [625,25,475],
@@ -952,7 +952,7 @@
 			"visible"  : true
 		},
 
-		"Segment_217" : {
+		"segment_1217" : {
 			"geometry" : "Geometry_199",
 			"material" : "Material_201",
 			"position" : [675,25,-475],
@@ -961,7 +961,7 @@
 			"visible"  : true
 		},
 
-		"Segment_218" : {
+		"segment_1218" : {
 			"geometry" : "Geometry_200",
 			"material" : "Material_202",
 			"position" : [675,25,475],
@@ -970,7 +970,7 @@
 			"visible"  : true
 		},
 
-		"Segment_219" : {
+		"segment_1219" : {
 			"geometry" : "Geometry_201",
 			"material" : "Material_203",
 			"position" : [-125,25,-25],
@@ -979,7 +979,7 @@
 			"visible"  : true
 		},
 
-		"Segment_220" : {
+		"segment_1220" : {
 			"geometry" : "Geometry_202",
 			"material" : "Material_204",
 			"position" : [-125,25,25],
@@ -988,7 +988,7 @@
 			"visible"  : true
 		},
 
-		"Segment_221" : {
+		"segment_1221" : {
 			"geometry" : "Geometry_203",
 			"material" : "Material_205",
 			"position" : [-125,25,25],
@@ -997,7 +997,7 @@
 			"visible"  : true
 		},
 
-		"Segment_222" : {
+		"segment_1222" : {
 			"geometry" : "Geometry_204",
 			"material" : "Material_206",
 			"position" : [-75,25,25],
@@ -1006,7 +1006,7 @@
 			"visible"  : true
 		},
 
-		"Segment_223" : {
+		"segment_1223" : {
 			"geometry" : "Geometry_205",
 			"material" : "Material_207",
 			"position" : [-75,25,75],
@@ -1015,7 +1015,7 @@
 			"visible"  : true
 		},
 
-		"Segment_224" : {
+		"segment_1224" : {
 			"geometry" : "Geometry_206",
 			"material" : "Material_208",
 			"position" : [-75,25,75],
@@ -1024,7 +1024,7 @@
 			"visible"  : true
 		},
 
-		"Segment_225" : {
+		"segment_1225" : {
 			"geometry" : "Geometry_207",
 			"material" : "Material_209",
 			"position" : [-25,25,75],
@@ -1033,7 +1033,7 @@
 			"visible"  : true
 		},
 
-		"Segment_226" : {
+		"segment_1226" : {
 			"geometry" : "Geometry_208",
 			"material" : "Material_210",
 			"position" : [-25,25,-25],
@@ -1042,7 +1042,7 @@
 			"visible"  : true
 		},
 
-		"Segment_227" : {
+		"segment_1227" : {
 			"geometry" : "Geometry_209",
 			"material" : "Material_211",
 			"position" : [-25,25,25],
@@ -1051,7 +1051,7 @@
 			"visible"  : true
 		},
 
-		"Segment_228" : {
+		"segment_1228" : {
 			"geometry" : "Geometry_210",
 			"material" : "Material_212",
 			"position" : [25,25,-25],
@@ -1060,7 +1060,7 @@
 			"visible"  : true
 		},
 
-		"Segment_229" : {
+		"segment_1229" : {
 			"geometry" : "Geometry_211",
 			"material" : "Material_213",
 			"position" : [25,25,25],
@@ -1069,7 +1069,7 @@
 			"visible"  : true
 		},
 
-		"Segment_230" : {
+		"segment_1230" : {
 			"geometry" : "Geometry_212",
 			"material" : "Material_214",
 			"position" : [25,25,75],
@@ -1078,7 +1078,7 @@
 			"visible"  : true
 		},
 
-		"Segment_231" : {
+		"segment_1231" : {
 			"geometry" : "Geometry_213",
 			"material" : "Material_215",
 			"position" : [25,25,75],
@@ -1087,7 +1087,7 @@
 			"visible"  : true
 		},
 
-		"Segment_232" : {
+		"segment_1232" : {
 			"geometry" : "Geometry_214",
 			"material" : "Material_216",
 			"position" : [75,25,25],
@@ -1096,7 +1096,7 @@
 			"visible"  : true
 		},
 
-		"Segment_233" : {
+		"segment_1233" : {
 			"geometry" : "Geometry_215",
 			"material" : "Material_217",
 			"position" : [75,25,75],
@@ -1105,7 +1105,7 @@
 			"visible"  : true
 		},
 
-		"Segment_234" : {
+		"segment_1234" : {
 			"geometry" : "Geometry_216",
 			"material" : "Material_218",
 			"position" : [75,25,75],
@@ -1114,7 +1114,7 @@
 			"visible"  : true
 		},
 
-		"Segment_235" : {
+		"segment_1235" : {
 			"geometry" : "Geometry_217",
 			"material" : "Material_219",
 			"position" : [125,25,25],
@@ -1123,7 +1123,7 @@
 			"visible"  : true
 		},
 
-		"Segment_236" : {
+		"segment_1236" : {
 			"geometry" : "Geometry_218",
 			"material" : "Material_220",
 			"position" : [125,25,75],
@@ -1132,7 +1132,7 @@
 			"visible"  : true
 		},
 
-		"Segment_237" : {
+		"segment_1237" : {
 			"geometry" : "Geometry_219",
 			"material" : "Material_221",
 			"position" : [125,25,75],
@@ -1141,7 +1141,7 @@
 			"visible"  : true
 		},
 
-		"Segment_238" : {
+		"segment_1238" : {
 			"geometry" : "Geometry_220",
 			"material" : "Material_222",
 			"position" : [175,25,25],
@@ -1150,7 +1150,7 @@
 			"visible"  : true
 		},
 
-		"Segment_239" : {
+		"segment_1239" : {
 			"geometry" : "Geometry_221",
 			"material" : "Material_223",
 			"position" : [175,25,25],
@@ -1159,7 +1159,7 @@
 			"visible"  : true
 		},
 
-		"Segment_240" : {
+		"segment_1240" : {
 			"geometry" : "Geometry_222",
 			"material" : "Material_224",
 			"position" : [175,25,75],
@@ -1168,7 +1168,7 @@
 			"visible"  : true
 		},
 
-		"Segment_241" : {
+		"segment_1241" : {
 			"geometry" : "Geometry_223",
 			"material" : "Material_225",
 			"position" : [175,25,125],
@@ -1177,7 +1177,7 @@
 			"visible"  : true
 		},
 
-		"Segment_242" : {
+		"segment_1242" : {
 			"geometry" : "Geometry_224",
 			"material" : "Material_226",
 			"position" : [175,25,125],
@@ -1186,7 +1186,7 @@
 			"visible"  : true
 		},
 
-		"Segment_243" : {
+		"segment_1243" : {
 			"geometry" : "Geometry_225",
 			"material" : "Material_227",
 			"position" : [225,25,25],
@@ -1195,7 +1195,7 @@
 			"visible"  : true
 		},
 
-		"Segment_244" : {
+		"segment_1244" : {
 			"geometry" : "Geometry_226",
 			"material" : "Material_228",
 			"position" : [225,25,25],
@@ -1204,7 +1204,7 @@
 			"visible"  : true
 		},
 
-		"Segment_245" : {
+		"segment_1245" : {
 			"geometry" : "Geometry_227",
 			"material" : "Material_229",
 			"position" : [225,25,75],
@@ -1213,7 +1213,7 @@
 			"visible"  : true
 		},
 
-		"Segment_246" : {
+		"segment_1246" : {
 			"geometry" : "Geometry_228",
 			"material" : "Material_230",
 			"position" : [275,25,75],
@@ -1222,7 +1222,7 @@
 			"visible"  : true
 		},
 
-		"Segment_247" : {
+		"segment_1247" : {
 			"geometry" : "Geometry_229",
 			"material" : "Material_231",
 			"position" : [275,25,75],
@@ -1231,7 +1231,7 @@
 			"visible"  : true
 		},
 
-		"Segment_248" : {
+		"segment_1248" : {
 			"geometry" : "Geometry_230",
 			"material" : "Material_232",
 			"position" : [275,25,-25],
@@ -1240,7 +1240,7 @@
 			"visible"  : true
 		},
 
-		"Segment_249" : {
+		"segment_1249" : {
 			"geometry" : "Geometry_231",
 			"material" : "Material_233",
 			"position" : [275,25,-25],
@@ -1249,7 +1249,7 @@
 			"visible"  : true
 		},
 
-		"Segment_250" : {
+		"segment_1250" : {
 			"geometry" : "Geometry_232",
 			"material" : "Material_234",
 			"position" : [275,25,25],
@@ -1258,7 +1258,7 @@
 			"visible"  : true
 		},
 
-		"Segment_251" : {
+		"segment_1251" : {
 			"geometry" : "Geometry_233",
 			"material" : "Material_235",
 			"position" : [275,25,-125],
@@ -1267,7 +1267,7 @@
 			"visible"  : true
 		},
 
-		"Segment_252" : {
+		"segment_1252" : {
 			"geometry" : "Geometry_234",
 			"material" : "Material_236",
 			"position" : [325,25,-125],
@@ -1276,7 +1276,7 @@
 			"visible"  : true
 		},
 
-		"Segment_253" : {
+		"segment_1253" : {
 			"geometry" : "Geometry_235",
 			"material" : "Material_237",
 			"position" : [325,25,-125],
@@ -1285,7 +1285,7 @@
 			"visible"  : true
 		},
 
-		"Segment_254" : {
+		"segment_1254" : {
 			"geometry" : "Geometry_236",
 			"material" : "Material_238",
 			"position" : [325,25,-75],
@@ -1294,7 +1294,7 @@
 			"visible"  : true
 		},
 
-		"Segment_255" : {
+		"segment_1255" : {
 			"geometry" : "Geometry_237",
 			"material" : "Material_239",
 			"position" : [325,25,-75],
@@ -1303,7 +1303,7 @@
 			"visible"  : true
 		},
 
-		"Segment_256" : {
+		"segment_1256" : {
 			"geometry" : "Geometry_238",
 			"material" : "Material_240",
 			"position" : [325,25,-25],
@@ -1312,7 +1312,7 @@
 			"visible"  : true
 		},
 
-		"Segment_257" : {
+		"segment_1257" : {
 			"geometry" : "Geometry_239",
 			"material" : "Material_241",
 			"position" : [375,25,-25],
@@ -1321,7 +1321,7 @@
 			"visible"  : true
 		},
 
-		"Segment_258" : {
+		"segment_1258" : {
 			"geometry" : "Geometry_240",
 			"material" : "Material_242",
 			"position" : [375,25,-25],
@@ -1330,7 +1330,7 @@
 			"visible"  : true
 		},
 
-		"Segment_259" : {
+		"segment_1259" : {
 			"geometry" : "Geometry_241",
 			"material" : "Material_243",
 			"position" : [375,25,25],
@@ -1339,7 +1339,7 @@
 			"visible"  : true
 		},
 
-		"Segment_260" : {
+		"segment_1260" : {
 			"geometry" : "Geometry_242",
 			"material" : "Material_244",
 			"position" : [-375,25,-175],

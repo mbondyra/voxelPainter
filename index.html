@@ -54,13 +54,11 @@
                         ////
 
 
-
-
 			step = 50, sceneHeight = 1, singleHeight=1;
 
 			//zaznaczanie
 			var container2= new THREE.Object3D();
-                        var selObj = new Object();
+            var selObj = new Object();
 			var isSelected=0;
 			var material = new THREE.MeshLambertMaterial({
 				color: 0x6666EE
@@ -261,7 +259,7 @@
 
                         function translateCubes(dx, dy, dz){
                             console.log("translateCubes", dx, dy, dz)
-                            var children	= scene.children;
+                            var children	= container2.children;
                             var voxels	= [];
 
                             for( var i = 0; i < children.length; i++ ) {
@@ -269,7 +267,7 @@
 
                                 if( child instanceof THREE.Mesh === false )			continue;
                                 if( child.geometry instanceof THREE.CubeGeometry === false )	continue;
-                                if( child === rollOverMesh )					continue;
+                                //if( child === rollOverMesh )					continue;
 
                                 child.position.x	+= dx * 50;
                                 child.position.y	+= dy * 50;
@@ -296,6 +294,15 @@
                                     event.srcElement.value=0;
 				});
 			}
+
+                        function createGroup(){
+                            var children = scene.children.filter(function(e){ return (typeof selObj[e.name]!='undefined'); });
+                            console.log("liczba znalezionych dzieci: "+Object.getOwnPropertyNames(children).length);
+                            children.forEach(function(e){
+                                container2.add(e);
+                                e.material.emissive.setHex( 0x000000 );
+                            } );
+                        }
 
                         function xChange(event) {
 
@@ -382,21 +389,24 @@
 
 					case 16:
 						isShiftDown = true;
-                                                
 						break;
 					case 17:
 						isCtrlDown = true;
 						break;
-                                        case 81:
-                                                
+                     case 'Q'.charCodeAt(0):
+
                                                 isQDown = true;
-                                               
+
                                                 break;
-                                        case 82:
+                      case 'R'.charCodeAt(0):
                                                 isRDown = true;
                                                 break;
+                    case 'M'.charCodeAt(0): createGroup();       break;
                     case 'I'.charCodeAt(0): translateCubes(0, +1, 0);	break;
-                                        
+                    case 'D'.charCodeAt(0): translateCubes(1, 0, 0);	break;
+                    case 'A'.charCodeAt(0): translateCubes(-1, 0, 0);	break;
+                    case 'W'.charCodeAt(0): translateCubes(0, 0, -1);	break;
+                    case 'S'.charCodeAt(0): translateCubes(0, 0, 1);	break;
 
 				}
 
@@ -435,7 +445,7 @@
 						if (isCtrlDown ) {
 
 							if (intersects[0].object != plane) {
-                                translateCubes(0, +1, 0);
+
                                 Select1(intersects[0].object) ;
                                                                 //Select2(intersects[0].object.name) ;
                                                                 console.log(intersects[0].object.name)
