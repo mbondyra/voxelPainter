@@ -27,7 +27,7 @@ window.URL = window.URL || window.webkitURL;
 window.BlobBuilder = window.BlobBuilder || window.WebKitBlobBuilder || window.MozBlobBuilder;
 
 var container;
-var camera, scene, renderer, parent1;
+var camera, scene, renderer, mainContainer;
 var projector;
 var mouse2D, mouse3D, raycaster, theta = 45, isShiftDown = false, isCtrlDown = false, isMouseDown = false, target = new THREE.Vector3(0, 200, 0);
 var isQDown = false, isRDown = false, isDelDown = false;
@@ -125,8 +125,8 @@ function init() {
     camera.position.y = 800;
 
     scene = new THREE.Scene();
-    parent1 = new THREE.Object3D();
-    scene.add(parent1);
+    mainContainer = new THREE.Object3D();
+    scene.add(mainContainer);
 
     // Grid & plane
 
@@ -156,7 +156,7 @@ function init() {
     plane.name = "Grid";
     plane.rotation.x = -Math.PI / 2;
     plane.visible = false;
-    parent1.add(plane);
+    mainContainer.add(plane);
 
     mouse2D = new THREE.Vector3(0, 10000, 0.5);
 
@@ -216,7 +216,7 @@ function onDocumentMouseMove(event) {
     mouse2D.x = ( event.clientX / window.innerWidth ) * 2 - 1;
     mouse2D.y = -( event.clientY / window.innerHeight ) * 2 + 1;
 
-    var intersects = raycaster.intersectObjects(parent1.children);
+    var intersects = raycaster.intersectObjects(mainContainer.children);
 
     if (intersects.length > 0) {
 
@@ -312,7 +312,7 @@ function onDocumentKeyUp(event) {
 }
 
 function createSegment() {
-    var intersects = raycaster.intersectObjects(parent1.children);
+    var intersects = raycaster.intersectObjects(mainContainer.children);
 
     var INTERSECTED;
 
@@ -332,7 +332,7 @@ function createSegment() {
             }
             else if (isDelDown) {
                 if (intersects[0].object != plane) {
-                    parent1.remove(intersects[0].object);
+                    mainContainer.remove(intersects[0].object);
                 }
             }
 
@@ -389,7 +389,7 @@ function addSegment(position) {
     console.log(parseInt(singleHeight) * 50 / 2);
     voxel.position.y = parseInt(singleHeight) * 50 / 2;
     voxel.updateMatrix();
-    parent1.add(voxel);
+    mainContainer.add(voxel);
 }
 
 function addSegmentSplited(position) {
@@ -418,7 +418,7 @@ function addSegmentSplited(position) {
 
     //voxel.position.y = parseInt(singleHeight)*50/2;
     voxel.updateMatrix();
-    parent1.add(voxel);
+    mainContainer.add(voxel);
 }
 
 function spliteSegment(voxel) {
@@ -429,7 +429,7 @@ function spliteSegment(voxel) {
     split = true;
    if (parts>1)
    {
-       parent1.remove(voxel);
+       mainContainer.remove(voxel);
 
         for (var i = 0; i < parts; i += 1) {
             var h = new THREE.Vector3(obj.position.x, 25 + i * 50, obj.position.z);
@@ -447,7 +447,7 @@ function spliteSegment(voxel) {
 function joinSegments() {
     if (isRDown) {
 
-        var children = parent1.children.filter(function (e) {
+        var children = mainContainer.children.filter(function (e) {
             return (typeof selObj[e.name] != 'undefined');
         });
 
@@ -458,9 +458,9 @@ function joinSegments() {
         //addSegmentSplited(h);
         children.forEach(function (e) {
             group.add(e);
-            parent1.remove(e);
+            mainContainer.remove(e);
         });
-        parent1.add(group);
+        mainContainer.add(group);
     }
 }
 
@@ -500,7 +500,7 @@ function translateCubes(dx, dy, dz) {
  }*/
 
 function createGroup() {
-    var children = parent1.children.filter(function (e) {
+    var children = mainContainer.children.filter(function (e) {
         return (typeof selObj[e.name] != 'undefined');
     });
     children.forEach(function (e) {
@@ -518,7 +518,7 @@ function splitGroup() {
     var length = children.length;
     for (var i = length - 1; i >= 0; i--) {
         children[i].material.emissive.setHex(0x000000);
-        parent1.add(children[i]);
+        mainContainer.add(children[i]);
     }
 }
 
@@ -528,7 +528,7 @@ function onHeightChange(event) {
     sceneHeight = event.srcElement.value;
 
     //var children = scene.children.filter(function(e){ return (e.name.substring(0, 7) == "Segment"); });
-    var children = parent1.children.filter(function (e) {
+    var children = mainContainer.children.filter(function (e) {
         return (typeof selObj[e.name] != 'undefined');
     });
     console.log("liczba znalezionych dzieci: " + Object.getOwnPropertyNames(children).length);
@@ -542,11 +542,11 @@ function onHeightChange(event) {
 }
 
 function clearGrid() {
-    var children = parent1.children.filter(function (e) {
+    var children = mainContainer.children.filter(function (e) {
         return (e.name.substring(0, 7) == "Segment");
     });
     children.forEach(function (e) {
-        parent1
+        mainContainer
                 .remove(e);
     });
 }
@@ -566,18 +566,18 @@ function createGrid(x, y) {
         geometry.vertices.push(new THREE.Vector3(j, 0, y));
     }
 
-    parent1.remove(line);
+    mainContainer.remove(line);
     line = new THREE.Line(geometry, lineMaterial);
     line.type = THREE.LinePieces;
     line.name = "Line";
-    parent1.add(line);
+    mainContainer.add(line);
 
-    parent1.remove(plane);
+    mainContainer.remove(plane);
     plane = new THREE.Mesh(new THREE.PlaneGeometry(2 * x, 2 * y), new THREE.MeshBasicMaterial());
     plane.name = "Grid";
     plane.rotation.x = -Math.PI / 2;
     plane.visible = false;
-    parent1.add(plane);
+    mainContainer.add(plane);
 }
 
 function updateGrid(x, y) {
