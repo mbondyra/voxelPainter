@@ -33,6 +33,29 @@
 			var mouse2D, mouse3D, raycaster, theta = 45, isShiftDown = false, isCtrlDown = false, isMouseDown = false, target = new THREE.Vector3(0, 200, 0);
                         var isQDown = false, isRDown = false;
 			var ROLLOVERED;
+
+                        /////
+                      /*  var cubeColors	= [
+                            new THREE.Color().setRGB(1, 0, 0),
+                            new THREE.Color().setRGB(0, 1, 0),
+                            new THREE.Color().setRGB(0, 0, 1),
+                            new THREE.Color().setRGB(1, 1, 0),
+                            new THREE.Color().setRGB(1, 0, 1),
+                            new THREE.Color().setRGB(0, 1, 1),
+                            new THREE.Color().setRGB(1, 0.5, 0.5),
+                            new THREE.Color().setRGB(1, 0.5, 1),
+                            new THREE.Color().setRGB(0.5, 0.5, 1),
+                            new THREE.Color().setRGB(0.5, 0.5, 0.5),
+                        ];
+                        var cubeType	= 0;
+
+                        var rollOverMesh, rollOverMaterial, voxelPosition = new THREE.Vector3(), tmpVec = new THREE.Vector3();
+                        var cubeGeo, cubeMaterials = [];   */
+                        ////
+
+
+
+
 			step = 50, sceneHeight = 1, singleHeight=1;
 
 			//zaznaczanie
@@ -71,7 +94,7 @@
 				controls.style.right = '10px'
 				controls.innerHTML = '<input type="range" name="height" id="height" value="1" min="0" max="10">'
 
-                //controla w skali Z
+                //kontrolki w skali Z
                 var zcontrols = document.createElement('div');
 				zcontrols.style.position = 'absolute'
 				zcontrols.style.top = '200px'
@@ -154,6 +177,25 @@
 				line.type = THREE.LinePieces;
 				line.name = "Line";
 				//scene.add(line);
+                //////////////////
+                /*// roll-over helpers
+
+                rollOverGeo = new THREE.CubeGeometry( 50, 50, 50 );
+                rollOverMaterial = new THREE.MeshBasicMaterial( { color: 0xff0000, opacity: 0.5, transparent: true } );
+                rollOverMesh = new THREE.Mesh( rollOverGeo, rollOverMaterial );
+                scene.addObject( rollOverMesh );
+
+
+                // cubes
+
+                cubeGeo = new THREE.CubeGeometry( 50, 50, 50 );
+                for( i = 0; i < cubeColors.length; i++ ) {
+                    cubeMaterials[i] = new THREE.MeshLambertMaterial( { color: 0x00ff80, shading: THREE.FlatShading, map: THREE.ImageUtils.loadTexture( "textures/square-outline-textured.png" ) } );
+                    cubeMaterials[i].color.copy( cubeColors[i] );
+                    cubeMaterials[i]._cubeType	= i;
+                }
+                setCubeType(cubeType);*/
+
 
 				//
 
@@ -216,6 +258,27 @@
 				window.addEventListener('resize', onWindowResize, false);
 
 			}
+
+                        function translateCubes(dx, dy, dz){
+                            console.log("translateCubes", dx, dy, dz)
+                            var children	= scene.children;
+                            var voxels	= [];
+
+                            for( var i = 0; i < children.length; i++ ) {
+                                var child	= children[i];
+
+                                if( child instanceof THREE.Mesh === false )			continue;
+                                if( child.geometry instanceof THREE.CubeGeometry === false )	continue;
+                                if( child === rollOverMesh )					continue;
+
+                                child.position.x	+= dx * 50;
+                                child.position.y	+= dy * 50;
+                                child.position.z	+= dz * 50;
+
+                                child.updateMatrix();
+                            }
+
+                        }
 
              function zChange(event) {
 			
@@ -332,6 +395,7 @@
                                         case 82:
                                                 isRDown = true;
                                                 break;
+                    case 'I'.charCodeAt(0): translateCubes(0, +1, 0);	break;
                                         
 
 				}
@@ -371,7 +435,8 @@
 						if (isCtrlDown ) {
 
 							if (intersects[0].object != plane) {
-								Select1(intersects[0].object) ;
+                                translateCubes(0, +1, 0);
+                                Select1(intersects[0].object) ;
                                                                 //Select2(intersects[0].object.name) ;
                                                                 console.log(intersects[0].object.name)
 								//scene.remove(intersects[0].object);
