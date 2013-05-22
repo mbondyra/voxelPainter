@@ -70,14 +70,22 @@
 				controls.style.top = '10px'
 				controls.style.right = '10px'
 				controls.innerHTML = '<input type="range" name="height" id="height" value="1" min="0" max="10">'
-				
-                var controls3 = document.createElement('div');
-				controls3.style.position = 'absolute'
-				controls3.style.top = '200px'
-				controls3.style.right = '10px'
-				controls3.innerHTML = '<input type="range" name="height2" id="height2" value="1" min="0" max="10">'
-				
-				//suwak wysokosci pojedynczego klocka
+
+                //controla w skali Z
+                var zcontrols = document.createElement('div');
+				zcontrols.style.position = 'absolute'
+				zcontrols.style.top = '200px'
+				zcontrols.style.right = '30px'
+				zcontrols.innerHTML = '<p>Przesun w z:</p><input type="range" name="zcontrol" id="zcontrol" value="0" min="-1" max="1">'
+
+                //kontrolki w skali X
+                var xcontrols = document.createElement('div');
+                xcontrols.style.position = 'absolute'
+                xcontrols.style.top = '290px'
+                xcontrols.style.right = '30px'
+                xcontrols.innerHTML = '<p>Przesun w x:</p><input type="range" name="xcontrol" id="xcontrol" value="0" min="-1" max="1">'
+
+                //suwak wysokosci pojedynczego klocka
 				var controls2 = document.createElement('div');
 				controls2.style.position = 'absolute'
 				controls2.style.top = '100px'
@@ -109,12 +117,15 @@
 				container.appendChild(info);
 				container.appendChild(controls);
 				container.appendChild(controls2);
-                                container.appendChild(controls3);
+                container.appendChild(zcontrols);
+                container.appendChild(xcontrols);
 				container.appendChild(sceneControls);
 			
 
 				heightController = document.getElementById('height');
-                                heightController2 = document.getElementById('height2');
+                                zController2 = document.getElementById('zcontrol');
+
+                xController2 = document.getElementById('xcontrol');
 
 
 				camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 10000);
@@ -196,16 +207,17 @@
 
 				heightController.addEventListener('change', onHeightChange, false);
 
-                                heightController2.addEventListener('change', onHeightChange2, false);
-                                
-                                
-				//
+                                zController2.addEventListener('change', zChange, false);
+                                xController2.addEventListener('change', xChange, false);
+
+
+                //
 
 				window.addEventListener('resize', onWindowResize, false);
 
 			}
 
-                        function onHeightChange2(event) {
+             function zChange(event) {
 			
 				sceneHeight = event.srcElement.value;
 				
@@ -213,10 +225,31 @@
 				var children = scene.children.filter(function(e){ return (typeof selObj[e.name]!='undefined'); });
                                 console.log("liczba znalezionych dzieci: "+Object.getOwnPropertyNames(children).length);
                                 children.forEach(function(e){
-					e.position.z = e.position.z-50;
-					e.updateMatrix();          
+                                    console.log("position: "+e.position.z);
+                                    console.log("sceneHeight: "+sceneHeight);
+                                    e.position.z = e.position.z+((sceneHeight)*50);
+
+					e.updateMatrix();
+                                    event.srcElement.value=0;
 				});
 			}
+
+                        function xChange(event) {
+
+                            sceneHeight = event.srcElement.value;
+
+                            //var children = scene.children.filter(function(e){ return (e.name.substring(0, 7) == "Segment"); });
+                            var children = scene.children.filter(function(e){ return (typeof selObj[e.name]!='undefined'); });
+                            console.log("liczba znalezionych dzieci: "+Object.getOwnPropertyNames(children).length);
+                            children.forEach(function(e){
+                                console.log("position: "+e.position.x);
+                                console.log("sceneHeight: "+sceneHeight);
+                                e.position.x = e.position.x+((sceneHeight)*50);
+
+                                e.updateMatrix();
+                                event.srcElement.value=0;
+                            });
+                        }
 
 			function onHeightChange(event) {
 			

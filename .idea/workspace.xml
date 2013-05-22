@@ -4,7 +4,7 @@
     <list default="true" id="079652e1-d77e-488d-9de1-0e8f9b8b4e93" name="Default" comment="" />
     <ignored path="level-layout-editor.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/index.html" changelist="079652e1-d77e-488d-9de1-0e8f9b8b4e93" time="1369219385636" ignored="false" />
+    <file path="/index.html" changelist="079652e1-d77e-488d-9de1-0e8f9b8b4e93" time="1369220992373" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +27,7 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="57" selection-start="2859" selection-end="2864" vertical-scroll-proportion="0.06137184">
+            <state line="83" column="41" selection-start="3174" selection-end="3174" vertical-scroll-proportion="0.67509025">
               <folding />
             </state>
           </provider>
@@ -282,7 +282,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="57" selection-start="2859" selection-end="2864" vertical-scroll-proportion="0.06137184">
+        <state line="83" column="41" selection-start="3174" selection-end="3174" vertical-scroll-proportion="0.67509025">
           <folding />
         </state>
       </provider>
