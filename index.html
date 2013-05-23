@@ -33,7 +33,9 @@ var camera, scene, renderer, mainContainer;
 var projector;
 var mouse2D, mouse3D, raycaster, theta = 45, target = new THREE.Vector3(0, 200, 0);
 var isShiftDown = false, isCtrlDown = false, isMouseDown = false, isQDown = false, isRDown = false, isDelDown = false, isTDown=false;
+
 var ROLLOVERED, R;
+
 var allObjectsOnScene = [];
 
 step = 50, sceneHeight = 1, singleHeight = 1;
@@ -129,17 +131,30 @@ function onDocumentMouseMove(event) {
 
     var intersects = raycaster.intersectObjects(allObjectsOnScene, true);
 
+    //var intersects = raycaster.intersectObjects(parent1.children);
+
     if (intersects.length > 0) {
-        if (ROLLOVERED) {
+
+        if (ROLLOVERED)
+        {
             ROLLOVERED.face.color.setHex(0x408080);
             R.colorsNeedUpdate = true;
         }
 
         ROLLOVERED = intersects[ 0 ];
         console.log(ROLLOVERED.face.color.getHex());
-        ROLLOVERED.face.color.setHex(0xff8000);
+        ROLLOVERED.face.color.setHex(0xff8800);
+        //ROLLOVERED.face.emissive.setHex(0xff8800);
+        //material.emissive.setHex(0xff0000);
         R = intersects[ 0 ].object.geometry;
         R.colorsNeedUpdate = true;
+        /*
+         if (ROLLOVERED) ROLLOVERED.material.wireframe = false;
+
+         ROLLOVERED = intersects[ 0 ].object;
+         console.log(ROLLOVERED.material.wireframe);
+         ROLLOVERED.material.wireframe = true;
+         */
     }
 }
 
@@ -358,6 +373,9 @@ function addSegment(position) {
 
     var material = new THREE.MeshLambertMaterial( { map: map, transparent: false } );
 
+    /*var material = new THREE.MeshLambertMaterial({
+        vertexColors: THREE.FaceColors
+    });*/
 
 
 

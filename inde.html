@@ -33,7 +33,9 @@ var camera, scene, renderer, mainContainer;
 var projector;
 var mouse2D, mouse3D, raycaster, theta = 45, target = new THREE.Vector3(0, 200, 0);
 var isShiftDown = false, isCtrlDown = false, isMouseDown = false, isQDown = false, isRDown = false, isDelDown = false, isTDown=false;
+
 var ROLLOVERED, R;
+
 var allObjectsOnScene = [];
 
 step = 50, sceneHeight = 1, singleHeight = 1;
@@ -41,7 +43,7 @@ step = 50, sceneHeight = 1, singleHeight = 1;
 var selectedIndex=0;
 var groupContainer=[];
 
-
+var map = THREE.ImageUtils.loadTexture( 'square-outline-textured.png');
 //zaznaczanie
 var selObj = new Object();
 var isSelected = 0;
@@ -117,18 +119,9 @@ function init() {
 }
 
 
-function lightUpWall(intersects) {
-    if (ROLLOVERED) {
-        ROLLOVERED.face.color.setHex(0x408080);
-        R.colorsNeedUpdate = true;
-    }
+/*function lightUpWall(intersects) {
 
-    ROLLOVERED = intersects[ 0 ];
-    console.log(ROLLOVERED.face.color.getHex());
-    ROLLOVERED.face.color.setHex(0xff8000);
-    R = intersects[ 0 ].object.geometry;
-    R.colorsNeedUpdate = true;
-}
+ }*/
 
 function onDocumentMouseMove(event) {
     event.preventDefault();
@@ -138,12 +131,32 @@ function onDocumentMouseMove(event) {
 
     var intersects = raycaster.intersectObjects(allObjectsOnScene, true);
 
+    //var intersects = raycaster.intersectObjects(parent1.children);
+
     if (intersects.length > 0) {
-        lightUpWall(intersects);
+
+        if (ROLLOVERED)
+        {
+            ROLLOVERED.face.color.setHex(0x408080);
+            R.colorsNeedUpdate = true;
+        }
+
+        ROLLOVERED = intersects[ 0 ];
+        console.log(ROLLOVERED.face.color.getHex());
+        ROLLOVERED.face.color.setHex(0xff8800);
+        //ROLLOVERED.face.emissive.setHex(0xff8800);
+        //material.emissive.setHex(0xff0000);
+        R = intersects[ 0 ].object.geometry;
+        R.colorsNeedUpdate = true;
+        /*
+         if (ROLLOVERED) ROLLOVERED.material.wireframe = false;
+
+         ROLLOVERED = intersects[ 0 ].object;
+         console.log(ROLLOVERED.material.wireframe);
+         ROLLOVERED.material.wireframe = true;
+         */
     }
 }
-
-
 
 function onDocumentMouseDown(event) {
     event.preventDefault();
@@ -261,16 +274,16 @@ function createSegment() {
                     }
                 }
             }
-            if (isTDown) {
+            else if (isTDown) {
 
                 if (intersects[0].object != plane) {
                     if (intersects[0].object.parent==mainContainer)
-                        Set(intersects[0].object);
+                        setTransparency(intersects[0].object);
                     else {
                         selectedIndex=getIndex(intersects[0].object);
 
                         for(i=0;i<intersects[0].object.parent.children.length;i++)
-                            Select1(intersects[0].object.parent.children[i]);
+                            setTransparency(intersects[0].object.parent.children[i]);
 
                     }
                 }
@@ -331,24 +344,51 @@ function Select1(obj) {
     }
 }
 
+function setTransparency(obj){
+    var materialWindow = new THREE.MeshLambertMaterial( { color: 0x00ff80,reflectivity:0.5, map: map, transparent: true } );
+    materialWindow.transparent=true;
+    materialWindow.opacity = 0.6;
+
+    if (obj != plane) {
+        INTERSECTED = obj;
+
+        INTERSECTED.material=materialWindow;
+        INTERSECTED.material.emissive.setHex(0xff0000);
+    }
+
+    //TODO
+}
+
 
 function addSegment(position) {
     singleHeight = document.getElementById('singleHeight').value;
     var geometry = new THREE.CubeGeometry(50, 50 * singleHeight, 50);
-    seg++;
-    console.log("ilosc seg:" + seg);
-    for (var i = 0; i < geometry.faces.length; i++) {
 
-        geometry.faces[i].color.setHex(0x408080);
-    }
+    var material_1 = new THREE.MeshBasicMaterial( {
+        color: 0x55555c, ambient: 0x00ff80,
+        shading: THREE.FlatShading, map: THREE.ImageUtils.loadTexture( "square-outline-textured.png" )
+    } );
+    var material_2 = new THREE.MeshBasicMaterial( {
+        color: 0x00ff00,
+        shading: THREE.FlatShading,
+        overdraw: true
+    } );
+    geometry.materials = [material_1, material_2];
+    for (i=0;i<geometry.faces.length;++i)
 
-    var map = THREE.ImageUtils.loadTexture( 'crate.jpg');
-    var material = new THREE.MeshLambertMaterial( { map: map, transparent: false } );
+        geometry.faces[i].materialIndex = 0;
 
 
+    //var material = new THREE.MeshLambertMaterial( { map: map, transparent: false } );
 
+    /*var material = new THREE.MeshLambertMaterial({
+     vertexColors: THREE.FaceColors
+     });*/
+    /*var material = new THREE.MeshLambertMaterial( { color: 0x55555c, ambient: 0x00ff80,
+     shading: THREE.FlatShading, map: THREE.ImageUtils.loadTexture( "square-outline-textured.png" ) } );
+     */
 
-    var voxel = new THREE.Mesh(geometry, material);
+    var voxel = new THREE.Mesh(geometry, new THREE.MeshFaceMaterial( geometry.materials ));
     voxel.name = "Segment_" + voxel.id;
     voxel.position.x = Math.floor(position.x / 50) * 50 + 25;
     voxel.position.y = Math.floor(position.y / 50) * 50 + 25;
@@ -376,11 +416,11 @@ function addSegmentSplited(position) {
     }
 
     var material = new THREE.MeshLambertMaterial({
-        vertexColors: THREE.FaceColors
+        map: map, transparent: false
     });
 
     var voxel = new THREE.Mesh(geometry, material);
-    voxel.name = "Segment_" + voxel.id
+    voxel.name = "Segment_" + voxel.id;
     voxel.position.x = position.x;
     voxel.position.y = position.y;
     voxel.position.z = position.z;
@@ -527,14 +567,7 @@ function onHeightChange(event) {
     });
 }
 
-function setTransparency(obj){
-    var materialWindow = new THREE.MeshLambertMaterial( { map: map, transparent: true } );
 
-    materialWindow.transparent=true;
-    materialWindow.opacity = 0.6;
-    obj.material=materialWindow;
-    //TODO
-}
 
 function setTexture(obj){
     //TODO
