@@ -28,7 +28,7 @@ function setLightRenderingAndPlane() {
     plane.name = "Grid";
     plane.rotation.x = -Math.PI / 2;
     plane.visible = false;
-    parent1.add(plane);
+    mainContainer.add(plane);
 
     mouse2D = new THREE.Vector3(0, 10000, 0.5);
 
@@ -50,7 +50,6 @@ function setLightRenderingAndPlane() {
     directionalLight.position.z = Math.random() - 0.5;
     directionalLight.position.normalize();
     scene.add(directionalLight);
-    scene.add(container2);
 
     renderer = new THREE.WebGLRenderer({
         antialias: true,
@@ -139,3 +138,78 @@ function render() {
 function handleFileSelect(evt) {
     document.getElementById('fileUploadForm').submit();
 }
+
+function updateGrid(x, y) {
+    clearGrid();
+    createGrid(x, y);
+
+    addSegment(new THREE.Vector3(-x, 0, -y));
+    addSegment(new THREE.Vector3(x - step, 0, -y));
+    addSegment(new THREE.Vector3(-x, 0, y - step));
+    addSegment(new THREE.Vector3(x - step, 0, y - step));
+    for (var i = -y + step; i < y - step; i += step) {
+        addSegment(new THREE.Vector3(-x, 0, i));
+        addSegment(new THREE.Vector3(x - step, 0, i));
+    }
+    for (var j = -x + step; j < x - step; j += step) {
+        addSegment(new THREE.Vector3(j, 0, -y));
+        addSegment(new THREE.Vector3(j, 0, y - step));
+    }
+}
+
+////
+
+var callbackFinished = function (result) {
+    clearGrid();
+    scene.remove(plane);
+    loaded = result;
+
+    for (var meshName in loaded.objects) {
+        var mesh = eval("loaded.objects." + meshName);
+        if (meshName != 'Grid' && meshName != 'Line') {
+            scene.add(mesh);
+        } else if (meshName == 'Grid') {
+            createGrid(mesh.geometry.width / 2, mesh.geometry.height / 2)
+        }
+    }
+}
+
+
+function clearGrid() {
+    var children = mainContainer.children.filter(function (e) {
+        return (e.name.substring(0, 7) == "Segment");
+    });
+    children.forEach(function (e) {
+        mainContainer.remove(e);
+    });
+}
+
+function createGrid(x, y) {
+    planeGeometryX = x;
+    planeGeometryY = y;
+
+    var geometry = new THREE.Geometry();
+
+    for (var i = -y; i <= y; i += step) {
+        geometry.vertices.push(new THREE.Vector3(-x, 0, i));
+        geometry.vertices.push(new THREE.Vector3(x, 0, i));
+    }
+    for (var j = -x; j <= x; j += step) {
+        geometry.vertices.push(new THREE.Vector3(j, 0, -y));
+        geometry.vertices.push(new THREE.Vector3(j, 0, y));
+    }
+
+    mainContainer.remove(line);
+    line = new THREE.Line(geometry, lineMaterial);
+    line.type = THREE.LinePieces;
+    line.name = "Line";
+    mainContainer.add(line);
+
+    mainContainer.remove(plane);
+    plane = new THREE.Mesh(new THREE.PlaneGeometry(2 * x, 2 * y), new THREE.MeshBasicMaterial());
+    plane.name = "Grid";
+    plane.rotation.x = -Math.PI / 2;
+    plane.visible = false;
+    mainContainer.add(plane);
+}
+
