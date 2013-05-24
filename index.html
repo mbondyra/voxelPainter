@@ -97,7 +97,7 @@ var container;
 var camera, scene, renderer, mainContainer;
 var projector;
 var mouse2D, mouse3D, raycaster, theta = 45, target = new THREE.Vector3(0, 200, 0);
-var isShiftDown = false, isCtrlDown = false, isMouseDown = false, isQDown = false, isRDown = false, isDelDown = false, isTDown = false, isYDown = false;
+var isShiftDown = false, selectionMode = false, isMouseDown = false, splitingMode = false, isRDown = false, deletingMode = false, isTDown = false, isYDown = false;
 
 var ROLLOVERED, R;
 
@@ -201,16 +201,16 @@ function onDocumentKeyDown(event) {
             isShiftDown = true;
             break;
         case 17:
-            isCtrlDown = true;
+            selectionMode = true;
             break;
         case 'Q'.charCodeAt(0):
-            isQDown = true;
+            splitingMode = true;
             break;
         case 'R'.charCodeAt(0):
             isRDown = true;
             break;
         case 46:
-            isDelDown = true;
+            deletingMode = true;
             break;
         case 'M'.charCodeAt(0):
             createGroup();
@@ -258,16 +258,16 @@ function onDocumentKeyUp(event) {
             isShiftDown = false;
             break;
         case 17:
-            isCtrlDown = false;
+            selectionMode = false;
             break;
         case 81:
-            isQDown = false;
+            splitingMode = false;
             break;
         case 82:
             isRDown = false;
             break;
         case 46:
-            isDelDown = false;
+            deletingMode = false;
             break;
         case 'T'.charCodeAt(0):
             isTDown = false;
@@ -285,7 +285,7 @@ function createSegment() {
     if (intersects.length > 0) {
 
         if (isMouseDown) {
-            if (isCtrlDown) {
+            if (selectionMode) {
                 if (intersects[0].object != plane) {
                     if (intersects[0].object.parent == mainContainer)
                         Select(intersects[0].object);
@@ -324,12 +324,12 @@ function createSegment() {
                     }
                 }
             }
-            else if (isQDown) {
+            else if (splitingMode) {
                 if (intersects[0].object != plane) {
                     splitSegment(intersects[0].object);
                 }
             }
-            else if (isDelDown) {
+            else if (deletingMode) {
                 if (intersects[0].object != plane) {
                     if (intersects[0].object.parent == mainContainer)
                         intersects[0].object.parent.remove(intersects[0].object);
