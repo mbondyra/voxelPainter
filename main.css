@@ -1,0 +1,73 @@
+/*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+body {
+	margin: 0;
+    font-size: 1em;
+    line-height: 1.4;
+}
+#height {
+ background-color:blue;
+ position :absolute;
+ top :10px;
+ right : 10px    ;
+}
+
+#voxel {
+
+    position :absolute;
+    top :100px;
+    right : 10px    ;
+}
+#singleHeight {
+    background-color:blue;
+    position :absolute;
+    top :110px;
+    right : 10px    ;
+}
+#sceneControls {
+    background-color:blue;
+    position :absolute;
+    top :60px;
+    right : 10px    ;
+}
+
+#info{
+    position :absolute;
+    top :10px;
+    width : 100%;
+    text-align: center;
+}
+
+#fileForm{
+    position :absolute;
+    top :10px;
+    left : 10px;
+
+}
+
+
+.actionPanel{
+    position :absolute;
+    bottom :10px;
+    right : 10px;
+
+}
+
