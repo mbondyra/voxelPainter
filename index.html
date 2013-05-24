@@ -3,72 +3,73 @@
 <head>
     <title>Edytor map</title>
     <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <link type="text/css" rel="stylesheet" href="main.css"/>
 </head>
 <body>
 
-<div id="info"><a href="http://threejs.org" target="_blank">three.js</a> - voxel painter<br><strong>click</strong>: add voxel,
-   <strong>control + click</strong>: select voxel, <strong>shift</strong>: rotate, <br><strong>click+delete</strong>: remove,
-    <strong>asdw</strong>: move, M- creates a group<br><a download="document.json" href="javascript:save(scene,renderer);">save .png</a></div>
+<div id="info"><a href="http://threejs.org" target="_blank">three.js</a> - voxel painter<br><strong>click</strong>: add
+    voxel,
+    <strong>control + click</strong>: select voxel, <strong>shift</strong>: rotate, <br><strong>click+delete</strong>:
+    remove,<strong>asdw</strong>: move, M- creates a group<br>
+    <a download="document.json" href="javascript:save(scene,renderer);">save .png</a></div>
 
 <input type="range" name="height" id="height" value="1" min="0" max="10">
-
-
 
 <p id="voxel">Voxel height:</p><input type="range" name="singleHeight" id="singleHeight" value="1" min="0" max="10">
 
 <div class="actionPanel">
     <ul>
 
-            <label class="share-label" for="share-toggle2">Choose mode:</label>
-            <div data-action="showGrid" class="toggle">
-                <li>
-                    <input type="radio" name="share-toggles" id="share-toggle2" value="toggle1" checked="checked">
-                    <label class="toggle-radio" for="share-toggle2">Create new object </label>
-                </li>
-                <li>
-                    <input type="radio" name="share-toggles" id="share-toggle1" value="toggle2">
-                    <label class="toggle-radio" for="share-toggle1">Delete objects</label>
-                 </li>
-                <li>
-                    <input type="radio" name="share-toggles" id="share-toggle3" value="toggle3">
-                    <label class="toggle-radio" for="share-toggle1">Select objects</label>
-                  </li>
-                <li>
-                    <input type="radio" name="share-toggles" id="share-toggle4" value="toggle4">
-                    <label class="toggle-radio" for="share-toggle1">Split object horizontally</label>
-                </li>
-            </div>
+        <label class="share-label" for="share-toggle2">Set mode:</label>
+
+        <div data-action="setMode" class="toggle">
+            <li>
+                <input type="radio" name="mode" id="create" value="create" checked="checked">
+                <label class="toggle-radio" for="mode">Create new object </label>
+            </li>
+            <li>
+                <input type="radio" name="share-toggles" id="delete" value="delete">
+                <label class="toggle-radio" for="mode">Delete objects</label>
+            </li>
+            <li>
+                <input type="radio" name="share-toggles" id="select" value="select">
+                <label class="toggle-radio" for="mode">Select objects</label>
+            </li>
+            <li>
+                <input type="radio" name="share-toggles" id="split" value="split">
+                <label class="toggle-radio" for="mode">Split object horizontally</label>
+            </li>
+        </div>
         </li>
 
     </ul>
     <ul>
 
-        <label class="share-label" for="share-toggle2">Choose action:</label>
-        <div data-action="showGrid2" class="toggle">
+        <label class="share-label" for="share-toggle2">Set action:</label>
+
+        <div data-action="setAction" class="toggle">
             <li>
-                <input type="radio" name="share-toggles2" id="share-toggle2" value="toggle1" checked="checked">
+                <input type="radio" name="action" id="translate" value="translate" checked="checked">
                 <label class="toggle-radio" for="share-toggle2"> Translate </label>
             </li>
             <li>
-                <input type="radio" name="share-toggles2" id="share-toggle1" value="toggle2">
+                <input type="radio" name="action" id="scale" value="scale">
                 <label class="toggle-radio" for="share-toggle1">Scale</label>
             </li>
             <li>
-                <input type="radio" name="share-toggles2" id="share-toggle3" value="toggle3">
+                <input type="radio" name="action" id="rotate" value="rotate">
                 <label class="toggle-radio" for="share-toggle1">Rotate</label>
             </li>
         </div>
         </li>
-        <button type="button">Create Group from selection</button>   <br/>
+        <button type="button">Create Group from selection</button>
+        <br/>
         <button type="button">Split selected Group</button>
 
     </ul>
 </div>
-
-
 
 
 <script src="js/vendor/three.min.js"></script>
@@ -96,7 +97,7 @@ var container;
 var camera, scene, renderer, mainContainer;
 var projector;
 var mouse2D, mouse3D, raycaster, theta = 45, target = new THREE.Vector3(0, 200, 0);
-var isShiftDown = false, isCtrlDown = false, isMouseDown = false, isQDown = false, isRDown = false, isDelDown = false, isTDown=false, isYDown=false;
+var isShiftDown = false, isCtrlDown = false, isMouseDown = false, isQDown = false, isRDown = false, isDelDown = false, isTDown = false, isYDown = false;
 
 var ROLLOVERED, R;
 
@@ -104,10 +105,10 @@ var allObjectsOnScene = [];
 
 step = 50, sceneHeight = 1, singleHeight = 1;
 
-var selectedIndex=0;
-var groupContainer=[];
+var selectedIndex = 0;
+var groupContainer = [];
 
-var map = THREE.ImageUtils.loadTexture( 'crate.jpg');
+var map = THREE.ImageUtils.loadTexture('crate.jpg');
 //zaznaczanie
 var selObj = new Object();
 var isSelected = 0;
@@ -117,10 +118,8 @@ var material = new THREE.MeshLambertMaterial({
 
 
 var glassMaterial = new THREE.MeshLambertMaterial({
-    color: 0x6666EE  , transparent:true, opacity:0.5
+    color: 0x6666EE, transparent: true, opacity: 0.5
 });
-
-
 
 
 var lineMaterial = new THREE.LineBasicMaterial({
@@ -137,9 +136,6 @@ function init() {
 
     container = document.createElement('div');
     document.body.appendChild(container);
-
-
-
 
     var sceneControls = document.createElement('div');
     sceneControls.innerHTML = '<div id="sceneControls"><input type="text" name="sceneWidth" id="sceneWidth" value="500"><input type="text" name="sceneHeight" id="sceneHeight" value="500"><button id="sceneSubmit" onClick="updateGrid(document.getElementById(\'sceneWidth\').value,document.getElementById(\'sceneHeight\').value)">Change Grid</button><br/><button onClick="clearGrid()">Clear grid</button></div>'
@@ -159,7 +155,7 @@ function init() {
     mainContainer = new THREE.Object3D();
     scene.add(mainContainer);
 
-   setLightRenderingAndPlane();
+    setLightRenderingAndPlane();
 }
 
 function onDocumentMouseMove(event) {
@@ -172,7 +168,7 @@ function onDocumentMouseMove(event) {
 
     if (intersects.length > 0) {
 
-        if (ROLLOVERED){
+        if (ROLLOVERED) {
             ROLLOVERED.face.color.setHex(0x408080);
             R.colorsNeedUpdate = true;
         }
@@ -243,13 +239,13 @@ function onDocumentKeyDown(event) {
             translateCubes(0, 0, 1);
             break;
         case 'P'.charCodeAt(0):
-            rotateCubes(0, 0,  parseInt(1));
+            rotateCubes(0, 0, parseInt(1));
             break;
         case 'T'.charCodeAt(0):
-            isTDown=true;
+            isTDown = true;
             break;
         case 'Y'.charCodeAt(0):
-            isYDown=true;
+            isYDown = true;
             break;
     }
 }
@@ -274,10 +270,10 @@ function onDocumentKeyUp(event) {
             isDelDown = false;
             break;
         case 'T'.charCodeAt(0):
-            isTDown=false;
+            isTDown = false;
             break;
         case 'Y'.charCodeAt(0):
-            isYDown=false;
+            isYDown = false;
             break;
     }
 }
@@ -291,11 +287,11 @@ function createSegment() {
         if (isMouseDown) {
             if (isCtrlDown) {
                 if (intersects[0].object != plane) {
-                    if (intersects[0].object.parent==mainContainer)
-                    Select(intersects[0].object);
+                    if (intersects[0].object.parent == mainContainer)
+                        Select(intersects[0].object);
                     else {
-                        selectedIndex=getIndex(intersects[0].object);
-                        for(var i=0;i<intersects[0].object.parent.children.length;i++)
+                        selectedIndex = getIndex(intersects[0].object);
+                        for (var i = 0; i < intersects[0].object.parent.children.length; i++)
                             Select(intersects[0].object.parent.children[i]);
 
                     }
@@ -304,12 +300,12 @@ function createSegment() {
             else if (isTDown) {
 
                 if (intersects[0].object != plane) {
-                    if (intersects[0].object.parent==mainContainer)
-                        setTransparency(intersects[0].object,0.7);
+                    if (intersects[0].object.parent == mainContainer)
+                        setTransparency(intersects[0].object, 0.7);
                     else {
 
-                        for(var i=0;i<intersects[0].object.parent.children.length;i++)
-                            setTransparency(intersects[0].object.parent.children[i],0.7);
+                        for (var i = 0; i < intersects[0].object.parent.children.length; i++)
+                            setTransparency(intersects[0].object.parent.children[i], 0.7);
 
                     }
                 }
@@ -318,12 +314,12 @@ function createSegment() {
             else if (isYDown) {
 
                 if (intersects[0].object != plane) {
-                    if (intersects[0].object.parent==mainContainer)
+                    if (intersects[0].object.parent == mainContainer)
                         setMaterial(intersects[0].object, glassMaterial);
                     else {
 
-                        for(var i=0;i<intersects[0].object.parent.children.length;i++)
-                            setMaterial(intersects[0].object.parent.children[i],glassMaterial);
+                        for (var i = 0; i < intersects[0].object.parent.children.length; i++)
+                            setMaterial(intersects[0].object.parent.children[i], glassMaterial);
 
                     }
                 }
@@ -335,10 +331,10 @@ function createSegment() {
             }
             else if (isDelDown) {
                 if (intersects[0].object != plane) {
-                    if (intersects[0].object.parent==mainContainer)
+                    if (intersects[0].object.parent == mainContainer)
                         intersects[0].object.parent.remove(intersects[0].object);
                     else {
-                        for(var i=intersects[0].object.parent.children.length-1;i>=0;--i)
+                        for (var i = intersects[0].object.parent.children.length - 1; i >= 0; --i)
                             intersects[0].object.parent.parent.remove(intersects[0].object.parent);
 
                     }
@@ -356,13 +352,13 @@ function createSegment() {
     }
 }
 
-function getIndex(obj){
-    for (i=0; i< groupContainer.length;i++){
-       if (obj.parent== groupContainer[i]){
-           console.log("getindex:"+selectedIndex);
-           selectedIndex=i;
-           break;
-       }
+function getIndex(obj) {
+    for (i = 0; i < groupContainer.length; i++) {
+        if (obj.parent == groupContainer[i]) {
+            console.log("getindex:" + selectedIndex);
+            selectedIndex = i;
+            break;
+        }
     }
     return selectedIndex;
 }
@@ -370,7 +366,7 @@ function getIndex(obj){
 function Select(obj) {
 
     if (obj != plane) {
-         INTERSECTED = obj;
+        INTERSECTED = obj;
 
         if (INTERSECTED.material.emissive.getHex() == 0x000000) {
             INTERSECTED.material.emissive.setHex(0xff0000);
@@ -378,12 +374,11 @@ function Select(obj) {
         }
         else {
             INTERSECTED.material.emissive.setHex(0x000000);
-            console.log("wunselekcie"+selectedIndex) ;
+            console.log("wunselekcie" + selectedIndex);
             delete selObj[obj.name];
         }
     }
 }
-
 
 
 function addSegment(position) {
@@ -397,11 +392,11 @@ function addSegment(position) {
     }
 
 
-    var material = new THREE.MeshLambertMaterial( { map: map, transparent: false } );
+    var material = new THREE.MeshLambertMaterial({ map: map, transparent: false });
 
     /*var material = new THREE.MeshLambertMaterial({
-        vertexColors: THREE.FaceColors
-    });*/
+     vertexColors: THREE.FaceColors
+     });*/
 
     var voxel = new THREE.Mesh(geometry, material);
     voxel.name = "Segment_" + voxel.id;
@@ -414,8 +409,8 @@ function addSegment(position) {
     voxel.position.y = parseInt(singleHeight) * 50 / 2;
     voxel.updateMatrix();
     mainContainer.add(voxel);
-    var vox=new THREE.Object3D();
-    vox=voxel;
+    var vox = new THREE.Object3D();
+    vox = voxel;
     allObjectsOnScene.push(voxel);
 }
 
@@ -442,8 +437,8 @@ function addSegmentSplited(position) {
     voxel.matrixAutoUpdate = false;
     voxel.updateMatrix();
     mainContainer.add(voxel);
-    var vox=new THREE.Object3D();
-    vox=voxel;
+    var vox = new THREE.Object3D();
+    vox = voxel;
     allObjectsOnScene.push(voxel);
 }
 
@@ -457,12 +452,12 @@ function createGroup() {
         tempContainer.add(e);
     });
     groupContainer.push(tempContainer);
-    console.log("create:"+groupContainer.length);
-    scene.add(groupContainer[groupContainer.length-1]);
+    console.log("create:" + groupContainer.length);
+    scene.add(groupContainer[groupContainer.length - 1]);
 
 }
 function splitGroup() {
-    console.log("selindex:"+selectedIndex);
+    console.log("selindex:" + selectedIndex);
     var children = groupContainer[selectedIndex].children;
     var length = children.length;
     for (var i = length - 1; i >= 0; i--) {
@@ -470,11 +465,11 @@ function splitGroup() {
         delete selObj[children.name];
     }
     delete groupContainer[selectedIndex];
-    for (i=selectedIndex;i<groupContainer.length;i++){
-        groupContainer[i]=groupContainer[i+1];
-        groupContainer.length=groupContainer.length-1;
+    for (i = selectedIndex; i < groupContainer.length; i++) {
+        groupContainer[i] = groupContainer[i + 1];
+        groupContainer.length = groupContainer.length - 1;
     }
-    console.log("split:"+groupContainer.length);
+    console.log("split:" + groupContainer.length);
 }
 
 
@@ -484,8 +479,7 @@ function splitSegment(voxel) {
     console.log("parts " + parts);
     console.log(obj);
     split = true;
-    if (parts>1)
-    {
+    if (parts > 1) {
         voxel.parent.remove(voxel);
 
         for (var i = 0; i < parts; i += 1) {
@@ -533,10 +527,9 @@ function scaleCubes(dx, dy, dz) {
         if (child.geometry instanceof THREE.CubeGeometry === false)    continue;
 
 
-
-        child.scale.x += dx ;
-        child.scale.y += dy  ;
-        child.scale.z += dz  ;
+        child.scale.x += dx;
+        child.scale.y += dy;
+        child.scale.z += dz;
 
         child.updateMatrix();
     }
@@ -557,9 +550,9 @@ function rotateCubes(dx, dy, dz) {
         if (child.geometry instanceof THREE.CubeGeometry === false)    continue;
 
 
-        child.rotation.x +=  dx * Math.PI / 180 ;
-        child.rotation.y +=  dy * Math.PI / 180 ;
-        child.rotation.z +=  dz * Math.PI / 180   ;
+        child.rotation.x += dx * Math.PI / 180;
+        child.rotation.y += dy * Math.PI / 180;
+        child.rotation.z += dz * Math.PI / 180;
 
         child.updateMatrix();
     }
@@ -567,19 +560,18 @@ function rotateCubes(dx, dy, dz) {
 
 
 /*
-function deleteSelected (){
-    var children = allObjectsOnScene.filter(function (e) {
-    return (typeof selObj[e.name] != 'undefined');
-    });
-    for (var i = children.length-1; i >=0; --i) {
-        var child = children[i];
-        var voxels = [];
-        for (var i = 0; i < children.length; i++) {
-            mainContainer.remove(child);
-        }
-    }
-}*/
-
+ function deleteSelected (){
+ var children = allObjectsOnScene.filter(function (e) {
+ return (typeof selObj[e.name] != 'undefined');
+ });
+ for (var i = children.length-1; i >=0; --i) {
+ var child = children[i];
+ var voxels = [];
+ for (var i = 0; i < children.length; i++) {
+ mainContainer.remove(child);
+ }
+ }
+ }*/
 
 
 function translateCubes(dx, dy, dz) {
@@ -604,22 +596,22 @@ function translateCubes(dx, dy, dz) {
     }
 }
 
-function setTransparency(obj,opacity){
+function setTransparency(obj, opacity) {
 
     if (obj != plane) {
         INTERSECTED = obj;
-        INTERSECTED.material.transparent=true;
-        INTERSECTED.material.opacity=opacity;
+        INTERSECTED.material.transparent = true;
+        INTERSECTED.material.opacity = opacity;
     }
 }
 
-function setMaterial(obj,material){
+function setMaterial(obj, material) {
     if (obj != plane) {
         INTERSECTED = obj;
-        var currentSelect= INTERSECTED.material.emissive.getHex();
-        var materialNew= material.clone();
+        var currentSelect = INTERSECTED.material.emissive.getHex();
+        var materialNew = material.clone();
         materialNew.emissive.setHex(currentSelect);
-        INTERSECTED.material=materialNew;
+        INTERSECTED.material = materialNew;
     }
 }
 
