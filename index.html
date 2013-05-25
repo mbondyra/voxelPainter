@@ -549,7 +549,7 @@ function scaleCubes(dx, dy, dz) {
         if (child instanceof THREE.Mesh === false)            continue;
         if (child.geometry instanceof THREE.CubeGeometry === false)    continue;
 
-
+        if ((child.scale.x<1 && dx<0) || (child.scale.y<1 && dy<0) || (child.scale.z<1 &&dz<0)) continue;
         child.scale.x += dx;
         child.scale.y += dy;
         child.scale.z += dz;
