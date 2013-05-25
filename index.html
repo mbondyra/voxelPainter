@@ -51,15 +51,15 @@
 
         <div data-action="setAction" class="toggle">
             <li>
-                <input type="radio" name="action" id="translate" value="translate" checked="checked">
+                <input type="radio" name="action" id="translate" onclick="setAction(this.value)" value="translate" checked="checked">
                 <label class="toggle-radio" for="share-toggle2"> Translate </label>
             </li>
             <li>
-                <input type="radio" name="action" id="scale" value="scale">
+                <input type="radio" name="action" id="scale" onclick="setAction(this.value)" value="scale">
                 <label class="toggle-radio" for="share-toggle1">Scale</label>
             </li>
             <li>
-                <input type="radio" name="action" id="rotate" value="rotate">
+                <input type="radio" name="action" id="rotate" onclick="setAction(this.value)" value="rotate">
                 <label class="toggle-radio" for="share-toggle1">Rotate</label>
             </li>
         </div>
@@ -89,6 +89,13 @@
 <script src="js/cameraSettings.js"></script>
 
 <script>
+
+var action="translate";
+function setAction(actionC)
+{
+    action=actionC;
+}
+
 
 window.URL = window.URL || window.webkitURL;
 window.BlobBuilder = window.BlobBuilder || window.WebKitBlobBuilder || window.MozBlobBuilder;
@@ -221,30 +228,28 @@ function onDocumentKeyDown(event) {
 
         //ruch
         case 'I'.charCodeAt(0):
-            translateCubes(0, +1, 0);
+            modifyCubes(0, 1, 0);
             break;
         case 'K'.charCodeAt(0):
-            translateCubes(0, -1, 0);
+            modifyCubes(0, -1, 0);
             break;
         case 'D'.charCodeAt(0):
-            translateCubes(1, 0, 0);
+            modifyCubes(1, 0, 0);
             break;
         case 'A'.charCodeAt(0):
-            translateCubes(-1, 0, 0);
+            modifyCubes(-1, 0, 0);
             break;
         case 'W'.charCodeAt(0):
-            translateCubes(0, 0, -1);
+            modifyCubes(0, 0, -1);
             break;
         case 'S'.charCodeAt(0):
-            translateCubes(0, 0, 1);
-            break;
-        case 'P'.charCodeAt(0):
-            rotateCubes(0, 0, parseInt(1));
+            modifyCubes(0, 0, 1);
             break;
         case 'T'.charCodeAt(0):
             isTDown = true;
             break;
         case 'Y'.charCodeAt(0):
+
             isYDown = true;
             break;
     }
@@ -278,6 +283,53 @@ function onDocumentKeyUp(event) {
     }
 }
 
+function selectObjOrGroup(intersects) {
+    if (intersects[0].object != plane) {
+        if (intersects[0].object.parent == mainContainer)
+            Select(intersects[0].object);
+        else {
+            selectedIndex = getIndex(intersects[0].object);
+            for (var i = 0; i < intersects[0].object.parent.children.length; i++)
+                Select(intersects[0].object.parent.children[i]);
+
+        }
+    }
+}
+function setTranspObjOrGroup(intersects) {
+    if (intersects[0].object != plane) {
+        if (intersects[0].object.parent == mainContainer)
+            setTransparency(intersects[0].object, 0.7);
+        else {
+
+            for (var i = 0; i < intersects[0].object.parent.children.length; i++)
+                setTransparency(intersects[0].object.parent.children[i], 0.7);
+
+        }
+    }
+}
+function setMaterialObjOrGroup(intersects) {
+    if (intersects[0].object != plane) {
+        if (intersects[0].object.parent == mainContainer)
+            setMaterial(intersects[0].object, glassMaterial);
+        else {
+
+            for (var i = 0; i < intersects[0].object.parent.children.length; i++)
+                setMaterial(intersects[0].object.parent.children[i], glassMaterial);
+
+        }
+    }
+}
+function deleteObjOrGroup(intersects) {
+    if (intersects[0].object != plane) {
+        if (intersects[0].object.parent == mainContainer)
+            intersects[0].object.parent.remove(intersects[0].object);
+        else {
+            for (var i = intersects[0].object.parent.children.length - 1; i >= 0; --i)
+                intersects[0].object.parent.parent.remove(intersects[0].object.parent);
+
+        }
+    }
+}
 function createSegment() {
     var intersects = raycaster.intersectObjects(scene.children, true);
     var INTERSECTED;
@@ -286,43 +338,14 @@ function createSegment() {
 
         if (isMouseDown) {
             if (selectionMode) {
-                if (intersects[0].object != plane) {
-                    if (intersects[0].object.parent == mainContainer)
-                        Select(intersects[0].object);
-                    else {
-                        selectedIndex = getIndex(intersects[0].object);
-                        for (var i = 0; i < intersects[0].object.parent.children.length; i++)
-                            Select(intersects[0].object.parent.children[i]);
-
-                    }
-                }
+                selectObjOrGroup(intersects);
             }
             else if (isTDown) {
-
-                if (intersects[0].object != plane) {
-                    if (intersects[0].object.parent == mainContainer)
-                        setTransparency(intersects[0].object, 0.7);
-                    else {
-
-                        for (var i = 0; i < intersects[0].object.parent.children.length; i++)
-                            setTransparency(intersects[0].object.parent.children[i], 0.7);
-
-                    }
-                }
+                setTranspObjOrGroup(intersects);
             }
 
             else if (isYDown) {
-
-                if (intersects[0].object != plane) {
-                    if (intersects[0].object.parent == mainContainer)
-                        setMaterial(intersects[0].object, glassMaterial);
-                    else {
-
-                        for (var i = 0; i < intersects[0].object.parent.children.length; i++)
-                            setMaterial(intersects[0].object.parent.children[i], glassMaterial);
-
-                    }
-                }
+                setMaterialObjOrGroup(intersects);
             }
             else if (splitingMode) {
                 if (intersects[0].object != plane) {
@@ -330,15 +353,7 @@ function createSegment() {
                 }
             }
             else if (deletingMode) {
-                if (intersects[0].object != plane) {
-                    if (intersects[0].object.parent == mainContainer)
-                        intersects[0].object.parent.remove(intersects[0].object);
-                    else {
-                        for (var i = intersects[0].object.parent.children.length - 1; i >= 0; --i)
-                            intersects[0].object.parent.parent.remove(intersects[0].object.parent);
-
-                    }
-                }
+                deleteObjOrGroup(intersects);
             }
 
             else {
@@ -348,7 +363,6 @@ function createSegment() {
                 }
             }
         }
-
     }
 }
 
@@ -454,8 +468,8 @@ function createGroup() {
     groupContainer.push(tempContainer);
     console.log("create:" + groupContainer.length);
     scene.add(groupContainer[groupContainer.length - 1]);
-
 }
+
 function splitGroup() {
     console.log("selindex:" + selectedIndex);
     var children = groupContainer[selectedIndex].children;
@@ -512,6 +526,15 @@ function joinSegments() {
     }
 }
 
+function modifyCubes(dx,dy,dz){
+    if (action=="scale")
+        scaleCubes(dx, dy, dz);
+    else if (action=="translate")
+        translateCubes(dx,dy,dz);
+    else if (action=="rotate")
+            rotateCubes(dx, dy, dz);
+}
+
 function scaleCubes(dx, dy, dz) {
     console.log("scaleCubes", dx, dy, dz)
     //var children = objects;
@@ -559,19 +582,22 @@ function rotateCubes(dx, dy, dz) {
 }
 
 
-/*
- function deleteSelected (){
- var children = allObjectsOnScene.filter(function (e) {
- return (typeof selObj[e.name] != 'undefined');
- });
- for (var i = children.length-1; i >=0; --i) {
- var child = children[i];
- var voxels = [];
- for (var i = 0; i < children.length; i++) {
- mainContainer.remove(child);
- }
- }
- }*/
+function deleteSelected() {
+    var children = allObjectsOnScene.filter(function (e) {
+        return (typeof selObj[e.name] != 'undefined');
+    });
+    for (var i = children.length - 1; i >= 0; --i) {
+        var child = children[i];
+        if (child instanceof THREE.Mesh === false)            continue;
+        if (child.geometry instanceof THREE.CubeGeometry === false)    continue;
+
+
+        child.parent.remove(child);
+        child.updateMatrix();
+
+
+    }
+}
 
 
 function translateCubes(dx, dy, dz) {
@@ -580,7 +606,6 @@ function translateCubes(dx, dy, dz) {
     var children = allObjectsOnScene.filter(function (e) {
         return (typeof selObj[e.name] != 'undefined');
     });
-    var voxels = [];
 
     for (var i = 0; i < children.length; i++) {
         var child = children[i];
