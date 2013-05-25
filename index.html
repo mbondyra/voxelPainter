@@ -26,19 +26,19 @@
 
         <div data-action="setMode" class="toggle">
             <li>
-                <input type="radio" name="mode" id="create" value="create" checked="checked">
+                <input type="radio" name="mode" id="create" onclick="setMode(this.value)" value="creatingMode" checked="checked">
                 <label class="toggle-radio" for="mode">Create new object </label>
             </li>
             <li>
-                <input type="radio" name="share-toggles" id="delete" value="delete">
+                <input type="radio" name="mode" id="delete" onclick="setMode(this.value)" value="deletingMode">
                 <label class="toggle-radio" for="mode">Delete objects</label>
             </li>
             <li>
-                <input type="radio" name="share-toggles" id="select" value="select">
+                <input type="radio" name="mode" id="select" onclick="setMode(this.value)" value="selectionMode">
                 <label class="toggle-radio" for="mode">Select objects</label>
             </li>
             <li>
-                <input type="radio" name="share-toggles" id="split" value="split">
+                <input type="radio" name="mode" id="split" onclick="setMode(this.value)" value="splitingMode">
                 <label class="toggle-radio" for="mode">Split object horizontally</label>
             </li>
         </div>
@@ -90,10 +90,16 @@
 
 <script>
 
+var mode="creatingMode";
 var action="translate";
 function setAction(actionC)
 {
     action=actionC;
+}
+
+function setMode(modeC)
+{
+    mode=modeC;
 }
 
 
@@ -208,16 +214,16 @@ function onDocumentKeyDown(event) {
             isShiftDown = true;
             break;
         case 17:
-            selectionMode = true;
+            mode="selectionMode";
             break;
         case 'Q'.charCodeAt(0):
-            splitingMode = true;
+            mode="splitingMode";
             break;
         case 'R'.charCodeAt(0):
             isRDown = true;
             break;
         case 46:
-            deletingMode = true;
+            mode="deletingMode";
             break;
         case 'M'.charCodeAt(0):
             createGroup();
@@ -263,16 +269,16 @@ function onDocumentKeyUp(event) {
             isShiftDown = false;
             break;
         case 17:
-            selectionMode = false;
+            mode="creatingMode";
             break;
         case 81:
-            splitingMode = false;
+            mode="creatingMode";
             break;
         case 82:
             isRDown = false;
             break;
         case 46:
-            deletingMode = false;
+            mode="creatingMode";
             break;
         case 'T'.charCodeAt(0):
             isTDown = false;
@@ -337,7 +343,7 @@ function createSegment() {
     if (intersects.length > 0) {
 
         if (isMouseDown) {
-            if (selectionMode) {
+            if (mode=="selectionMode") {
                 selectObjOrGroup(intersects);
             }
             else if (isTDown) {
@@ -347,12 +353,12 @@ function createSegment() {
             else if (isYDown) {
                 setMaterialObjOrGroup(intersects);
             }
-            else if (splitingMode) {
+            else if (mode=="splitingMode") {
                 if (intersects[0].object != plane) {
                     splitSegment(intersects[0].object);
                 }
             }
-            else if (deletingMode) {
+            else if (mode=="deletingMode") {
                 deleteObjOrGroup(intersects);
             }
 

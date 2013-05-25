@@ -6,7 +6,7 @@
     </list>
     <ignored path="level-layout-editor.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/index.html" changelist="079652e1-d77e-488d-9de1-0e8f9b8b4e93" time="1369481852659" ignored="false" />
+    <file path="/index.html" changelist="079652e1-d77e-488d-9de1-0e8f9b8b4e93" time="1369483610826" ignored="false" />
     <file path="/Dummy.txt" changelist="079652e1-d77e-488d-9de1-0e8f9b8b4e93" time="1369389200439" ignored="false" />
     <file path="/fragment.js2" changelist="079652e1-d77e-488d-9de1-0e8f9b8b4e93" time="1369479250919" ignored="false" />
     <file path="$PROJECT_DIR$/js/cameraSettings.js" changelist="079652e1-d77e-488d-9de1-0e8f9b8b4e93" time="1369324341898" ignored="false" />
@@ -33,7 +33,7 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="551" column="105" selection-start="16912" selection-end="16912" vertical-scroll-proportion="0.7323529">
+            <state line="28" column="90" selection-start="1215" selection-end="1215" vertical-scroll-proportion="0.13235295">
               <folding />
             </state>
           </provider>
@@ -362,7 +362,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="551" column="105" selection-start="16912" selection-end="16912" vertical-scroll-proportion="0.7323529">
+        <state line="28" column="90" selection-start="1215" selection-end="1215" vertical-scroll-proportion="0.13235295">
           <folding />
         </state>
       </provider>
