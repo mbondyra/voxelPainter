@@ -23,17 +23,26 @@
 <div id="materialPanel">
     <p>Define material:</p>
     <select id="select">
-        <option value="0" selected="selected">tekstura 1.</option>
-        <option value="1">tekstura 2.</option>
-        <option value="2">tekstura 3.</option>
-        <option value="3">tekstura 4.</option>
-        <option value="4">tekstura 5.!</option>
+        <option value="matt.png" selected="selected">matt</option>
+        <option value="brick.png" >brick</option>
+        <option value="stone.png">stone</option>
+        <option value="wall.png" >wall</option>
+        <option value="wood.png">wood</option>
     </select>
 
-    <p>color(format:0xrrggbb)</p><input type="text" name="matColor" id="matColor" value="0xff0000" >
-    <p>opacity(0-1)</p><input type="range" name="matOpacity" id="matOpacity" value="0" min="0" max="20">
+    <p>color(rgb)</p>
+    <input type="number" class="material" name="matRed" id="matRed" value='0' >
+    <input type="number" class="material" name="matGreen" id="matGreen" value='0' >
+    <input type="number" class="material" name="matBlue" id="matBlue" value='0' >
+    <p>Transparency</p><input type="range" name="matOpacity" id="matOpacity" value="20" min="0" max="20">
     <br>
     <button type="button" onclick="defineMaterial()">Define material</button>
+
+    <p>Current Material: </p>
+    <p>Texture: <span id="currentTexture">matt</span></p>
+    <p>Color: <span id="currentColor">rgb(255,0,0)</span></p>
+    <p>Opacity: <span id="currentOpacity">1</span></p>
+
 </div>
 
 <div class="actionPanel">
@@ -155,18 +164,33 @@ var selObj = new Object();
 var isSelected = 0;
 
 
-var definedMaterial;
+var definedMaterial = new THREE.MeshLambertMaterial({
+    color: 0xee0000, transparent:true, opacity:1
+});
 
 function defineMaterial(){
-    var opacity=document.getElementById('matOpacity').value/20;
-    console.log("opacity"+opacity);
-    var color=document.getElementById('matColor').value;
-    definedMaterial = new THREE.MeshLambertMaterial({
-        color: color, transparent:true, opacity:opacity
+    var map = THREE.ImageUtils.loadTexture(document.getElementById("select").value);
+    var opacity=document.getElementById('matOpacity').value/20.;
+    console.log("color1"+definedMaterial.color.value);
+    var matRed= parseInt(document.getElementById('matRed').value);
+    var matGreen= parseInt(document.getElementById('matGreen').value);
+    var matBlue= parseInt(document.getElementById('matBlue').value);
+      console.log("rgb:"+matRed+matGreen+matBlue);
+    var color=new THREE.Color('rgb('+matRed+','+matGreen+','+matBlue+')');
+    var isTransparent=true;
+    definedMaterial = new THREE.MeshLambertMaterial({  map:map,
+        color: color , transparent:isTransparent, opacity:opacity
     });
+    updateCurrentData(matRed,matGreen,matBlue, opacity);
 }
 
+function updateCurrentData(r, g, b, opacity){
+    document.getElementById("currentTexture").innerHTML=document.getElementById("select").value;
+    document.getElementById("currentColor").innerHTML="rgb("+r+","+g+","+b+")";
 
+    document.getElementById("currentOpacity").innerHTML=opacity;
+
+}
 
 var glassMaterial = new THREE.MeshLambertMaterial({
     color: 0x6666EE, transparent: true, opacity: 0.5
