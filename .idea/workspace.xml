@@ -3,15 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="079652e1-d77e-488d-9de1-0e8f9b8b4e93" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.css" afterPath="$PROJECT_DIR$/main.css" />
     </list>
     <ignored path="level-layout-editor.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/index.html" changelist="079652e1-d77e-488d-9de1-0e8f9b8b4e93" time="1369484635568" ignored="false" />
+    <file path="/index.html" changelist="079652e1-d77e-488d-9de1-0e8f9b8b4e93" time="1369491785566" ignored="false" />
     <file path="/Dummy.txt" changelist="079652e1-d77e-488d-9de1-0e8f9b8b4e93" time="1369389200439" ignored="false" />
     <file path="/fragment.js2" changelist="079652e1-d77e-488d-9de1-0e8f9b8b4e93" time="1369479250919" ignored="false" />
     <file path="$PROJECT_DIR$/js/cameraSettings.js" changelist="079652e1-d77e-488d-9de1-0e8f9b8b4e93" time="1369324341898" ignored="false" />
-    <file path="/main.css" changelist="079652e1-d77e-488d-9de1-0e8f9b8b4e93" time="1369406750537" ignored="false" />
+    <file path="/main.css" changelist="079652e1-d77e-488d-9de1-0e8f9b8b4e93" time="1369491352358" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +34,16 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="100" column="4" selection-start="4008" selection-end="4008" vertical-scroll-proportion="0.43235293">
+            <state line="37" column="26" selection-start="1597" selection-end="1597" vertical-scroll-proportion="-5.717647">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -43,8 +52,10 @@
       <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="1" selection-start="1093" selection-end="1093" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="74" column="1" selection-start="1172" selection-end="1172" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1369491352758" expanded="true" signature="1185:1248" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -354,16 +365,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="1" selection-start="1093" selection-end="1093" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="74" column="1" selection-start="1172" selection-end="1172" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1369491352758" expanded="true" signature="1185:1248" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="4" selection-start="4008" selection-end="4008" vertical-scroll-proportion="0.43235293">
+        <state line="37" column="26" selection-start="1597" selection-end="1597" vertical-scroll-proportion="-5.717647">
           <folding />
         </state>
       </provider>

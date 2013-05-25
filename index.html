@@ -19,12 +19,29 @@
 
 <p id="voxel">Voxel height:</p><input type="range" name="singleHeight" id="singleHeight" value="1" min="0" max="10">
 
+
+<div id="materialPanel">
+    <p>Define material:</p>
+    <select id="select">
+        <option value="0" selected="selected">tekstura 1.</option>
+        <option value="1">tekstura 2.</option>
+        <option value="2">tekstura 3.</option>
+        <option value="3">tekstura 4.</option>
+        <option value="4">tekstura 5.!</option>
+    </select>
+
+    <p>color(format:0xrrggbb)</p><input type="text" name="matColor" id="matColor" value="0xff0000" >
+    <p>opacity(0-1)</p><input type="range" name="matOpacity" id="matOpacity" value="0" min="0" max="20">
+    <br>
+    <button type="button" onclick="defineMaterial()">Define material</button>
+</div>
+
 <div class="actionPanel">
+
     <ul>
-        <p>Define material:</p>
 
-        <button type="button" onclick="coverMaterial()">Cover material</button>
 
+        <br>
         <label class="share-label" for="share-toggle2">Set mode:</label>
 
         <div data-action="setMode" class="toggle">
@@ -94,16 +111,23 @@
 <script>
 
 var mode="creatingMode";
+var prevmode="creatingMode";
+
 var action="translate";
 function setAction(actionC)
 {
     action=actionC;
+
 
 }
 
 function setMode(modeC)
 {
     mode=modeC;
+}
+
+function getMode(){
+    return mode;
 }
 
 
@@ -129,9 +153,19 @@ var map = THREE.ImageUtils.loadTexture('crate.jpg');
 //zaznaczanie
 var selObj = new Object();
 var isSelected = 0;
-var material = new THREE.MeshLambertMaterial({
-    color: 0x6666EE
-});
+
+
+var definedMaterial;
+
+function defineMaterial(){
+    var opacity=document.getElementById('matOpacity').value/20;
+    console.log("opacity"+opacity);
+    var color=document.getElementById('matColor').value;
+    definedMaterial = new THREE.MeshLambertMaterial({
+        color: color, transparent:true, opacity:opacity
+    });
+}
+
 
 
 var glassMaterial = new THREE.MeshLambertMaterial({
@@ -218,15 +252,18 @@ function onDocumentKeyDown(event) {
             isShiftDown = true;
             break;
         case 17:
+            prevmode=getMode();
             mode="selectionMode";
             break;
         case 'Q'.charCodeAt(0):
+            prevmode=getMode();
             mode="splitingMode";
             break;
         case 'R'.charCodeAt(0):
             isRDown = true;
             break;
         case 46:
+            prevmode=getMode();
             mode="deletingMode";
             break;
         case 'M'.charCodeAt(0):
@@ -273,16 +310,16 @@ function onDocumentKeyUp(event) {
             isShiftDown = false;
             break;
         case 17:
-            mode="creatingMode";
+            mode=prevmode;
             break;
         case 81:
-            mode="creatingMode";
+            mode=prevmode;
             break;
         case 82:
             isRDown = false;
             break;
         case 46:
-            mode="creatingMode";
+            mode=prevmode;
             break;
         case 'T'.charCodeAt(0):
             isTDown = false;
@@ -320,11 +357,11 @@ function setTranspObjOrGroup(intersects) {
 function setMaterialObjOrGroup(intersects) {
     if (intersects[0].object != plane) {
         if (intersects[0].object.parent == mainContainer)
-            setMaterial(intersects[0].object, glassMaterial);
+            setMaterial(intersects[0].object, definedMaterial);
         else {
 
             for (var i = 0; i < intersects[0].object.parent.children.length; i++)
-                setMaterial(intersects[0].object.parent.children[i], glassMaterial);
+                setMaterial(intersects[0].object.parent.children[i], definedMaterial);
 
         }
     }
@@ -655,7 +692,7 @@ function onHeightChange(event) {
     sceneHeight = event.srcElement.value;
 
     //var children = scene.children.filter(function(e){ return (e.name.substring(0, 7) == "Segment"); });
-    var children = mainContainer.children.filter(function (e) {
+    var children = allObjectsOnScene.filter(function (e) {
         return (typeof selObj[e.name] != 'undefined');
     });
     console.log("liczba znalezionych dzieci: " + Object.getOwnPropertyNames(children).length);
