@@ -20,66 +20,63 @@ textarea {
 
 body {
 	margin: 0;
-    font-size: 1em;
+    font-size: 10px;
+    font-family: sans-serif,tahoma;
     line-height: 1.4;
 }
-#height {
- background-color:blue;
- position :absolute;
- top :10px;
- right : 10px    ;
-}
 
-#voxel {
-
-    position :absolute;
-    top :100px;
-    right : 10px    ;
-}
-#singleHeight {
-    background-color:blue;
-    position :absolute;
-    top :110px;
-    right : 10px    ;
-}
-#sceneControls {
-    background-color:blue;
-    position :absolute;
-    top :60px;
-    right : 10px    ;
-}
-
-#info{
-    position :absolute;
+#infoPanel{
+    position :fixed;
     top :10px;
     width : 100%;
     text-align: center;
 }
 
-#fileForm{
-    position :absolute;
-    top :10px;
-    left : 10px;
+.panel{
+    border: skyblue solid 5px;
+    border-radius: 15px;
+    background-color: aliceblue;
 
 }
 
+#fileForm{
+     position :fixed;
+     top :10px;
+     left : 10px;
 
-.actionPanel{
-    position :absolute;
+ }
+
+#scenePanel{
+    position :fixed;
+    top :10px;
+    right : 10px    ;
+
+}
+
+#actionPanel{
+    position :fixed;
     bottom :10px;
     right : 10px;
 
 }
 
+#currentPanel{
+    position :fixed;
+    bottom :300px;
+    left : 10px;
+
+}
 
 #materialPanel{
-    position :absolute;
+    position :fixed;
     bottom :10px;
     left : 10px;
 
 }
 
-.material{
-    width:60px;
+input[type=text],
+input[type=number] {
+   width:50px;
 }
+
 

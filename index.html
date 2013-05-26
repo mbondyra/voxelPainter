@@ -9,43 +9,49 @@
 </head>
 <body>
 
-<div id="info"><a href="http://threejs.org" target="_blank">three.js</a> - voxel painter<br><strong>click</strong>: add
-    voxel,
-    <strong>control + click</strong>: select voxel, <strong>shift</strong>: rotate, <br><strong>click+delete</strong>:
-    remove,<strong>asdw</strong>: move, M- creates a group<br>
-    <a download="document.json" href="javascript:save(scene,renderer);">save .png</a></div>
 
-<input type="range" name="height" id="height" value="1" min="0" max="10">
+<div id="infoPanel">
+    <a href="http://threejs.org" target="_blank">three.js</a> - voxel painter
+    <a download="document.json" href="javascript:save(scene,renderer);">save .png</a>
+</div>
 
-<p id="voxel">Voxel height:</p><input type="range" name="singleHeight" id="singleHeight" value="1" min="0" max="10">
+<div id="scenePanel" class="panel">
+    <input type="range" name="height" id="height" value="1" min="0" max="10">
+    <div  id="sceneControls" ><input type="text" name="sceneWidth" id="sceneWidth" value="500"><input type="text" name="sceneHeight" id="sceneHeight" value="500"><button id="sceneSubmit" onClick="updateGrid(document.getElementById('sceneWidth').value,document.getElementById('sceneHeight').value)">Change Grid</button><br/><button onClick="clearGrid()">Clear grid</button></div>
+    <p id="voxel">Voxel height:</p><input type="range" name="singleHeight" id="singleHeight" value="1" min="0" max="10">
+</div>
 
-
-<div id="materialPanel">
+<div id="materialPanel" class="panel">
     <p>Define material:</p>
     <select id="select">
         <option value="matt.png" selected="selected">matt</option>
-        <option value="brick.png" >brick</option>
+        <option value="brick.png">brick</option>
         <option value="stone.png">stone</option>
-        <option value="wall.png" >wall</option>
+        <option value="wall.png">wall</option>
         <option value="wood.png">wood</option>
     </select>
 
     <p>color(rgb)</p>
-    <input type="number" class="material" name="matRed" id="matRed" value='0' >
-    <input type="number" class="material" name="matGreen" id="matGreen" value='0' >
-    <input type="number" class="material" name="matBlue" id="matBlue" value='0' >
+    <input type="number" class="material" name="matRed" id="matRed" value='0'>
+    <input type="number" class="material" name="matGreen" id="matGreen" value='0'>
+    <input type="number" class="material" name="matBlue" id="matBlue" value='0'>
+
     <p>Transparency</p><input type="range" name="matOpacity" id="matOpacity" value="20" min="0" max="20">
     <br>
     <button type="button" onclick="defineMaterial()">Define material</button>
-
+</div>
+<div id="currentPanel" class="panel">
     <p>Current Material: </p>
+
     <p>Texture: <span id="currentTexture">matt</span></p>
+
     <p>Color: <span id="currentColor">rgb(255,0,0)</span></p>
+
     <p>Opacity: <span id="currentOpacity">1</span></p>
 
 </div>
 
-<div class="actionPanel">
+<div id="actionPanel" class="panel">
 
     <ul>
 
@@ -55,7 +61,8 @@
 
         <div data-action="setMode" class="toggle">
             <li>
-                <input type="radio" name="mode" id="create" onclick="setMode(this.value)" value="creatingMode" checked="checked">
+                <input type="radio" name="mode" id="create" onclick="setMode(this.value)" value="creatingMode"
+                       checked="checked">
                 <label class="toggle-radio" for="mode">Create new object </label>
             </li>
             <li>
@@ -80,7 +87,8 @@
 
         <div data-action="setAction" class="toggle">
             <li>
-                <input type="radio" name="action" id="translate" onclick="setAction(this.value)" value="translate" checked="checked">
+                <input type="radio" name="action" id="translate" onclick="setAction(this.value)" value="translate"
+                       checked="checked">
                 <label class="toggle-radio" for="share-toggle2"> Translate </label>
             </li>
             <li>
@@ -126,8 +134,6 @@ var action="translate";
 function setAction(actionC)
 {
     action=actionC;
-
-
 }
 
 function setMode(modeC)
@@ -164,7 +170,7 @@ var selObj = new Object();
 var isSelected = 0;
 
 
-var definedMaterial = new THREE.MeshLambertMaterial({
+var definedMaterial = new THREE.MeshLambertMaterial({map:map,
     color: 0xee0000, transparent:true, opacity:1
 });
 
@@ -212,14 +218,13 @@ function init() {
     container = document.createElement('div');
     document.body.appendChild(container);
 
-    var sceneControls = document.createElement('div');
-    sceneControls.innerHTML = '<div id="sceneControls"><input type="text" name="sceneWidth" id="sceneWidth" value="500"><input type="text" name="sceneHeight" id="sceneHeight" value="500"><button id="sceneSubmit" onClick="updateGrid(document.getElementById(\'sceneWidth\').value,document.getElementById(\'sceneHeight\').value)">Change Grid</button><br/><button onClick="clearGrid()">Clear grid</button></div>'
-
+  /*  var sceneControls = document.createElement('div');
+    sceneControls.innerHTML = '*/
     var form = document.createElement('div');
-    form.innerHTML = '<div id="fileForm"><p>Please specify a file, or a set of files:<br><form id="fileUploadForm" enctype="multipart/form-data" action="/upload.php" method="POST"><input type="file" id="input" name="input" size="40"></form></p></div>'
+    form.innerHTML = '<div id="fileForm" class="panel"><p>Specify a file, or a set of files:<br><form id="fileUploadForm" enctype="multipart/form-data" action="/upload.php" method="POST"><input type="file" id="input" name="input" size="40"></form></p></div>'
 
-    container.appendChild(form);
-    container.appendChild(sceneControls);
+    container.appendChild(form);/*
+    container.appendChild(sceneControls);*/
 
     heightController = document.getElementById('height');
 
@@ -295,6 +300,9 @@ function onDocumentKeyDown(event) {
             break;
         case 'N'.charCodeAt(0):
             splitGroup();
+            break;
+        case 'U'.charCodeAt(0):
+            setMaterial1(definedMaterial);
             break;
 
         //ruch
@@ -477,8 +485,8 @@ function addSegment(position) {
     }
 
 
-    var material = new THREE.MeshLambertMaterial({ map: map, transparent: false });
-
+    var material = new THREE.MeshLambertMaterial();
+    material=definedMaterial.clone();
     /*var material = new THREE.MeshLambertMaterial({
      vertexColors: THREE.FaceColors
      });*/
@@ -510,9 +518,9 @@ function addSegmentSplited(position) {
         geometry.faces[i].color.setHex(0x408080);
     }
 
-    var material = new THREE.MeshLambertMaterial({
-        map: map, transparent: false
-    });
+    var material = new THREE.MeshLambertMaterial();
+    material=definedMaterial.clone();
+
 
     var voxel = new THREE.Mesh(geometry, material);
     voxel.name = "Segment_" + voxel.id;
@@ -621,9 +629,9 @@ function scaleCubes(dx, dy, dz) {
         if (child.geometry instanceof THREE.CubeGeometry === false)    continue;
 
         if ((child.scale.x<1 && dx<0) || (child.scale.y<1 && dy<0) || (child.scale.z<1 &&dz<0)) continue;
-        child.scale.x += dx;
-        child.scale.y += dy;
-        child.scale.z += dz;
+        child.scale.x += dx/2;
+        child.scale.y += dy/2;
+        child.scale.z += dz/2;
 
         child.updateMatrix();
     }
@@ -684,9 +692,9 @@ function translateCubes(dx, dy, dz) {
         if (child instanceof THREE.Mesh === false)            continue;
         if (child.geometry instanceof THREE.CubeGeometry === false)    continue;
 
-        child.position.x += dx * 50;
-        child.position.y += dy * 50;
-        child.position.z += dz * 50;
+        child.position.x += dx * 25;
+        child.position.y += dy * 25;
+        child.position.z += dz * 25;
 
         child.updateMatrix();
     }
@@ -709,6 +717,19 @@ function setMaterial(obj, material) {
         materialNew.emissive.setHex(currentSelect);
         INTERSECTED.material = materialNew;
     }
+}
+
+function setMaterial1( material) {
+    var children = allObjectsOnScene.filter(function (e) {
+        return (typeof selObj[e.name] != 'undefined');
+    });
+    children.forEach(function (e) {
+
+        var currentSelect = e.material.emissive.getHex();
+        var materialNew = material.clone();
+        materialNew.emissive.setHex(currentSelect);
+        e.material = materialNew;
+    });
 }
 
 function onHeightChange(event) {
@@ -741,6 +762,11 @@ loader.addHierarchyHandler("dae", THREE.ColladaLoader);
 loader.addHierarchyHandler("utf8", THREE.UTF8Loader);
 
 loader.load('test.json', callbackFinished);
+
+/*<br><strong>click</strong>: add
+voxel,
+<strong>control + click</strong>: select voxel, <strong>shift</strong>: rotate, <br><strong>click+delete</strong>:
+remove,<strong>asdw</strong>: move, M- creates a group<br>*/
 </script>
 </body>
 </html>
