@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/webgled/!svn/ver/8/trunk/apps/level-layout-editor/js/loaders
+END
+ColladaLoader.js
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/webgled/!svn/ver/8/trunk/apps/level-layout-editor/js/loaders/ColladaLoader.js
+END
+STLLoader.js
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/webgled/!svn/ver/8/trunk/apps/level-layout-editor/js/loaders/STLLoader.js
+END
+VTKLoader.js
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/webgled/!svn/ver/8/trunk/apps/level-layout-editor/js/loaders/VTKLoader.js
+END
+PDBLoader.js
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/webgled/!svn/ver/8/trunk/apps/level-layout-editor/js/loaders/PDBLoader.js
+END
+UTF8Loader.js
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/webgled/!svn/ver/8/trunk/apps/level-layout-editor/js/loaders/UTF8Loader.js
+END
+OBJMTLLoader.js
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/webgled/!svn/ver/8/trunk/apps/level-layout-editor/js/loaders/OBJMTLLoader.js
+END
+OBJLoader.js
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/webgled/!svn/ver/8/trunk/apps/level-layout-editor/js/loaders/OBJLoader.js
+END
+MTLLoader.js
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/webgled/!svn/ver/8/trunk/apps/level-layout-editor/js/loaders/MTLLoader.js
+END

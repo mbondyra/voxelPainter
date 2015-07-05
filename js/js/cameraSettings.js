@@ -38,13 +38,13 @@ function setLightRenderingAndPlane() {
     scene.add(ambientLight);
 
     var directionalLight = new THREE.DirectionalLight(0xffffff);
-    directionalLight.position.x =  0.5;
-    directionalLight.position.y =  0.5;
-    directionalLight.position.z =  0.5;
+    directionalLight.position.x = Math.random() - 0.5;
+    directionalLight.position.y = Math.random() - 0.5;
+    directionalLight.position.z = Math.random() - 0.5;
     directionalLight.position.normalize();
     scene.add(directionalLight);
 
-    var directionalLight = new THREE.DirectionalLight(0xa3a3a3);
+    var directionalLight = new THREE.DirectionalLight(0x808080);
     directionalLight.position.x = Math.random() - 0.5;
     directionalLight.position.y = Math.random() - 0.5;
     directionalLight.position.z = Math.random() - 0.5;
@@ -103,8 +103,11 @@ function save(scene, renderer) {
 
 function saveToFile() {
 
+    //window.open( renderer.domElement.toDataURL('image/png'), 'mywindow' );
+    //THREE.SceneExporter.function();
 }
 
+//
 
 function animate() {
 
@@ -171,19 +174,15 @@ var callbackFinished = function (result) {
     }
 }
 
-/*
+
 function clearGrid() {
     var children = mainContainer.children.filter(function (e) {
         return (e.name.substring(0, 7) == "Segment");
     });
     children.forEach(function (e) {
-        e.parent.remove(e);
+        mainContainer.remove(e);
     });
-    for(i=groupContainer.length-1;i>=0;--i)
-        scene.remove(groupContainer[i]);
-
-
-}*/
+}
 
 function createGrid(x, y) {
     planeGeometryX = x;

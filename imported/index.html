@@ -1,0 +1,549 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edytor map</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+<script src="js/vendor/three.min.js"></script>
+<script src="js/vendor/SceneExporter.js"></script>
+<script src="js/vendor/FileSaver.js"></script>
+<script src="js/csg.js"></script>
+
+<script src="js/loaders/ctm/lzma.js"></script>
+<script src="js/loaders/ctm/ctm.js"></script>
+<script src="js/loaders/ctm/CTMLoader.js"></script>
+
+<script src="js/loaders/OBJLoader.js"></script>
+<script src="js/loaders/VTKLoader.js"></script>
+<script src="js/loaders/STLLoader.js"></script>
+<script src="js/loaders/ColladaLoader.js"></script>
+<script src="js/loaders/UTF8Loader.js"></script>
+<script src="js/loaders/MTLLoader.js"></script>
+
+<script>
+window.URL = window.URL || window.webkitURL;
+window.BlobBuilder = window.BlobBuilder || window.WebKitBlobBuilder || window.MozBlobBuilder;
+
+var container;
+var container2= new THREE.Object3D();
+var camera, scene, renderer;
+var projector;
+var mouse2D, mouse3D, raycaster, theta = 45, isShiftDown = false, isCtrlDown = false, isMouseDown = false, target = new THREE.Vector3(0, 200, 0);
+var isTabDown = false; //divide
+var ROLLOVERED;
+step = 50, sceneHeight = 1;
+var posX= 0, posY= 0, posZ=0;
+
+
+/////////////////
+var  INTERSECTED;
+var isSelected=0;
+var material = new THREE.MeshLambertMaterial({
+    color: 0x6666EE
+});
+
+
+var lineMaterial = new THREE.LineBasicMaterial({
+    color : 0x000000,
+    opacity : 0.2
+});
+
+init();
+animate();
+
+function init() {
+
+    container = document.createElement('div');
+    document.body.appendChild(container);
+
+    var info = document.createElement('div');
+    info.style.position = 'absolute';
+    info.style.top = '10px';
+    info.style.width = '100%';
+    info.style.textAlign = 'center';
+    info.innerHTML = '<a href="http://threejs.org" target="_blank">three.js</a> - voxel painter<br><strong>click</strong>: add voxel, <strong>control + click</strong>: remove voxel, <strong>shift</strong>: rotate, <a download="document.json" href="javascript:save(scene,renderer);">save .png</a>';
+
+    var controls = document.createElement('div');
+    controls.style.position = 'absolute'
+    controls.style.top = '10px'
+    controls.style.right = '10px'
+    controls.innerHTML = '<input type="range" name="height" id="height" value="1" min="0" max="10">'
+
+    var sceneControls = document.createElement('div');
+    sceneControls.style.position = 'absolute'
+    sceneControls.style.top = '60px'
+    sceneControls.style.right = '10px'
+    sceneControls.innerHTML = '<input type="text" name="sceneWidth" id="sceneWidth" value="500"><input type="text" name="sceneHeight" id="sceneHeight" value="500"><button id="sceneSubmit" onClick="updateGrid(document.getElementById(\'sceneWidth\').value,document.getElementById(\'sceneHeight\').value)">zmień siatkę</button><br/><button onClick="clearGrid()">wyczyść planszę</button>'
+
+
+    var form = document.createElement('div');
+    form.innerHTML = '<p>Please specify a file, or a set of files:<br><form id="fileUploadForm" enctype="multipart/form-data" action="/upload.php" method="POST"><input type="file" id="input" name="input" size="40"></form></p><p id="my_id" onclick=funkcja()>wartosc intersected</p>'
+
+
+
+
+    form.style.position = 'absolute'
+    form.style.top = '10px'
+    form.style.left = '10px'
+    container.appendChild(form);
+    container.appendChild(info);
+    container.appendChild(controls);
+    container.appendChild(sceneControls);
+
+
+    heightController = document.getElementById('height');
+
+    camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 10000);
+    camera.position.y = 800;
+
+    scene = new THREE.Scene();
+
+    // Grid
+
+    var size = 500;
+
+    var geometry = new THREE.Geometry();
+
+    for (var i = -size; i <= size; i += step) {
+
+        geometry.vertices.push(new THREE.Vector3(-size, 0, i));
+        geometry.vertices.push(new THREE.Vector3(size, 0, i));
+
+        geometry.vertices.push(new THREE.Vector3(i, 0, -size));
+        geometry.vertices.push(new THREE.Vector3(i, 0, size));
+
+    }
+
+    line = new THREE.Line(geometry, lineMaterial);
+    line.type = THREE.LinePieces;
+    line.name = "Line";
+    //scene.add(line);
+    scene.add(container2);
+    //
+
+    projector = new THREE.Projector();
+
+    planeGeometryX = 1000;
+    planeGeometryY = 1000;
+
+    plane = new THREE.Mesh(new THREE.PlaneGeometry(planeGeometryX, planeGeometryY), new THREE.MeshBasicMaterial());
+    plane.name = "Grid";
+    plane.rotation.x = -Math.PI / 2;
+    plane.visible = false;
+    scene.add(plane);
+
+    mouse2D = new THREE.Vector3(0, 10000, 0.5);
+
+    // Lights
+
+    var ambientLight = new THREE.AmbientLight(0x606060);
+    scene.add(ambientLight);
+
+    var directionalLight = new THREE.DirectionalLight(0xffffff);
+    directionalLight.position.x = Math.random() - 0.5;
+    directionalLight.position.y = Math.random() - 0.5;
+    directionalLight.position.z = Math.random() - 0.5;
+    directionalLight.position.normalize();
+    scene.add(directionalLight);
+
+    var directionalLight = new THREE.DirectionalLight(0x808080);
+    directionalLight.position.x = Math.random() - 0.5;
+    directionalLight.position.y = Math.random() - 0.5;
+    directionalLight.position.z = Math.random() - 0.5;
+    directionalLight.position.normalize();
+    scene.add(directionalLight);
+
+    renderer = new THREE.WebGLRenderer({
+        antialias : true,
+        alpha : false,
+        clearColor : 0xaaaaaa,
+        clearAlpha : 1
+    });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    container.appendChild(renderer.domElement);
+
+    renderer.domElement.addEventListener('mousemove', onDocumentMouseMove, false);
+    renderer.domElement.addEventListener('mousedown', onDocumentMouseDown, false);
+    renderer.domElement.addEventListener('mouseup', onDocumentMouseUp, false);
+    window.addEventListener('keydown', onDocumentKeyDown, false);
+    window.addEventListener('keyup', onDocumentKeyUp, false);
+
+    heightController.addEventListener('change', onHeightChange, false);
+
+    //
+
+    window.addEventListener('resize', onWindowResize, false);
+
+}
+
+function onHeightChange(event) {
+    sceneHeight = event.srcElement.value;
+    var children = container2.children.filter(function(e){ return (e.name.substring(0, 7) == "Segment"); });
+    children.forEach(function(e){
+        e.scale.y = parseInt(sceneHeight);
+        e.position.y = 25 * parseInt(sceneHeight);
+        e.updateMatrix();
+    });
+}
+
+/*function onHeightChange(event) {
+    sceneHeight = event.srcElement.value;
+    var children = scene.children.filter(function(e){ return (e.name.substring(0, 7) == "Segment"); });
+    children.forEach(function(e){
+        e.scale.y = parseInt(sceneHeight);
+        e.position.y = 25 * parseInt(sceneHeight);
+        e.updateMatrix();
+    });
+}*/
+
+function onWindowResize() {
+
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+}
+
+function onDocumentMouseMove(event) {
+
+    event.preventDefault();
+
+    mouse2D.x = (event.clientX / window.innerWidth ) * 2 - 1;
+    mouse2D.y = -(event.clientY / window.innerHeight ) * 2 + 1;
+
+    var intersects = raycaster.intersectObjects(scene.children);
+
+    if (intersects.length > 0) {
+
+        if (ROLLOVERED)
+            ROLLOVERED.color.setHex(0x00ff80);
+
+        ROLLOVERED = intersects[0].face;
+        ROLLOVERED.color.setHex(0xffffff);
+
+    }
+
+
+    createSegment(intersects);
+}
+
+function onDocumentMouseDown(event) {
+    //alert("down");
+    event.preventDefault();
+    isMouseDown = true;
+    createSegment(intersects);
+}
+
+function onDocumentMouseUp(event) {
+   // alert("up");
+    event.preventDefault();
+    isMouseDown = false;
+
+}
+
+function onDocumentKeyDown(event) {
+
+    switch( event.keyCode ) {
+
+        case 16:
+            isShiftDown = true;
+            break;
+        case 17:
+            isCtrlDown = true;
+            break;
+        case 9:
+            isTabDown = true;
+
+    }
+
+}
+
+function onDocumentKeyUp(event) {
+
+    switch( event.keyCode ) {
+
+        case 16:
+            isShiftDown = false;
+            break;
+        case 17:
+            isCtrlDown = false;
+            break;
+        case 9:
+            isTabDown = false;
+
+    }
+}
+
+
+
+function createSegment(intersects) {
+
+    if (intersects.length > 0) {
+        if (isMouseDown) {
+            if (isCtrlDown) {
+                 Select1(intersects[0].object) ;
+
+            } else {
+
+                var position = new THREE.Vector3().add(intersects[0].point, intersects[0].object.matrixRotationWorld.multiplyVector3(intersects[0].face.normal.clone()));
+                if (intersects[0].faceIndex != 2) {
+                    addSegment(position);
+                }
+            }
+        }
+    }
+}
+
+
+function Select1(obj)    {
+
+
+    if (obj != plane) {
+
+        if ( INTERSECTED != obj ) {
+
+            //posX = obj.position.x;
+
+
+            //obj.isSelected=!obj.isSelected;
+
+            INTERSECTED = obj;
+           // INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
+
+            if (INTERSECTED.material.emissive.getHex()==0x000fff)
+            {
+                //if ( INTERSECTED ) INTERSECTED.material.emissive.setHex( INTERSECTED.currentHex );
+
+                INTERSECTED.material.emissive.setHex( 0xff0000 );
+               // container2.add(INTERSECTED);
+                //scene.add(container2);
+                // posY = intersects[ 0 ].object.position.y;
+                // posZ = intersects[ 0 ].object.position.z;
+               // INTERSECTED.isSelected=1;
+            }
+            else {
+               INTERSECTED.material.emissive.setHex( 0x000fff );
+               // INTERSECTED.material.emissive.setHex( INTERSECTED.currentHex );
+              //  container2.remove(INTERSECTED);
+                //scene.remove(container2);
+              //  INTERSECTED.isSelected=0;
+            }
+        }
+        else {
+            if ( INTERSECTED ) INTERSECTED.material.emissive.setHex( INTERSECTED.currentHex );
+
+            INTERSECTED = null;
+        }
+
+    }
+}
+
+function funkcja()
+{   //container2.children.forEach(function(e){document.write("<h1>"+e+"</h1>");});
+
+    // document.write("<h1>"+getSelection().selectAllChildren(container2)+"</h1>");
+    document.write("<h1>"+posX+/*","+posY+","+posZ+*/"</h1>");
+}
+
+function addSegment(position){
+    var numOfParts = 3;
+    var geometry = new THREE.CubeGeometry(50, 50, 50, 1,numOfParts,1);
+    var p;
+    for ( var i = 0; i < geometry.faces.length; i ++ ) {
+
+        geometry.faces[ i ].color.setHex( 0x408080 );
+
+    }
+    //geometry.faces.push( new THREE.Face4( 0, 1, 2, 3 ) );
+
+    var material = new THREE.MeshLambertMaterial({
+        vertexColors : THREE.FaceColors
+    });
+
+    var voxel = new THREE.Mesh(geometry, material);
+    voxel.name = "Segment_" + voxel.id
+    voxel.position.x = Math.floor(position.x / 50) * 50 + 25;
+    voxel.position.y = Math.floor(position.y / 50) * 50 + 25;
+    voxel.position.z = Math.floor(position.z / 50) * 50 + 25;
+    voxel.matrixAutoUpdate = false;
+    voxel.scale.y = parseInt(sceneHeight);
+    voxel.position.y = 25 * parseInt(sceneHeight);
+    voxel.isSelected = 0;
+    voxel.updateMatrix();
+    voxel.material.emissive.setHex( 0x000fff )  ;
+    scene.add(voxel);
+}
+/*
+ function addSegment(position){
+ var geometry = new THREE.CubeGeometry(50, 50, 50);
+
+ for (var i = 0; i < geometry.faces.length; i++) {
+
+ geometry.faces[i].color.setHex(0x00ff80);
+
+ }
+
+ var material = new THREE.MeshLambertMaterial({
+ vertexColors : THREE.FaceColors
+ });
+
+ var voxel = new THREE.Mesh(geometry, material);
+ voxel.name = "Segment_" + voxel.id
+ voxel.position.x = Math.floor(position.x / 50) * 50 + 25;
+ voxel.position.y = Math.floor(position.y / 50) * 50 + 25;
+ voxel.position.z = Math.floor(position.z / 50) * 50 + 25;
+ voxel.matrixAutoUpdate = false;
+ voxel.scale.y = parseInt(sceneHeight);
+ voxel.position.y = 25 * parseInt(sceneHeight);
+ voxel.updateMatrix();
+ scene.add(voxel);
+ }
+ */
+function clearGrid(){
+    var children = scene.children.filter(function(e){ return (e.name.substring(0, 7) == "Segment"); });
+    children.forEach(function(e){
+        scene.remove(e);
+    });
+}
+
+function createGrid(x, y){
+    planeGeometryX = x;
+    planeGeometryY = y;
+
+    var geometry = new THREE.Geometry();
+
+    for (var i = -y; i <= y; i += step) {
+        geometry.vertices.push(new THREE.Vector3(-x, 0, i));
+        geometry.vertices.push(new THREE.Vector3(x, 0, i));
+    }
+    for (var j = -x; j <= x; j += step) {
+        geometry.vertices.push(new THREE.Vector3(j, 0, -y));
+        geometry.vertices.push(new THREE.Vector3(j, 0, y));
+    }
+
+    scene.remove(line);
+    line = new THREE.Line(geometry, lineMaterial);
+    line.type = THREE.LinePieces;
+    line.name = "Line";
+    scene.add(line);
+
+    scene.remove(plane);
+    plane = new THREE.Mesh(new THREE.PlaneGeometry(2*x, 2*y), new THREE.MeshBasicMaterial());
+    plane.name = "Grid";
+    plane.rotation.x = -Math.PI / 2;
+    plane.visible = false;
+    scene.add(plane);
+}
+
+function updateGrid(x, y) {
+    clearGrid();
+    createGrid(x, y);
+
+    addSegment(new THREE.Vector3(-x, 0, -y));
+    addSegment(new THREE.Vector3(x-step, 0, -y));
+    addSegment(new THREE.Vector3(-x, 0, y-step));
+    addSegment(new THREE.Vector3(x-step, 0, y-step));
+    for (var i = -y+step; i < y-step; i += step) {
+        addSegment(new THREE.Vector3(-x, 0, i));
+        addSegment(new THREE.Vector3(x-step, 0, i));
+    }
+    for (var j = -x+step; j < x-step; j += step) {
+        addSegment(new THREE.Vector3(j, 0, -y));
+        addSegment(new THREE.Vector3(j, 0, y-step));
+    }
+}
+
+function save(scene, renderer) {
+    //window.open( renderer.domElement.toDataURL('image/png'), 'mywindow' );
+    var clearColor = renderer.getClearColor();
+    var clearAlpha = renderer.getClearAlpha();
+
+    var output = new THREE.sceneExporter().parse(scene, clearColor, clearAlpha);
+
+    var blob = new Blob([output], {
+        type : 'text/plain'
+    });
+
+    blob = blob.slice(0, blob.size, 'text/octet-stream');
+    saveAs(
+            blob
+            , "document.json"
+    );
+}
+
+function saveToFile() {
+
+    //window.open( renderer.domElement.toDataURL('image/png'), 'mywindow' );
+    THREE.sceneExporter.function();
+}
+
+//
+
+function animate() {
+
+    requestAnimationFrame(animate);
+
+    render();
+
+}
+
+function render() {
+
+    if (isShiftDown) {
+
+        theta += mouse2D.x * 3;
+
+    }
+
+    camera.position.x = 1400 * Math.sin(theta * Math.PI / 360);
+    camera.position.z = 1400 * Math.cos(theta * Math.PI / 360);
+    camera.lookAt(target);
+
+    raycaster = projector.pickingRay(mouse2D.clone(), camera);
+
+    renderer.render(scene, camera);
+
+}
+
+function handleFileSelect(evt) {
+    document.getElementById('fileUploadForm').submit();
+}
+
+document.getElementById('input').addEventListener('change', handleFileSelect, false);
+
+var callbackFinished = function ( result ) {
+    clearGrid();
+    scene.remove(plane);
+    loaded = result;
+
+    for(var meshName in loaded.objects){
+        var mesh = eval("loaded.objects."+meshName);
+        if(meshName != 'Grid' && meshName != 'Line'){
+            scene.add(mesh);
+        }else if(meshName == 'Grid'){
+            createGrid(mesh.geometry.width/2, mesh.geometry.height/2)
+        }
+    }
+}
+
+var loader = new THREE.SceneLoader();
+
+loader.addGeometryHandler( "ctm", THREE.CTMLoader );
+loader.addGeometryHandler( "vtk", THREE.VTKLoader );
+loader.addGeometryHandler( "stl", THREE.STLLoader );
+
+loader.addHierarchyHandler( "obj", THREE.OBJLoader );
+loader.addHierarchyHandler( "dae", THREE.ColladaLoader );
+loader.addHierarchyHandler( "utf8", THREE.UTF8Loader );
+
+loader.load( 'test.json', callbackFinished );
+
+
+</script>
+</body>
+</html>

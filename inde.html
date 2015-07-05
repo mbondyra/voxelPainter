@@ -1,594 +1,760 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Edytor map</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="css/main.css"/>
-</head>
-<body>
-<script src="js/vendor/three.min.js"></script>
-<script src="js/vendor/SceneExporter.js"></script>
-<script src="js/vendor/FileSaver.js"></script>
+    var mode = "creatingMode";
+                    var prevmode = "creatingMode";
+                    var editMode = "editingVoxel";
+                    var action = "translate";
 
-<script src="js/loaders/ctm/lzma.js"></script>
-<script src="js/loaders/ctm/ctm.js"></script>
-<script src="js/loaders/ctm/CTMLoader.js"></script>
+                    function setAction(actionC)
+                    {
+                        action = actionC;
+                    }
 
-<script src="js/loaders/OBJLoader.js"></script>
-<script src="js/loaders/VTKLoader.js"></script>
-<script src="js/loaders/STLLoader.js"></script>
-<script src="js/loaders/ColladaLoader.js"></script>
-<script src="js/loaders/UTF8Loader.js"></script>
-<script src="js/loaders/MTLLoader.js"></script>
-<script src="js/cameraSettings.js"></script>
+                    var currentTexture;
+                    var basenameCurrentTexture; 
 
-<script>
+                    function setTexture(texture, basenameTexture)
+                    {
 
-window.URL = window.URL || window.webkitURL;
-window.BlobBuilder = window.BlobBuilder || window.WebKitBlobBuilder || window.MozBlobBuilder;
+                        currentTexture = texture;
+                        basenameCurrentTexture = basenameTexture;
+                        console.log("curent" + basenameCurrentTexture);
+                    }
 
-var container;
-var camera, scene, renderer, mainContainer;
-var projector;
-var mouse2D, mouse3D, raycaster, theta = 45, target = new THREE.Vector3(0, 200, 0);
-var isShiftDown = false, isCtrlDown = false, isMouseDown = false, isQDown = false, isRDown = false, isDelDown = false, isTDown=false;
+                    function setMode(modeC)
+                    {
+                        mode = modeC;
+                    }
 
-var ROLLOVERED, R;
+                    function setEditMode(Emode)
+                    {
+                        editMode = Emode;
+                        console.log(editMode);
+                    }
+                  
+                    window.URL = window.URL || window.webkitURL;
+                    window.BlobBuilder = window.BlobBuilder || window.WebKitBlobBuilder || window.MozBlobBuilder;
 
-var allObjectsOnScene = [];
+                    var container;
+                    var camera, scene, renderer, mainContainer;
+                    var projector;
+                    var mouse2D, mouse3D, raycaster, theta = 45, target = new THREE.Vector3(0, 200, 0);
+                    var isShiftDown = false, selectionMode = false, isMouseDown = false, splitingMode = false, isRDown = false, deletingMode = false, isTDown = false, isYDown = false;
+                    var ROLLOVERED, R;
 
-step = 50, sceneHeight = 1, singleHeight = 1;
+                    var allObjectsOnScene = [];
 
-var selectedIndex=0;
-var groupContainer=[];
+                    step = 50, sceneHeight = 1, singleHeight = 1;
 
-var map = THREE.ImageUtils.loadTexture( 'square-outline-textured.png');
-//zaznaczanie
-var selObj = new Object();
-var isSelected = 0;
-var material = new THREE.MeshLambertMaterial({
-    color: 0x6666EE
-});
-
-var lineMaterial = new THREE.LineBasicMaterial({
-    color: 0x000000,
-    opacity: 0.2
-});
-var split = false;
-var seg = 0;
-
-init();
-animate();
-
-function init() {
-
-    container = document.createElement('div');
-    document.body.appendChild(container);
-
-    //panels
-    var info = document.createElement('div');
-    info.style.position = 'absolute';
-    info.style.top = '10px';
-    info.style.width = '100%';
-    info.style.textAlign = 'center';
-    info.innerHTML = '<a href="http://threejs.org" target="_blank">three.js</a> - voxel painter<br><strong>click</strong>: add voxel, ' +
-            '<strong>control + click</strong>: select voxel, <strong>shift</strong>: rotate, <br><strong>click+delete</strong>: remove,' +
-            '<strong>asdw</strong>: move, M- creates a group<br><a download="document.json" href="javascript:save(scene,renderer);">save .png</a>';
-
-    var controls = document.createElement('div');
-    controls.style.position = 'absolute'
-    controls.style.top = '10px'
-    controls.style.right = '10px'
-    controls.innerHTML = '<input type="range" name="height" id="height" value="1" min="0" max="10">'
-
-    var heightControls = document.createElement('div');
-    heightControls.style.position = 'absolute'
-    heightControls.style.top = '100px'
-    heightControls.style.right = '10px'
-    heightControls.innerHTML = '<p>Wysokosc klocka</p><input type="range" name="singleHeight" id="singleHeight" value="1" min="0" max="10">'
-
-    var sceneControls = document.createElement('div');
-    sceneControls.style.position = 'absolute'
-    sceneControls.style.top = '60px'
-    sceneControls.style.right = '10px'
-    sceneControls.innerHTML = '<input type="text" name="sceneWidth" id="sceneWidth" value="500"><input type="text" name="sceneHeight" id="sceneHeight" value="500"><button id="sceneSubmit" onClick="updateGrid(document.getElementById(\'sceneWidth\').value,document.getElementById(\'sceneHeight\').value)">zmie� siatk�</button><br/><button onClick="clearGrid()">wyczy�� plansz�</button>'
-
-    var form = document.createElement('div');
-    form.innerHTML = '<p>Please specify a fddile, or a set of files:<br><form id="fileUploadForm" enctype="multipart/form-data" action="/upload.php" method="POST"><input type="file" id="input" name="input" size="40"></form></p>'
-    form.style.position = 'absolute'
-    form.style.top = '10px'
-    form.style.left = '10px'
-    container.appendChild(form);
-    container.appendChild(info);
-    container.appendChild(controls);
-    container.appendChild(heightControls);
-    container.appendChild(sceneControls);
+                    var selectedIndex = 0;
+                    var groupContainer = [];
 
 
-    heightController = document.getElementById('height');
+                   
+                    var selObj = new Object();
+                    var selWalls = new Object();
+                    var isSelected = 0;
 
-    camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 10000);
-    camera.position.y = 800;
+                    var textur = THREE.ImageUtils.loadTexture(currentTexture);
+                    textur.wrapS = textur.wrapT = THREE.RepeatWrapping;
+                    textur.repeat.set(2, 2);
+                    var definedMaterial = new THREE.MeshLambertMaterial({map: textur,
+                        color: 0xee0000, transparent: true, opacity: 1
+                    });
 
-    scene = new THREE.Scene();
-    mainContainer = new THREE.Object3D();
-    scene.add(mainContainer);
+                    
+                            
+                    function defineMaterial() {
+                        var lavaTexture = THREE.ImageUtils.loadTexture(currentTexture);
+                        // var texture = THREE.ImageUtils.loadTexture( 'models/macabann/chataigner.jpg' );
+                        lavaTexture.wrapS = lavaTexture.wrapT = THREE.RepeatWrapping;
+                        lavaTexture.repeat.set(document.getElementById('repeatX').value, document.getElementById('repeatY').value);
+                        var opacity = document.getElementById('matOpacity').value / 20.;
+                        console.log("color1" + definedMaterial.color.value);
+                        var matRed = parseInt(document.getElementById('matRed').value);
+                        var matGreen = parseInt(document.getElementById('matGreen').value);
+                        var matBlue = parseInt(document.getElementById('matBlue').value);
+                        console.log("rgb:" + matRed + matGreen + matBlue);
+                        var color = new THREE.Color('rgb(' + matRed + ',' + matGreen + ',' + matBlue + ')');
+                        var isTransparent = true;
+                        definedMaterial = new THREE.MeshLambertMaterial({map: lavaTexture,
+                            color: color, transparent: isTransparent, opacity: opacity, vertexColors: THREE.FaceColors
+                        });
+                        updateCurrentData(matRed, matGreen, matBlue, opacity);
+                    }
 
-    setLightRenderingAndPlane();
-}
-
-
-/*function lightUpWall(intersects) {
-
- }*/
-
-function onDocumentMouseMove(event) {
-    event.preventDefault();
-
-    mouse2D.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-    mouse2D.y = -( event.clientY / window.innerHeight ) * 2 + 1;
-
-    var intersects = raycaster.intersectObjects(allObjectsOnScene, true);
-
-    //var intersects = raycaster.intersectObjects(parent1.children);
-
-    if (intersects.length > 0) {
-
-        if (ROLLOVERED)
-        {
-            ROLLOVERED.face.color.setHex(0x408080);
-            R.colorsNeedUpdate = true;
-        }
-
-        ROLLOVERED = intersects[ 0 ];
-        console.log(ROLLOVERED.face.color.getHex());
-        ROLLOVERED.face.color.setHex(0xff8800);
-        //ROLLOVERED.face.emissive.setHex(0xff8800);
-        //material.emissive.setHex(0xff0000);
-        R = intersects[ 0 ].object.geometry;
-        R.colorsNeedUpdate = true;
-        /*
-         if (ROLLOVERED) ROLLOVERED.material.wireframe = false;
-
-         ROLLOVERED = intersects[ 0 ].object;
-         console.log(ROLLOVERED.material.wireframe);
-         ROLLOVERED.material.wireframe = true;
-         */
-    }
-}
-
-function onDocumentMouseDown(event) {
-    event.preventDefault();
-    isMouseDown = true;
-    createSegment();
-}
-
-function onDocumentMouseUp(event) {
-
-    event.preventDefault();
-    isMouseDown = false;
-}
-
-function onDocumentKeyDown(event) {
-    //console.log(event.keyCode);
-    switch (event.keyCode) {
-
-        case 16:
-            isShiftDown = true;
-            break;
-        case 17:
-            isCtrlDown = true;
-            break;
-        case 'Q'.charCodeAt(0):
-            isQDown = true;
-            break;
-        case 'R'.charCodeAt(0):
-            isRDown = true;
-            break;
-        case 46:
-            isDelDown = true;
-            break;
-        case 'M'.charCodeAt(0):
-            createGroup();
-            break;
-        case 'N'.charCodeAt(0):
-            splitGroup();
-            break;
-
-        //ruch
-        case 'I'.charCodeAt(0):
-            translateCubes(0, +1, 0);
-            break;
-        case 'K'.charCodeAt(0):
-            translateCubes(0, -1, 0);
-            break;
-        case 'D'.charCodeAt(0):
-            translateCubes(1, 0, 0);
-            break;
-        case 'A'.charCodeAt(0):
-            translateCubes(-1, 0, 0);
-            break;
-        case 'W'.charCodeAt(0):
-            translateCubes(0, 0, -1);
-            break;
-        case 'S'.charCodeAt(0):
-            translateCubes(0, 0, 1);
-            break;
-        case 'P'.charCodeAt(0):
-            scaleCubes(0, 0, 0.1);
-            break;
-        case 'T'.charCodeAt(0):
-            isTDown=true;
-            break;
-
-    }
-
-}
-
-function onDocumentKeyUp(event) {
-
-    switch (event.keyCode) {
-
-        case 16:
-            isShiftDown = false;
-            break;
-        case 17:
-            isCtrlDown = false;
-            break;
-        case 81:
-            isQDown = false;
-            break;
-        case 82:
-            isRDown = false;
-            break;
-        case 46:
-            isDelDown = false;
-            break;
-        case 'T'.charCodeAt(0):
-            isTDown=false;
-            break;
-
-    }
-}
-
-function createSegment() {
-    var intersects = raycaster.intersectObjects(scene.children, true);
-
-    var INTERSECTED;
-
-    if (intersects.length > 0) {
-
-        if (isMouseDown) {
-            if (isCtrlDown) {
-
-                if (intersects[0].object != plane) {
-                    if (intersects[0].object.parent==mainContainer)
-                        Select1(intersects[0].object);
-                    else {
-                        selectedIndex=getIndex(intersects[0].object);
-
-                        for(i=0;i<intersects[0].object.parent.children.length;i++)
-                            Select1(intersects[0].object.parent.children[i]);
+                    function updateCurrentData(r, g, b, opacity) {
+                        document.getElementById("currentTexture").innerHTML = basenameCurrentTexture;
+                        document.getElementById("currentColor").innerHTML = "rgb(" + r + "," + g + "," + b + ")";
+                        document.getElementById("currentOpacity").innerHTML = opacity;
 
                     }
-                }
-            }
-            else if (isTDown) {
 
-                if (intersects[0].object != plane) {
-                    if (intersects[0].object.parent==mainContainer)
-                        setTransparency(intersects[0].object);
-                    else {
-                        selectedIndex=getIndex(intersects[0].object);
+                    var lineMaterial = new THREE.LineBasicMaterial({
+                        color: 0x000000,
+                        opacity: 0.2
+                    });
+                    var split = false;
+                    var seg = 0;
 
-                        for(i=0;i<intersects[0].object.parent.children.length;i++)
-                            setTransparency(intersects[0].object.parent.children[i]);
+                    var normalMatrix = new THREE.Matrix3();
+
+                    init();
+                    animate();
+
+                    function init() {
+
+                        container = document.createElement('div');
+                        document.body.appendChild(container);
+
+                        var form = document.createElement('div');
+                        form.innerHTML = '<div id="fileForm" class="panel"><p>Specify a file, or a set of files:<br><form id="fileUploadForm" enctype="multipart/form-data" action="/upload.php" method="POST"><input type="file" id="input" name="input" size="40"></form></p></div>'
+
+                        container.appendChild(form);
+                        heightController = document.getElementById('height');
+                        camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 10000);
+                        camera.position.y = 800;
+                        scene = new THREE.Scene();
+                        mainContainer = new THREE.Object3D();
+                        scene.add(mainContainer);
+                        setLightRenderingAndPlane();                  
+                        
+                            setTexture("images/wall.jpg", "wall.jpg");
+                            defineMaterial();
+                            updateGrid(document.getElementById('sceneWidth').value, document.getElementById('sceneHeight').value);
+                            clearGrid();
+                    }
+
+                    function onDocumentMouseMove(event) {
+                        event.preventDefault();
+
+                        mouse2D.x = (event.clientX / window.innerWidth) * 2 - 1;
+                        mouse2D.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+                        var intersects = raycaster.intersectObjects(allObjectsOnScene, true);
+                        var children = allObjectsOnScene;
+                        var prevcolor = new THREE.Color();    //console.log(children.length)
+                        var prevmat;
+                        if (editMode == "editingVoxel" && mode != "selectionMode")
+                        {
+                            if (intersects.length > 0) {
+                                if (ROLLOVERED) {
+                                    for (var i = 0; i < 6; i ++)
+                                        ROLLOVERED.object.material.materials[i].emissive.setHex(0x000000);
+                                }
+                                ROLLOVERED = intersects[ 0 ];
+                                for (var i = 0; i < 6; i ++)
+                                    ROLLOVERED.object.material.materials[i].emissive.setHex(0x00ffff);
+
+                            }
+                            else if (ROLLOVERED)
+                                for (var i = 0; i < 6; i ++)
+                                    ROLLOVERED.object.material.materials[i].emissive.setHex(prevmat);
+                        }
+                        else if (editMode == "editingWalls" && mode != "selectionMode")
+                        {
+
+                            if (intersects.length > 0) {
+                                if (ROLLOVERED) {
+                                    ROLLOVERED.face.color.setHex(prevcolor.getHex());
+                                    ROLLOVERED.object.geometry.colorsNeedUpdate = true;
+
+                                }
+                                ROLLOVERED = intersects[ 0 ];
+                                prevcolor.setHex(ROLLOVERED.face.color.getHex());
+                                ROLLOVERED.face.color.setHex(0x00ffff);
+                                ROLLOVERED.object.geometry.colorsNeedUpdate = true;
+                            } else if (ROLLOVERED) {
+                                ROLLOVERED.face.color.setHex(prevcolor.getHex());
+                                ROLLOVERED.object.geometry.colorsNeedUpdate = true;
+                            }
+
+                        }
 
                     }
-                }
-            }
-            else if (isQDown) {
-                if (intersects[0].object != plane) {
-                    splitSegment(intersects[0].object);
-                }
-            }
-            else if (isDelDown) {
-                if (intersects[0].object != plane) {
-                    if (intersects[0].object.parent==mainContainer)
-                        intersects[0].object.parent.remove(intersects[0].object);
-                    else {
-                        for(i=intersects[0].object.parent.children.length-1;i>=0;--i)
-                            intersects[0].object.parent.parent.remove(intersects[0].object.parent);
 
+                    function onDocumentMouseDown(event) {
+                        event.preventDefault();
+                        isMouseDown = true;
+                        createSegment();
                     }
-                }
-            }
 
-            else {
-                var position = new THREE.Vector3().add(intersects[0].point, intersects[0].object.matrixRotationWorld.multiplyVector3(intersects[0].face.normal.clone()));
-                if (intersects[0].faceIndex != 2) {
-                    addSegment(position);
-                }
-            }
-        }
+                    function onDocumentMouseUp(event) {
 
-    }
-}
+                        event.preventDefault();
+                        isMouseDown = false;
+                    }
 
-function getIndex(obj){
-    for (i=0; i< groupContainer.length;i++){
-        if (obj.parent== groupContainer[i]){
-            console.log("getindex:"+selectedIndex);
-            selectedIndex=i;
-            break;
-        }
-    }
-    return selectedIndex;
-}
+                    function onDocumentKeyDown(event) {
 
-function Select1(obj) {
+                        switch (event.keyCode) {
 
-    if (obj != plane) {
-        INTERSECTED = obj;
+                            case 16:
+                                isShiftDown = true;
+                                break;
+                            case 18:
+                                mode = "creatingMode";
+                                document.getElementById("create").checked = "checked";
 
-        if (INTERSECTED.material.emissive.getHex() == 0x000000) {
-            INTERSECTED.material.emissive.setHex(0xff0000);
-            selObj[obj.name] = obj.name;
-        }
-        else {
-            INTERSECTED.material.emissive.setHex(0x000000);
-            console.log("wunselekcie"+selectedIndex) ;
-            delete selObj[obj.name];
-        }
-    }
-}
+                                break;
+                            case 17:
+                                mode = "selectionMode";
+                                document.getElementById("select").checked = "checked";
 
-function setTransparency(obj){
-    var materialWindow = new THREE.MeshLambertMaterial( { color: 0x00ff80,reflectivity:0.5, map: map, transparent: true } );
-    materialWindow.transparent=true;
-    materialWindow.opacity = 0.6;
+                                break;
+                            case 'Q'.charCodeAt(0):
+                                mode = "splitingMode";
+                                document.getElementById("split").checked = "checked";
 
-    if (obj != plane) {
-        INTERSECTED = obj;
+                                break;
+                            case 'R'.charCodeAt(0):
+                                isRDown = true;
+                                break;
+                            case 46:
+                                mode = "deletingMode";
+                                document.getElementById("delete").checked = "checked";
 
-        INTERSECTED.material=materialWindow;
-        INTERSECTED.material.emissive.setHex(0xff0000);
-    }
+                                break;
+                            case 'M'.charCodeAt(0):
+                                createGroup();
+                                break;
+                            case 'N'.charCodeAt(0):
+                                splitGroup();
+                                break;
+                            case 'U'.charCodeAt(0):
+                                setMaterial1(definedMaterial);
+                                break;
 
-    //TODO
-}
+                                //ruch
+                            case 'I'.charCodeAt(0):
+                                modifyCubes(0, 1, 0);
+                                break;
+                            case 'K'.charCodeAt(0):
+                                modifyCubes(0, -1, 0);
+                                break;
+                            case 'D'.charCodeAt(0):
+                                modifyCubes(1, 0, 0);
+                                break;
+                            case 'A'.charCodeAt(0):
+                                modifyCubes(-1, 0, 0);
+                                break;
+                            case 'W'.charCodeAt(0):
+                                modifyCubes(0, 0, -1);
+                                break;
+                            case 'S'.charCodeAt(0):
+                                modifyCubes(0, 0, 1);
+                                break;
+                            case 'T'.charCodeAt(0):
+                                isTDown = true;
+                                break;
+                            case 'Y'.charCodeAt(0):
 
+                                isYDown = true;
+                                break;
+                        }
+                    }
 
-function addSegment(position) {
-    singleHeight = document.getElementById('singleHeight').value;
-    var geometry = new THREE.CubeGeometry(50, 50 * singleHeight, 50);
+                    function onDocumentKeyUp(event) {
 
-    var material_1 = new THREE.MeshBasicMaterial( {
-        color: 0x55555c, ambient: 0x00ff80,
-        shading: THREE.FlatShading, map: THREE.ImageUtils.loadTexture( "square-outline-textured.png" )
-    } );
-    var material_2 = new THREE.MeshBasicMaterial( {
-        color: 0x00ff00,
-        shading: THREE.FlatShading,
-        overdraw: true
-    } );
-    geometry.materials = [material_1, material_2];
-    for (i=0;i<geometry.faces.length;++i)
+                        switch (event.keyCode) {
 
-        geometry.faces[i].materialIndex = 0;
+                            case 16:
+                                isShiftDown = false;
+                                break;
 
+                            case 'T'.charCodeAt(0):
+                                isTDown = false;
+                                break;
+                            case 'Y'.charCodeAt(0):
+                                isYDown = false;
+                                break;
+                        }
+                    }
 
-    //var material = new THREE.MeshLambertMaterial( { map: map, transparent: false } );
+                    function selectObjOrGroup(intersects) {
+                        if (editMode == "editingWalls")
+                        {
+                            Select(intersects);
+                        }
+                        else {
+                            if (intersects[0].object != plane) {
 
-    /*var material = new THREE.MeshLambertMaterial({
-     vertexColors: THREE.FaceColors
-     });*/
-    /*var material = new THREE.MeshLambertMaterial( { color: 0x55555c, ambient: 0x00ff80,
-     shading: THREE.FlatShading, map: THREE.ImageUtils.loadTexture( "square-outline-textured.png" ) } );
-     */
+                                if (intersects[0].object.parent == mainContainer)
+                                    Select(intersects[0].object);
+                                else {
+                                    selectedIndex = getIndex(intersects[0].object);
+                                    for (var i = 0; i < intersects[0].object.parent.children.length; i++)
+                                        Select(intersects[0].object.parent.children[i]);
 
-    var voxel = new THREE.Mesh(geometry, new THREE.MeshFaceMaterial( geometry.materials ));
-    voxel.name = "Segment_" + voxel.id;
-    voxel.position.x = Math.floor(position.x / 50) * 50 + 25;
-    voxel.position.y = Math.floor(position.y / 50) * 50 + 25;
-    voxel.position.z = Math.floor(position.z / 50) * 50 + 25;
-    voxel.matrixAutoUpdate = false;
+                                }
+                            }
+                        }
+                    }
+                    function setTranspObjOrGroup(intersects) {
+                        if (intersects[0].object != plane) {
+                            if (intersects[0].object.parent == mainContainer)
+                                setTransparency(intersects[0].object, 0.7);
+                            else {
 
-    console.log(parseInt(singleHeight) * 50 / 2);
-    voxel.position.y = parseInt(singleHeight) * 50 / 2;
-    voxel.updateMatrix();
-    mainContainer.add(voxel);
-    var vox=new THREE.Object3D();
-    vox=voxel;
-    allObjectsOnScene.push(voxel);
-}
+                                for (var i = 0; i < intersects[0].object.parent.children.length; i++)
+                                    setTransparency(intersects[0].object.parent.children[i], 0.7);
 
-function addSegmentSplited(position) {
+                            }
+                        }
+                    }
+                    function setMaterialObjOrGroup(intersects) {
+                        if (intersects[0].object != plane) {
+                            if (intersects[0].object.parent == mainContainer)
+                                setMaterial(intersects[0].object, definedMaterial);
+                            else {
 
-    var geometry = new THREE.CubeGeometry(50, 50, 50);
+                                for (var i = 0; i < intersects[0].object.parent.children.length; i++)
+                                    setMaterial(intersects[0].object.parent.children[i], definedMaterial);
 
-    seg++;
-    console.log("ilosc seg:" + seg);
-    for (var i = 0; i < geometry.faces.length; i++) {
+                            }
+                        }
+                    }
+                    function deleteObjOrGroup(intersects) {
+                        if (intersects[0].object != plane) {
+                            if (intersects[0].object.parent == mainContainer)
+                                intersects[0].object.parent.remove(intersects[0].object);
+                            else {
+                                for (var i = intersects[0].object.parent.children.length - 1; i >= 0; --i)
+                                    intersects[0].object.parent.parent.remove(intersects[0].object.parent);
 
-        geometry.faces[i].color.setHex(0x408080);
-    }
+                            }
+                        }
+                    }
+                    function createSegment() {
+                        var intersects = raycaster.intersectObjects(scene.children, true);
+                        var INTERSECTED;
 
-    var material = new THREE.MeshLambertMaterial({
-        map: map, transparent: false
-    });
+                        if (intersects.length > 0) {
+                            var intersect = intersects[ 0 ];
 
-    var voxel = new THREE.Mesh(geometry, material);
-    voxel.name = "Segment_" + voxel.id;
-    voxel.position.x = position.x;
-    voxel.position.y = position.y;
-    voxel.position.z = position.z;
-    voxel.matrixAutoUpdate = false;
-    voxel.updateMatrix();
-    mainContainer.add(voxel);
-    var vox=new THREE.Object3D();
-    vox=voxel;
-    allObjectsOnScene.push(voxel);
-}
+                            if (isMouseDown) {
+                                if (mode == "selectionMode") {
+                                    if (editMode == "editingWalls")
+                                        Select(intersects[0]);
+                                    else
+                                        selectObjOrGroup(intersects);
+                                }
+                                else if (isTDown) {
+                                    setTranspObjOrGroup(intersects);
+                                }
 
-function splitSegment(voxel) {
-    var obj = voxel;
-    var parts = obj.geometry.height / 50;
-    console.log("parts " + parts);
-    console.log(obj);
-    split = true;
-    if (parts>1)
-    {
-        voxel.parent.remove(voxel);
+                                else if (isYDown) {
+                                    setMaterialObjOrGroup(intersects);
+                                }
+                                else if (mode == "splitingMode") {
+                                    if (intersects[0].object != plane) {
+                                        splitSegment(intersects[0].object);
+                                    }
+                                }
+                                else if (mode == "deletingMode") {
+                                    deleteObjOrGroup(intersects);
+                                }
 
-        for (var i = 0; i < parts; i += 1) {
-            var h = new THREE.Vector3(obj.position.x, 25 + i * 50, obj.position.z);
-            //h.addSelf(obj.position);
-            //console.log("obj.pos: ");
-            //console.log(obj.position);
-            //console.log("h: ")
-            //console.log(obj.position);
-            addSegmentSplited(h);
-        }
-    }
-    split = false;
-}
+                                else if (mode == "creatingMode") {
+                                    var position = new THREE.Vector3().add(intersects[0].point, intersects[0].object.matrixRotationWorld.multiplyVector3(intersects[0].face.normal.clone()));
+                                    if (intersects[0].faceIndex != 2) {
+                                        addSegment(position);
+                                    }
+                                }
+                            }
+                        }
+                    }
 
-function joinSegments() {
-    if (isRDown) {
+                    function getIndex(obj) {
+                        for (i = 0; i < groupContainer.length; i++) {
+                            if (obj.parent == groupContainer[i]) {
+                                console.log("getindex:" + selectedIndex);
+                                selectedIndex = i;
+                                break;
+                            }
+                        }
+                        return selectedIndex;
+                    }
 
-        var children = mainContainer.children.filter(function (e) {
-            return (typeof selObj[e.name] != 'undefined');
-        });
+                    function Select(obj) {
 
-        var obj = children[0];
-        var group = new THREE.Object3D();
-        children.forEach(function (e) {
-            group.add(e);
-            mainContainer.remove(e);
-        });
-        mainContainer.add(group);
-    }
-}
+                        if (obj != plane) {
+                            INTERSECTED = obj;
+                            console.log(INTERSECTED);
+                            console.log("select");
+                            switch (editMode)
+                            {
+                                case "editingVoxel":
+                                    if (INTERSECTED.material.materials[0].emissive.getHex() == 0x000000) {
+                                        for (var i = 0; i < 6; i ++)
+                                            INTERSECTED.material.materials[i].emissive.setHex(0xff0000);
 
-function scaleCubes(dx, dy, dz) {
-    console.log("scaleCubes", dx, dy, dz)
-    //var children = objects;
-    var children = allObjectsOnScene.filter(function (e) {
-        return (typeof selObj[e.name] != 'undefined');
-    });
-    var voxels = [];
+                                        selObj[obj.name] = obj.name;
 
-    for (var i = 0; i < children.length; i++) {
-        var child = children[i];
+                                    }
+                                    else {
+                                        console.log(INTERSECTED.material.materials[0].emissive.getHex());
+                                        for (var i = 0; i < 6; i ++)
+                                            INTERSECTED.material.materials[i].emissive.setHex(0x000000);
 
-        if (child instanceof THREE.Mesh === false)            continue;
-        if (child.geometry instanceof THREE.CubeGeometry === false)    continue;
+                                        delete selObj[obj.name];
 
-        child.scale.x += dx * child.scale.x;
-        child.scale.y += dy * child.scale.y;
-        child.scale.z += dz * child.scale.z;
+                                    }
+                                    break;
 
-        child.updateMatrix();
-    }
-}
+                                case "editingWalls":
 
-function translateCubes(dx, dy, dz) {
-    console.log("translateCubes", dx, dy, dz)
-    //var children = objects;
-    var children = allObjectsOnScene.filter(function (e) {
-        return (typeof selObj[e.name] != 'undefined');
-    });
-    var voxels = [];
+                                    if (INTERSECTED.face.color.getHex() == 0xffffff)
+                                    {
+                                        INTERSECTED.face.color.setHex(0xff0000);
+                                        INTERSECTED.object.geometry.colorsNeedUpdate = true;
 
-    for (var i = 0; i < children.length; i++) {
-        var child = children[i];
+                                        selWalls[INTERSECTED.faceIndex + "_" + INTERSECTED.object.name] = INTERSECTED.faceIndex;
 
-        if (child instanceof THREE.Mesh === false)            continue;
-        if (child.geometry instanceof THREE.CubeGeometry === false)    continue;
-
-        child.position.x += dx * 50;
-        child.position.y += dy * 50;
-        child.position.z += dz * 50;
-
-        child.updateMatrix();
-    }
-
-}
-
-
-function createGroup() {
-    var children = mainContainer.children.filter(function (e) {
-        return (typeof selObj[e.name] != 'undefined');
-    });
-    var tempContainer = new THREE.Object3D();
-    children.forEach(function (e) {
-        tempContainer.add(e);
-    });
-    groupContainer.push(tempContainer);
-    console.log("create:"+groupContainer.length);
-    scene.add(groupContainer[groupContainer.length-1]);
-
-}
-function splitGroup() {
-    console.log("selindex:"+selectedIndex);
-    var children = groupContainer[selectedIndex].children;
-    var length = children.length;
-    for (var i = length - 1; i >= 0; i--) {
-        mainContainer.add(children[i]);
-        delete selObj[children.name];
-    }
-    delete groupContainer[selectedIndex];
-    for (i=selectedIndex;i<groupContainer.length;i++){
-        groupContainer[i]=groupContainer[i+1];
-        groupContainer.length=groupContainer.length-1;
-    }
-    console.log("split:"+groupContainer.length);
-}
+                                    }
+                                    else
+                                    {
+                                        INTERSECTED.face.color.setHex(0xffffff);
+                                        INTERSECTED.object.geometry.colorsNeedUpdate = true;
+                                        delete selWalls[INTERSECTED.faceIndex + "_" + INTERSECTED.object.name];
+                                    }
+                                    break;
 
 
 
-function onHeightChange(event) {
+                            }
+                        }
+                    }
 
-    sceneHeight = event.srcElement.value;
+                    function addSegment(position) {
+                        var material = new THREE.MeshLambertMaterial();
+                        material = definedMaterial.clone();
+                        var materials = [];
 
-    //var children = scene.children.filter(function(e){ return (e.name.substring(0, 7) == "Segment"); });
-    var children = mainContainer.children.filter(function (e) {
-        return (typeof selObj[e.name] != 'undefined');
-    });
-    console.log("liczba znalezionych dzieci: " + Object.getOwnPropertyNames(children).length);
-    children.forEach(function (e) {
-        console.log(e.name);
-        var scale = e.scale.y;
-        e.scale.y = parseInt(sceneHeight);
-        e.position.y = e.geometry.height * e.scale.y / 2;
-        e.updateMatrix();
-    });
-}
+                        for (var i = 0; i < 6; i++) {
+                            materials.push(material);
+                        }
+
+                        singleHeight = document.getElementById('singleHeight').value;
+                        var geometry = new THREE.CubeGeometry(50, 50 * singleHeight, 50, 1, 1, 1, materials);
+                        seg++;
+                        console.log("ilosc seg:" + seg);
+
+                        var voxel = new THREE.Mesh(geometry, new THREE.MeshFaceMaterial(materials));
+                        voxel.name = "Segment_" + voxel.id;
+                        voxel.position.x = Math.floor(position.x / 50) * 50 + 25;
+                        voxel.position.y = Math.floor(position.y / 50) * 50 + 25;
+                        voxel.position.z = Math.floor(position.z / 50) * 50 + 25;
+                        voxel.matrixAutoUpdate = false;
+
+                        console.log(parseInt(singleHeight) * 50 / 2);
+                        voxel.position.y = parseInt(singleHeight) * 50 / 2;
+                        voxel.updateMatrix();
+                        mainContainer.add(voxel);
+                        var vox = new THREE.Object3D();
+                        vox = voxel;
+                        allObjectsOnScene.push(voxel);
+                    }
+                    function addSegmentSplited(position) {
+                        var material = new THREE.MeshLambertMaterial();
+                        material = definedMaterial.clone();
+                        var materials = [];
+
+                        for (var i = 0; i < 6; i++) {
+                            materials.push(material);
+                        }
+                        var geometry = new THREE.CubeGeometry(50, 50, 50);
+
+                        seg++;
+                        console.log("ilosc seg:" + seg);
+                        var voxel = new THREE.Mesh(geometry, new THREE.MeshFaceMaterial(materials));
+                        voxel.name = "Segment_" + voxel.id;
+                        voxel.position.x = position.x;
+                        voxel.position.y = position.y;
+                        voxel.position.z = position.z;
+                        voxel.matrixAutoUpdate = false;
+                        voxel.updateMatrix();
+                        mainContainer.add(voxel);
+                        var vox = new THREE.Object3D();
+                        vox = voxel;
+                        allObjectsOnScene.push(voxel);
+                    }
+
+                    function createGroup() {
+                        var children = mainContainer.children.filter(function(e) {
+                            return (typeof selObj[e.name] != 'undefined');
+                        });
+                        var tempContainer = new THREE.Object3D();
+                        children.forEach(function(e) {
+                            tempContainer.add(e);
+                        });
+                        groupContainer.push(tempContainer);
+                        console.log("create:" + groupContainer.length);
+                        scene.add(groupContainer[groupContainer.length - 1]);
+                    }
+
+                    function splitGroup() {
+                        console.log("selindex:" + selectedIndex);
+                        var children = groupContainer[selectedIndex].children;
+                        var length = children.length;
+                        for (var i = length - 1; i >= 0; i--) {
+                            mainContainer.add(children[i]);
+                            delete selObj[children.name];
+                        }
+                        delete groupContainer[selectedIndex];
+                        for (i = selectedIndex; i < groupContainer.length; i++) {
+                            groupContainer[i] = groupContainer[i + 1];
+                            groupContainer.length = groupContainer.length - 1;
+                        }
+                        console.log("split:" + groupContainer.length);
+                    }
 
 
+                    function splitSegment(voxel) {
+                        var obj = voxel;
+                        console.log(obj.material);
+                        var parts = obj.geometry.height / 50;
+                        console.log("parts " + parts);
+                        console.log(obj);
+                        split = true;
+                        if (parts > 1) {
+                            voxel.parent.remove(voxel);
 
-function setTexture(obj){
-    //TODO
-}
+                            for (var i = 0; i < parts; i += 1) {
+                                var h = new THREE.Vector3(obj.position.x, 25 + i * 50, obj.position.z);
 
-function setColor(obj){
-    //TODO
-}
+                                addSegmentSplited(h);
+                            }
+                        }
+                        split = false;
+                    }
 
-document.getElementById('input').addEventListener('change', handleFileSelect, false);
-var loader = new THREE.SceneLoader();
+                    function joinSegments() {
+                        if (isRDown) {
 
-loader.addGeometryHandler("ctm", THREE.CTMLoader);
-loader.addGeometryHandler("vtk", THREE.VTKLoader);
-loader.addGeometryHandler("stl", THREE.STLLoader);
+                            var children = mainContainer.children.filter(function(e) {
+                                return (typeof selObj[e.name] != 'undefined');
+                            });
 
-loader.addHierarchyHandler("obj", THREE.OBJLoader);
-loader.addHierarchyHandler("dae", THREE.ColladaLoader);
-loader.addHierarchyHandler("utf8", THREE.UTF8Loader);
+                            var obj = children[0];
+                            var group = new THREE.Object3D();
+                            children.forEach(function(e) {
+                                group.add(e);
+                                mainContainer.remove(e);
+                            });
+                            mainContainer.add(group);
+                        }
+                    }
 
-loader.load('test.json', callbackFinished);
-</script>
-</body>
-</html>
+                    function modifyCubes(dx, dy, dz) {
+                        if (action == "scale")
+                            scaleCubes(dx, dy, dz);
+                        else if (action == "translate")
+                            translateCubes(dx, dy, dz);
+                        else if (action == "rotate")
+                            rotateCubes(dx, dy, dz);
+                    }
+
+                    function scaleCubes(dx, dy, dz) {
+                        console.log("scaleCubes", dx, dy, dz)
+                        //var children = objects;
+                        var children = allObjectsOnScene.filter(function(e) {
+                            return (typeof selObj[e.name] != 'undefined');
+                        });
+                        var voxels = [];
+
+                        for (var i = 0; i < children.length; i++) {
+                            var child = children[i];
+
+                            if (child instanceof THREE.Mesh === false)
+                                continue;
+                            if (child.geometry instanceof THREE.CubeGeometry === false)
+                                continue;
+
+                            if ((child.scale.x < 1 && dx < 0) || (child.scale.y < 1 && dy < 0) || (child.scale.z < 1 && dz < 0))
+                                continue;
+                            child.scale.x += dx / 2;
+                            child.scale.y += dy / 2;
+                            child.scale.z += dz / 2;
+
+                            child.updateMatrix();
+                        }
+                    }
+
+                    function rotateCubes(dx, dy, dz) {
+                        console.log("scaleCubes", dx, dy, dz)
+                        //var children = objects;
+                        var children = allObjectsOnScene.filter(function(e) {
+                            return (typeof selObj[e.name] != 'undefined');
+                        });
+                        var voxels = [];
+
+                        for (var i = 0; i < children.length; i++) {
+                            var child = children[i];
+
+                            if (child instanceof THREE.Mesh === false)
+                                continue;
+                            if (child.geometry instanceof THREE.CubeGeometry === false)
+                                continue;
+
+                            child.rotation.x += dx * Math.PI / 180;
+                            child.rotation.y += dy * Math.PI / 180;
+                            child.rotation.z += dz * Math.PI / 180;
+
+                            child.updateMatrix();
+                        }
+                    }
+
+
+                    function deleteSelected() {
+                        var children = allObjectsOnScene.filter(function(e) {
+                            return (typeof selObj[e.name] != 'undefined');
+                        });
+                        for (var i = children.length - 1; i >= 0; --i) {
+                            var child = children[i];
+                            if (child instanceof THREE.Mesh === false)
+                                continue;
+                            if (child.geometry instanceof THREE.CubeGeometry === false)
+                                continue;
+                            child.parent.remove(child);
+                            child.updateMatrix();
+
+                        }
+                    }
+                    
+                    function translateCubes(dx, dy, dz) {
+                        console.log("translateCubes", dx, dy, dz)
+                        //var children = objects;
+                        var children = allObjectsOnScene.filter(function(e) {
+                            return (typeof selObj[e.name] != 'undefined');
+                        });
+
+                        for (var i = 0; i < children.length; i++) {
+                            var child = children[i];
+
+                            if (child instanceof THREE.Mesh === false)
+                                continue;
+                            if (child.geometry instanceof THREE.CubeGeometry === false)
+                                continue;
+
+                            child.position.x += dx * 25;
+                            child.position.y += dy * 25;
+                            child.position.z += dz * 25;
+
+                            child.updateMatrix();
+                        }
+                    }
+
+                    function setTransparency(obj, opacity) {
+
+                        if (obj != plane) {
+                            INTERSECTED = obj;
+                            INTERSECTED.material.transparent = true;
+                            INTERSECTED.material.opacity = opacity;
+                        }
+                    }
+
+                    function setMaterial(obj, material) {
+                        if (obj != plane) {
+                            INTERSECTED = obj;
+                            var currentSelect = INTERSECTED.material.emissive.getHex();
+                            var materialNew = material.clone();
+                            materialNew.emissive.setHex(currentSelect);
+                            INTERSECTED.material = materialNew;
+                        }
+                    }
+
+                    function setMaterial1(material) {
+                        if (editMode == "editingVoxel") {
+                            var children = allObjectsOnScene.filter(function(e) {
+                                return (typeof selObj[e.name] != 'undefined');
+                            });
+                            children.forEach(function(e) {
+                                console.log(e.name);
+                                var currentSelect = e.material.materials[0].emissive.getHex();
+                                var materialNew = material.clone();
+                                materialNew.emissive.setHex(currentSelect);
+                                for (var i = 0; i < 6; i ++)
+                                    e.material.materials[i] = materialNew;
+                            });
+                        }
+                        else if (editMode === "editingWalls") {
+                            var allSelFacesOnScene = [];
+                            var elements = allObjectsOnScene;
+                            for (var i = 0; i < elements.length; i++)
+                            {
+                                for (var j = 0; j < 6; j++)
+                                    allSelFacesOnScene[i * 6 + j] = j + "_" + elements[i].name;
+                            }
+                            ;
+
+
+                            allSelFacesOnScene.forEach(function(e) {
+                                console.log(e);
+                            });
+                            var children = allSelFacesOnScene.filter(function(e) {
+
+                                return (typeof selWalls[e] !== 'undefined');
+                            });
+                            console.log("-----");
+                            children.forEach(function(e) {
+                                console.log(e);
+                            });
+
+                            children.forEach(function(e) {
+                                var elName = e.substr(2);
+                                console.log(elName);
+                                var ob = allObjectsOnScene.filter(function(f) {
+                                    return (f.name.valueOf() === elName);
+
+                                });
+                                console.log("ob ");
+                                console.log(ob);
+                                console.log("sel walls " + selWalls[e]);
+                                var currentSelect = ob[0].material.materials[selWalls[e]].emissive.getHex();
+                                var materialNew = material.clone();
+                                materialNew.emissive.setHex(currentSelect);
+                                ob[0].material.materials[selWalls[e]] = materialNew;
+                            });
+
+                        }
+                    }
+
+
+                    function onHeightChange(event) {
+
+                        sceneHeight = event.srcElement.value;
+                         var children = allObjectsOnScene.filter(function(e) {
+                            return (typeof selObj[e.name] != 'undefined');
+                        });
+                        console.log("liczba znalezionych dzieci: " + Object.getOwnPropertyNames(children).length);
+                        children.forEach(function(e) {
+                            console.log(e.name);
+                            var scale = e.scale.y;
+                            e.scale.y = parseInt(sceneHeight);
+                            e.position.y = e.geometry.height * e.scale.y / 2;
+                            e.updateMatrix();
+                        });
+                    }
+
+
+                    function clearGrid() {
+                        var children = mainContainer.children.filter(function(e) {
+                            return (e.name.substring(0, 7) == "Segment");
+                        });
+                        console.log("im here");
+                        children.forEach(function(e) {
+                            e.parent.remove(e);
+                        });
+                    }
+
+                    document.getElementById('input').addEventListener('change', handleFileSelect, false);
+                    var loader = new THREE.SceneLoader();
+
+                    loader.addGeometryHandler("ctm", THREE.CTMLoader);
+                    loader.addGeometryHandler("vtk", THREE.VTKLoader);
+                    loader.addGeometryHandler("stl", THREE.STLLoader);
+
+                    loader.addHierarchyHandler("obj", THREE.OBJLoader);
+                    loader.addHierarchyHandler("dae", THREE.ColladaLoader);
+                    loader.addHierarchyHandler("utf8", THREE.UTF8Loader);
+
+                    loader.load('test.json', callbackFinished);

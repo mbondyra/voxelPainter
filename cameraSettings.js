@@ -38,9 +38,9 @@ function setLightRenderingAndPlane() {
     scene.add(ambientLight);
 
     var directionalLight = new THREE.DirectionalLight(0xffffff);
-    directionalLight.position.x =  0.5;
-    directionalLight.position.y =  0.5;
-    directionalLight.position.z =  0.5;
+    directionalLight.position.x = Math.random() - 0.5;
+    directionalLight.position.y = Math.random() - 0.5;
+    directionalLight.position.z = Math.random() - 0.5;
     directionalLight.position.normalize();
     scene.add(directionalLight);
 
@@ -171,7 +171,7 @@ var callbackFinished = function (result) {
     }
 }
 
-/*
+
 function clearGrid() {
     var children = mainContainer.children.filter(function (e) {
         return (e.name.substring(0, 7) == "Segment");
@@ -183,7 +183,7 @@ function clearGrid() {
         scene.remove(groupContainer[i]);
 
 
-}*/
+}
 
 function createGrid(x, y) {
     planeGeometryX = x;
